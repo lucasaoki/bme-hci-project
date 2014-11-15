@@ -7,8 +7,8 @@
     <ProjectGuid>{C94A679C-9E2B-45C1-A5BF-640263069E6A}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Eleven</RootNamespace>
-    <AssemblyName>Eleven</AssemblyName>
+    <RootNamespace>hciproject</RootNamespace>
+    <AssemblyName>bme-hci-project</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
