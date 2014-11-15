@@ -44,23 +44,20 @@
             <GridView
             x:Name="itemListView"
             Padding="0,0,0,0"
-            HorizontalAlignment="Center"  VerticalAlignment="Center" RequestedTheme="Light">
+            HorizontalAlignment="Center"  RequestedTheme="Dark" Margin="25,122,25,0" IsTapEnabled="False" SelectionMode="None">
 
 
-                <Grid x:Name="Artist_Select" Height="80" Width="300"  IsTapEnabled="False" HorizontalAlignment="Center" Margin="20,20,20,10" >
-                    <TextBlock x:Name="Artist_TextBox" Text="Artist" Foreground="Beige" FontSize="30" FontFamily="Calibri" HorizontalAlignment="Center" VerticalAlignment="Center" />
-
+                <Grid x:Name="Artist_Select" Height="80" Width="300"  Tapped="Artist_Select_Click"  HorizontalAlignment="Center" >
+                    <TextBlock x:Name="Artist_TextBox" Text="Artist" Foreground="Beige" FontSize="30" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Grid>
 
-                <Button  x:Name="Period_Select" Height="80" Width="300" HorizontalAlignment="Center" Margin="0,0,0,0" Click="Period_Select_Click">
-                    <TextBlock x:Name="Period_TextBox" Text="Period" Foreground="Beige" FontSize="30" FontFamily="Calibri" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Grid  x:Name="Period_Select"  Height="80" Width="300"  IsTapEnabled="False" HorizontalAlignment="Center"  >
+                    <TextBlock x:Name="Period_TextBox" Text="Period" Foreground="Beige" FontSize="30" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Grid>
 
-                </Button>
-
-                <Button  x:Name="ArtWork_Select" Height="80" Width="300" HorizontalAlignment="Center" Margin="0,0,0,0" Click="ArtWork_Select_Click">
-                    <TextBlock x:Name="ArtWork_TextBox" Text="ArtWork" Foreground="Beige" FontSize="30" FontFamily="Calibri" HorizontalAlignment="Center" VerticalAlignment="Center" />
-
-                </Button>
+                <Grid x:Name="ArtWork_Select"  Height="80" Width="300"  IsTapEnabled="False" HorizontalAlignment="Center" >
+                    <TextBlock x:Name="ArtWork_TextBox" Text="ArtWork" Foreground="Beige" FontSize="30" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Grid>
 
 
             </GridView>
@@ -131,7 +128,7 @@
                     <Grid Grid.Column="1" Background="AliceBlue">
 
                         <StackPanel Orientation="Horizontal" Margin="0,20,0,20">
-                            <TextBox x:Name="searchInput"  HorizontalAlignment="Center" Margin="0,-18" Height="36" Width="340" FontSize="20"/>
+                            <TextBox x:Name="searchInput" HorizontalAlignment="Center" Margin="0,-18" Height="36" Width="340" FontSize="20"/>
                         </StackPanel>
                     </Grid>
 
