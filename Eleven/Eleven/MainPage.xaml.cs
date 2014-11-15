@@ -15,6 +15,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+using System.Windows;
+using System.Windows.Input;
+
 // The Grouped Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234231
 
 namespace Eleven
@@ -96,18 +99,31 @@ namespace Eleven
 
         #endregion
 
+        private void ArtWork_Select_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
         private void Artist_Select_Click(object sender, RoutedEventArgs e)
         {
+           //Select
         }
 
         private void Period_Select_Click(object sender, RoutedEventArgs e)
         {
-
+            //Select
         }
 
-        private void ArtWork_Select_Click(object sender, RoutedEventArgs e)
+        private void Sculpture_Select_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
+        private void itemGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+
+
     }
 }
