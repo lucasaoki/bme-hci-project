@@ -51,11 +51,11 @@
                     <TextBlock x:Name="Artist_TextBox" Text="Artist" Foreground="Beige" FontSize="30" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Grid>
 
-                <Grid  x:Name="Period_Select"  Height="80" Width="300"  IsTapEnabled="False" HorizontalAlignment="Center"  >
+                <Grid  x:Name="Period_Select"  Height="80" Width="300" Tapped="Period_Select_Click" IsTapEnabled="False" HorizontalAlignment="Center"  >
                     <TextBlock x:Name="Period_TextBox" Text="Period" Foreground="Beige" FontSize="30" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Grid>
 
-                <Grid x:Name="ArtWork_Select"  Height="80" Width="300"  IsTapEnabled="False" HorizontalAlignment="Center" >
+                <Grid x:Name="ArtWork_Select"  Height="80" Width="300" Tapped="ArtWork_Select_Click" IsTapEnabled="False" HorizontalAlignment="Center" >
                     <TextBlock x:Name="ArtWork_TextBox" Text="ArtWork" Foreground="Beige" FontSize="30" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Grid>
 
