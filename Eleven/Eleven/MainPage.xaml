@@ -35,46 +35,85 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.RowSpan="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="2" Grid.ColumnSpan="1" 
+              Background="DarkSlateGray">
+
+            <StackPanel  VerticalAlignment="Center"  Margin="0,60,0,154" MinWidth="1" Height="414">
+
+                <TextBlock x:Name="ArtWork_TextBox" Text="Painting" Tapped="ArtWork_Select_Click" Foreground="Beige" FontSize="32" FontFamily="Garamond" 
+        			HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="80" FontWeight="Normal" LineHeight="6" Padding="50,20,0,0">
+                </TextBlock>
+
+                <TextBlock x:Name="Artist_TextBox" Text="Artist" Tapped="Artist_Select_Click" Foreground="Beige" FontSize="32" FontFamily="Garamond" 
+        			HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="80" FontWeight="Normal" LineHeight="6"  Padding="50,20,0,0">
+                </TextBlock>
+                <TextBlock x:Name="Period_TextBox" Text="Period" Tapped="Period_Select_Click" Foreground="Beige" FontSize="32" FontFamily="Garamond" 
+        			HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="80" FontWeight="Normal" LineHeight="6"  Padding="50,20,0,0">
+                </TextBlock>
+                
+                <TextBlock x:Name="Sculpture_TextBox" Text="Sculpture" Tapped="Sculpture_Select_Click" Foreground="Beige" FontSize="32" FontFamily="Garamond" 
+        			HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="80" FontWeight="Normal" LineHeight="6" Padding="50,20,0,0">
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="2" 
+              Grid.Row="2" 
+              Background="SlateGray">
+
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="400"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="600"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <GridView
-            x:Name="itemListView" Padding="0,10,0,20"  HorizontalAlignment="Center"  RequestedTheme="Dark" Margin="45,185,45,63" SelectionMode="None">
+                x:Name="itemGridView2"
+                Padding="50,100,50,50"
+                SelectionMode="None"
+                IsSwipeEnabled="false"
+                IsItemClickEnabled="True"
+                ItemClick="ItemView_ItemClick" 
+                Margin="0,0,5,0" 
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
-                <Button x:Name="ArtWork_TextBox" Content="ArtWork"  Click="ArtWork_Select_Click" Foreground="Beige" FontSize="30" FontFamily="Arial" 
-                            HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="300" Height="80" BorderThickness="0,0,0,0" Background="{ThemeResource AppBarItemDisabledForegroundThemeBrush}"/>
-
-                <Button x:Name="Artist_TextBox"  Content="Artist" Click="Artist_Select_Click" Foreground="Beige" FontSize="30" FontFamily="Arial" 
-                            HorizontalAlignment="Center" VerticalAlignment="Stretch"  Width="300" Height="80" BorderThickness="0,0,0,0" />
-
-
-                <Button x:Name="Period_TextBox" Content="Period" Click="Period_Select_Click" Foreground="Beige" FontSize="30" FontFamily="Arial" 
-                            HorizontalAlignment="Center" VerticalAlignment="Stretch"  Width="300" Height="80" BorderThickness="0,0,0,0"/>
-
-                <Button x:Name="Sculpture_TextBox" Content="Sculpture" Click="Sculpture_Select_Click" Foreground="Beige" FontSize="30" FontFamily="Arial" 
-                            HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="300" Height="80" BorderThickness="0,0,0,0"/>
-
-
+                <Grid HorizontalAlignment="Center" Width="490" Height="560">
+                    <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}">
+                        <Image Source="Assets/GoBack.jpg" Stretch="UniformToFill" VerticalAlignment="Top"/>
+                    </Border>
+                    <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
+                        <TextBlock Text="Hello" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="100" Margin="15,0,15,0"/>
+                    </StackPanel>
+                </Grid>
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid GroupPadding="0,0,0,0"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
             </GridView>
 
             <GridView
-        x:Name="itemGridView"
-            Padding="116,137,40,46"
-            ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
-            SelectionMode="None"
-            IsSwipeEnabled="false"
-            IsItemClickEnabled="True"
-            ItemClick="ItemView_ItemClick" 
-            Grid.Column="1" 
-            SelectionChanged="itemGridView_SelectionChanged">
+                x:Name="itemGridView"
+                Padding="50,100,0,0"
+                ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
+                SelectionMode="None"
+                IsSwipeEnabled="false"
+                IsItemClickEnabled="True"
+                ItemClick="ItemView_ItemClick"
+                SelectionChanged="itemGridView_SelectionChanged"
+                Grid.Column="1" >
+
+
+
                 <GridView.ItemTemplate>
                     <DataTemplate>
                         <Grid HorizontalAlignment="Left" Width="300" Height="275">
                             <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}">
-                                <Image Source="{Binding ImagePath}" Stretch="Uniform"/>
+                                <Image Source="{Binding ImagePath}" Stretch="Uniform" VerticalAlignment="Top"/>
                             </Border>
                             <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
                                 <TextBlock Text="{Binding Artist}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="60" Margin="15,0,15,0"/>
@@ -82,16 +121,41 @@
                         </Grid>
                     </DataTemplate>
                 </GridView.ItemTemplate>
+
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <ItemsWrapGrid GroupPadding="0,0,0,0"/>
                     </ItemsPanelTemplate>
                 </GridView.ItemsPanel>
             </GridView>
+
         </Grid>
 
+        <Grid Grid.Column="2" Grid.RowSpan="1" HorizontalAlignment="Right" Width="296">
+            <!--Search Block-->
+            <Grid Height="40"  VerticalAlignment="Center" Margin="0,60,0,40" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="250"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Grid.ColumnSpan="2" Height="40" VerticalAlignment="Top"  >
+                    <StackPanel  Orientation="Horizontal" Margin="0,20,0,20">
+                        <TextBox x:Name="SearchInput" Background="Transparent" Foreground="White"  Margin="0,-18" Height="36" FontSize="20" Width="250" BorderThickness="0,0,0,0"/>
+                    </StackPanel>
+                </Grid>
 
-        <Grid Grid.RowSpan="1">
+                <Grid Grid.Column="1" Margin="209,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Margin="0,8">
+                        <Image Source="Assets/Search.jpg" Stretch="Fill"/>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.RowSpan="1" Grid.ColumnSpan="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="600"/>
@@ -111,30 +175,7 @@
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
 
             <!--Grid top right-->
-            <Grid Grid.Column="2" HorizontalAlignment="Right" Width="296">
-                <!--Search Block-->
-                <Grid Height="40"  VerticalAlignment="Center" Margin="0,34,0,66" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="250"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Height="40" VerticalAlignment="Top"  >
-                        <StackPanel  Orientation="Horizontal" Margin="0,20,0,20">
-                            <TextBox x:Name="SearchInput" Background="Transparent" Foreground="White"  Margin="0,-18" Height="36" FontSize="20" Width="250" BorderThickness="0,0,0,0"/>
-                        </StackPanel>
-                    </Grid>
 
-                    <Grid Grid.Column="1" Margin="209,0,0,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Button Margin="0,8">
-
-                            <Image Source="Assets/Search.jpg" Stretch="Fill"/>
-                        </Button>
-                    </Grid>
-                </Grid>
-            </Grid>
         </Grid>
 
 

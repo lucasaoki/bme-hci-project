@@ -101,19 +101,38 @@ namespace Eleven
 
         private void ArtWork_Select_Click(object sender, RoutedEventArgs e)
         {
+            ArtWork_TextBox.Opacity = 1;
+            Artist_TextBox.Opacity = 0.25;
+            Period_TextBox.Opacity = 0.25;
+            Sculpture_TextBox.Opacity = 0.25;
         }
 
         private void Artist_Select_Click(object sender, RoutedEventArgs e)
         {
-           //Select
+            ArtWork_TextBox.Opacity = 0.25;
+            Artist_TextBox.Opacity = 1;
+            Period_TextBox.Opacity = 0.25;
+            Sculpture_TextBox.Opacity = 0.25;
         }
 
         private void Period_Select_Click(object sender, RoutedEventArgs e)
         {
-            //Select
+            ArtWork_TextBox.Opacity = 0.25;
+            Artist_TextBox.Opacity = 0.25;
+            Period_TextBox.Opacity = 1;
+            Sculpture_TextBox.Opacity = 0.25;
         }
 
         private void Sculpture_Select_Click(object sender, RoutedEventArgs e)
+        {
+            ArtWork_TextBox.Opacity = 0.25;
+            Artist_TextBox.Opacity = 0.25;
+            Period_TextBox.Opacity = 0.25;
+            Sculpture_TextBox.Opacity = 1;
+        }
+
+
+        private void ArtWork_TextBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
 
         }
