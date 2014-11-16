@@ -124,9 +124,13 @@
     </AppxManifest>
     <None Include="Common\ReadMe.txt" />
     <None Include="Eleven_TemporaryKey.pfx" />
+    <Content Include="Assets\Artist.Gif" />
+    <Content Include="Assets\Artwork.gif" />
     <Content Include="Assets\Goback.jpg" />
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\Painting.jpg" />
+    <Content Include="Assets\Period.gif" />
+    <Content Include="Assets\Sculpture.gif" />
     <Content Include="DataModel\Database.json" />
   </ItemGroup>
   <ItemGroup>
