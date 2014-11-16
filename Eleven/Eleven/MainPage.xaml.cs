@@ -29,7 +29,6 @@ namespace Eleven
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
-
         /// <summary>
         /// NavigationHelper is used on each page to aid in navigation and 
         /// process lifetime management
@@ -101,36 +100,92 @@ namespace Eleven
 
         private void ArtWork_Select_Click(object sender, RoutedEventArgs e)
         {
+            Home_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Artwork_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
+            Artist_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Period_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Sculpture_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray); 
+        }
+
+        private void Artist_Select_Click(object sender, RoutedEventArgs e)
+        {
+            Home_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Artwork_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Artist_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
+            Period_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Sculpture_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray); 
+        }
+
+        private void Period_Select_Click(object sender, RoutedEventArgs e)
+        {
+            Home_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Artwork_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Artist_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Period_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
+            Sculpture_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray); 
+        }
+
+        private void Sculpture_Select_Click(object sender, RoutedEventArgs e)
+        {
+            Home_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Artwork_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Artist_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Period_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Sculpture_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick); 
+        }
+
+        private void Home_Select_Click(object sender, RoutedEventArgs e)
+        {
+            Home_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
+            Artwork_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Artist_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Period_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Sculpture_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+        }
+
+        private void Artwork_PointerMoved(object sender, RoutedEventArgs e)
+        {
+            Home_TextBox.Opacity = 0.25;
             ArtWork_TextBox.Opacity = 1;
             Artist_TextBox.Opacity = 0.25;
             Period_TextBox.Opacity = 0.25;
             Sculpture_TextBox.Opacity = 0.25;
         }
 
-        private void Artist_Select_Click(object sender, RoutedEventArgs e)
+        private void Artist_PointerMoved(object sender, RoutedEventArgs e)
         {
+            Home_TextBox.Opacity = 0.25;
             ArtWork_TextBox.Opacity = 0.25;
             Artist_TextBox.Opacity = 1;
             Period_TextBox.Opacity = 0.25;
             Sculpture_TextBox.Opacity = 0.25;
         }
 
-        private void Period_Select_Click(object sender, RoutedEventArgs e)
+        private void Period_PointerMoved(object sender, RoutedEventArgs e)
         {
+            Home_TextBox.Opacity = 0.25;
             ArtWork_TextBox.Opacity = 0.25;
             Artist_TextBox.Opacity = 0.25;
             Period_TextBox.Opacity = 1;
             Sculpture_TextBox.Opacity = 0.25;
         }
 
-        private void Sculpture_Select_Click(object sender, RoutedEventArgs e)
+        private void Sculpture_PointerMoved(object sender, RoutedEventArgs e)
         {
+            Home_TextBox.Opacity = 0.25;
             ArtWork_TextBox.Opacity = 0.25;
             Artist_TextBox.Opacity = 0.25;
             Period_TextBox.Opacity = 0.25;
             Sculpture_TextBox.Opacity = 1;
         }
-
+        private void Home_PointerMoved(object sender, RoutedEventArgs e)
+        {
+            Home_TextBox.Opacity = 1;
+            ArtWork_TextBox.Opacity = 0.25;
+            Artist_TextBox.Opacity = 0.25;
+            Period_TextBox.Opacity = 0.25;
+            Sculpture_TextBox.Opacity = 0.25;
+        }
 
         private void ArtWork_TextBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
