@@ -138,6 +138,9 @@
         <Grid Grid.Column="2" 
               Grid.Row="2" 
               Background="SlateGray">
+            <Grid.DataContext>
+                <data:DataSource/>
+            </Grid.DataContext>
 
 
           
