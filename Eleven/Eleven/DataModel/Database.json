@@ -56,6 +56,34 @@
         "Content" : "asda"
       }
     ]
+  },{
+    "UniqueId": "Group-3",
+    "Artist": "Leonardo di ser Piero da Vinci",
+    "ImagePath": "Images/Leonardo da Vinci.jpg",
+    "Description" : "asdad",
+    "Items":
+    [
+      {
+        "UniqueId": "Group-3-Item-1",
+		"Artist" : "Leonardo di ser Piero da Vinci",
+		"Period" : "High Renaissance",
+        "Title": "Mona Lisa",
+        "ThreeDPath": "asdad",
+        "ImagePath": "Images/MonaLisa.jpg",
+        "Description" : "asda",
+        "Content" : "asda"
+      },
+	  {
+        "UniqueId": "Group-3-Item-2",
+		"Artist" : "Leonardo di ser Piero da Vinci",
+		"Period" : "High Renaissance",
+        "Title": "The Last Supper",
+        "ThreeDPath": "asd",
+        "ImagePath": "Images/The Last Supper.jpg",
+        "Description" : "asd",
+        "Content" : "asda"
+      }
+    ]
   }
 ]
 }
