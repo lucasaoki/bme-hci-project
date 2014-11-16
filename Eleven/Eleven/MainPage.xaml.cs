@@ -187,15 +187,24 @@ namespace Eleven
             Sculpture_TextBox.Opacity = 0.25;
         }
 
-        private void ArtWork_TextBox_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void itemGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+
+        private void Press_KeyBoard(object sender, KeyRoutedEventArgs e)
+        {
+            SearchInput.Focus(FocusState.Keyboard);
+        }
+
+
+        private void SearchInput_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+            SearchInput.Text = "1231"; 
+        }
+
 
 
 
