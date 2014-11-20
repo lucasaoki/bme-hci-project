@@ -18,12 +18,14 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace Eleven.Data
 {
+
+
     /// <summary>
-    /// Generic item data model.
+    /// Generic group data model.
     /// </summary>
-    public class DataClassItem
+    public class DataClassArtist
     {
-        public DataClassItem(String uniqueId, String artist, String period, String title, String imagePath, String threeDPath, String description, String content)
+        public DataClassArtist(String uniqueId, String artist, String period, String title, String imagePath, String threeDPath, String description, String content)
         {
             this.UniqueId = uniqueId;
             this.Artist = artist;
@@ -34,6 +36,7 @@ namespace Eleven.Data
             this.ThreeDPath = threeDPath;
             this.Content = content;
         }
+
 
         public string UniqueId { get; private set; }
         public string Artist { get; private set; }
@@ -47,32 +50,6 @@ namespace Eleven.Data
         public override string ToString()
         {
             return this.Title;
-        }
-    }
-
-    /// <summary>
-    /// Generic group data model.
-    /// </summary>
-    public class DataClassArtist
-    {
-        public DataClassArtist(String uniqueId, String artist, String imagePath, String description)
-        {
-            this.UniqueId = uniqueId;
-            this.Artist = artist;
-            this.Description = description;
-            this.ImagePath = imagePath;
-            this.Items = new ObservableCollection<DataClassItem>();
-        }
-
-        public string UniqueId { get; private set; }
-        public string Artist { get; private set; }
-        public string Description { get; private set; }
-        public string ImagePath { get; private set; }
-        public ObservableCollection<DataClassItem> Items { get; private set; }
-
-        public override string ToString()
-        {
-            return this.Artist;
         }
     }
 
@@ -108,15 +85,6 @@ namespace Eleven.Data
             return null;
         }
 
-        public static async Task<DataClassItem> GetItemAsync(string uniqueId)
-        {
-            await _DataSource.GetSampleDataAsync();
-            // Simple linear search is acceptable for small data sets
-            var matches = _DataSource.Groups.SelectMany(group => group.Items).Where((item) => item.UniqueId.Equals(uniqueId));
-            if (matches.Count() == 1) return matches.First();
-            return null;
-        }
-
         private async Task GetSampleDataAsync()
         {
             if (this._groups.Count != 0)
@@ -134,21 +102,13 @@ namespace Eleven.Data
                 JsonObject groupObject = groupValue.GetObject();
                 DataClassArtist group = new DataClassArtist(groupObject["UniqueId"].GetString(),
                                                             groupObject["Artist"].GetString(),
+                                                            groupObject["Period"].GetString(),
+                                                            groupObject["Title"].GetString(),
                                                             groupObject["ImagePath"].GetString(),
-                                                            groupObject["Description"].GetString());
+                                                            groupObject["ThreeDPath"].GetString(),
+                                                            groupObject["Description"].GetString(),
+                                                            groupObject["Content"].GetString());
 
-                foreach (JsonValue itemValue in groupObject["Items"].GetArray())
-                {
-                    JsonObject itemObject = itemValue.GetObject();
-                    group.Items.Add(new DataClassItem(itemObject["UniqueId"].GetString(),
-                                                       itemObject["Artist"].GetString(),
-                                                       itemObject["Period"].GetString(),
-                                                       itemObject["Title"].GetString(),
-                                                       itemObject["ImagePath"].GetString(),
-                                                       itemObject["ThreeDPath"].GetString(),
-                                                       itemObject["Description"].GetString(),
-                                                       itemObject["Content"].GetString()));
-                }
                 this.Groups.Add(group);
             }
         }

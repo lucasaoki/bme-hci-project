@@ -67,36 +67,6 @@ namespace Eleven
         /// <param name="sender">The GridView (or ListView when the application is snapped)
         /// displaying the item clicked.</param>
         /// <param name="e">Event data that describes the item clicked.</param>
-        void ItemView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            // Navigate to the appropriate destination page, configuring the new page
-            // by passing required information as a navigation parameter
-            var itemId = ((DataClassItem)e.ClickedItem).UniqueId;
-            // this.Frame.Navigate(typeof(ItemDetailPage), itemId);
-        }
-
-        #region NavigationHelper registration
-
-        /// The methods provided in this section are simply used to allow
-        /// NavigationHelper to respond to the page's navigation methods.
-        /// 
-        /// Page specific logic should be placed in event handlers for the  
-        /// <see cref="GridCS.Common.NavigationHelper.LoadState"/>
-        /// and <see cref="GridCS.Common.NavigationHelper.SaveState"/>.
-        /// The navigation parameter is available in the LoadState method 
-        /// in addition to page state preserved during an earlier session.
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            navigationHelper.OnNavigatedTo(e);
-        }
-
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            navigationHelper.OnNavigatedFrom(e);
-        }
-
-        #endregion
 
         private void ArtWork_Select_Click(object sender, RoutedEventArgs e)
         {
@@ -187,6 +157,7 @@ namespace Eleven
             Sculpture_TextBox.Opacity = 0.25;
         }
 
+        
 
         private void itemGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -201,10 +172,45 @@ namespace Eleven
 
         private void SearchInput_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
-            SearchInput.Text = "1231"; 
         }
 
+        private void Non_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+
+            Home_TextBox.Opacity = 0.25;
+            ArtWork_TextBox.Opacity = 0.25;
+            Artist_TextBox.Opacity = 0.25;
+            Period_TextBox.Opacity = 0.25;
+            Sculpture_TextBox.Opacity = 0.25;
+        }
+
+        private void GroupGridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        #region NavigationHelper registration
+
+        /// The methods provided in this section are simply used to allow
+        /// NavigationHelper to respond to the page's navigation methods.
+        /// 
+        /// Page specific logic should be placed in event handlers for the  
+        /// <see cref="GridCS.Common.NavigationHelper.LoadState"/>
+        /// and <see cref="GridCS.Common.NavigationHelper.SaveState"/>.
+        /// The navigation parameter is available in the LoadState method 
+        /// in addition to page state preserved during an earlier session.
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            navigationHelper.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            navigationHelper.OnNavigatedFrom(e);
+        }
+
+        #endregion
 
 
 

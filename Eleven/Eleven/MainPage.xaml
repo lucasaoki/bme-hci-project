@@ -11,41 +11,64 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Page.Resources>
-        <!--
-            Collection of grouped items displayed by this page, bound to a subset
-            of the complete item list because items in groups cannot be virtualized
-        -->
-        <CollectionViewSource
-            x:Name="groupedItemsViewSource"
-            Source="{Binding Groups}"
-            IsSourceGrouped="true"
-            ItemsPath="Items"
-            d:Source="{Binding Groups, Source={d:DesignData Source=/DataModel/Database.json, Type=data:DataSource}}"/>
-    </Page.Resources>
 
-    <Grid Background="{ThemeResource ButtonBackgroundThemeBrush}"  KeyDown="Press_KeyBoard">
+    <Page.Resources>
+        <DataTemplate x:Key="PrimaryTemplate">
+            <StackPanel >
+
+                    <Image Source="{Binding Path=ImagePath}" Stretch="Uniform"/>
+                    <TextBlock Text="{Binding Path=Title}" />
+                    <TextBlock Text="{Binding Path=Description}"/>
+                    <TextBlock Text="{Binding Path=Content}"/>
+
+            </StackPanel>
+        </DataTemplate>
+
+        <CollectionViewSource
+            x:Name="GroupViewSource"
+            Source="{Binding Groups}"
+            d:Source="{Binding Groups, Source={d:DesignData Source=/DataModel/Database.json, Type=data:DataSource}}"/>
+
+
+    </Page.Resources>
+    
+    <Grid Background="{ThemeResource ButtonBackgroundThemeBrush}" >
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
             </TransitionCollection>
         </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="140"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        
+        <Grid
+            x:Name="itemGridView"
+            AutomationProperties.AutomationId="ItemGridView"
+            AutomationProperties.Name="Grouped Items"
+            Grid.Column="1"
+            Grid.Row="1"
+            Background="SlateGray">
 
-        <Grid Grid.Row="2" Grid.ColumnSpan="1" 
+            <GridView ItemsSource="{Binding Source={StaticResource GroupViewSource}}" 
+                        ItemTemplate="{StaticResource PrimaryTemplate}"
+                        SelectionMode="None"
+                        IsSwipeEnabled="false"
+                        Padding="50,50,50,50"
+                        IsItemClickEnabled="True"/>
+        </Grid>
+            <Grid Grid.Row="1" Grid.Column="0" 
               Background="DarkSlateGray" >
 
-            <StackPanel VerticalAlignment="Top" Margin="0,50">
+            <StackPanel VerticalAlignment="Top" Margin="0,25">
 
-                <Grid x:Name="Home_Grid" Tapped="Home_Select_Click" PointerMoved="Home_PointerMoved" Height="100">
+                <Grid x:Name="Home_Grid" PointerPressed="Home_Select_Click" PointerExited="Non_PointerExited" PointerMoved="Home_PointerMoved" Height="100">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="*"/>
@@ -63,7 +86,7 @@
 
 
 
-                <Grid x:Name="Artwork_Grid" Tapped="ArtWork_Select_Click" PointerMoved="Artwork_PointerMoved" Height="100">
+                <Grid x:Name="Artwork_Grid" PointerPressed="ArtWork_Select_Click" PointerExited="Non_PointerExited" PointerMoved="Artwork_PointerMoved" Height="100">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="*"/>
@@ -80,7 +103,7 @@
                 </Grid>
 
 
-                <Grid x:Name="Period_Grid" Tapped="Period_Select_Click" PointerMoved="Period_PointerMoved" Height="100">
+                <Grid x:Name="Period_Grid" PointerPressed="Period_Select_Click" PointerExited="Non_PointerExited"  PointerMoved="Period_PointerMoved" Height="100">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="*"/>
@@ -96,7 +119,7 @@
                     </Grid>
                 </Grid>
 
-                <Grid x:Name="Artist_Grid" Tapped="Artist_Select_Click" PointerMoved="Artist_PointerMoved" Height="100">
+                <Grid x:Name="Artist_Grid" PointerPressed="Artist_Select_Click" PointerExited="Non_PointerExited" PointerMoved="Artist_PointerMoved" Height="100">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="*"/>
@@ -112,7 +135,7 @@
                     </Grid>
                 </Grid>
 
-                <Grid x:Name="Sculpture_Grid" Tapped="Sculpture_Select_Click" PointerMoved="Sculpture_PointerMoved" Height="100">
+                <Grid x:Name="Sculpture_Grid" PointerPressed="Sculpture_Select_Click" PointerExited="Non_PointerExited" PointerMoved="Sculpture_PointerMoved" Height="100">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="*"/>
@@ -130,18 +153,7 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Column="2" 
-              Grid.Row="2" 
-              Background="SlateGray">
-            <Grid.DataContext>
-                <data:DataSource/>
-            </Grid.DataContext>
-
-            <GridView HorizontalAlignment="Left" Height="631" VerticalAlignment="Top" Width="1021" Margin="4,0,-9,-3">
-
-            </GridView>
-        </Grid>
-
+       
         <Grid Grid.Column="2" Grid.RowSpan="1" 
               Background="SlateGray" >
             <!--Search Block-->
