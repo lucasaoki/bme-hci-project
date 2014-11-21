@@ -26,7 +26,7 @@
 
         <DataTemplate x:Key="SecundaryTemplate">
             <Grid>
-                <StackPanel Width="300">
+                <StackPanel Width="280" Margin="5">
                     <Image Source="{Binding Path=ImagePath}" Stretch="Uniform"/>
                     <TextBlock Text="{Binding Path=Title}" />
                     <TextBlock Text="{Binding Path=Description}"/>
@@ -53,25 +53,28 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <Grid
+        <GridView
             x:Name="itemGridView"
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Grouped Items"
             Grid.Column="1"
             Grid.Row="1"
             Background="SlateGray">
-            <Hub>
-                <HubSection x:Uid="Section1Header" IsHeaderInteractive="True" d:DataContext="{Binding Source={d:DesignData Source=/DataModel/Database.json, Type=data:DataSource}}">
-                    <DataTemplate> 
+            <Hub Margin="0,-50">
+                <HubSection x:Uid="Section1Header" d:DataContext="{Binding Source={d:DesignData Source=/DataModel/Database.json, Type=data:DataSource}}" >
+                    <DataTemplate > 
                         <GridView
                         x:Name="itemGridView"
                         AutomationProperties.AutomationId="ItemGridView"
-                         AutomationProperties.Name="Items In Group"
                         SelectionMode="None"
                         IsSwipeEnabled="false"
-                        IsItemClickEnabled="True">
+                        IsItemClickEnabled="True"
+                        VerticalAlignment="Stretch"
+                        Width="Auto"
+                        Height="Auto"
+                        ItemClick="ItemView_ItemClick">
 
-                            <Grid Width="600">
+                            <Grid Width="600" Margin="10">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
@@ -105,34 +108,13 @@
                         Width="Auto"
                         SelectionMode="None"
                         IsSwipeEnabled="false"
-                        IsItemClickEnabled="True">
+                        IsItemClickEnabled="True"
+                        ItemClick="ItemView_ItemClick">
                         </GridView>
                     </DataTemplate>
                 </HubSection>
             </Hub>
-            <!--<Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <GridView 
-                ItemsSource="{Binding Source={StaticResource GroupViewSource}}" 
-                ItemTemplate="{StaticResource PrimaryTemplate}"
-                CanReorderItems="False"
-                SelectionMode="None"
-                IsSwipeEnabled="false"
-                Padding="50,50,50,50"
-                IsItemClickEnabled="True"
-                Grid.Column="0"/>
-            <GridView 
-                    ItemsSource="{Binding Source={StaticResource GroupViewSource}}" 
-                    ItemTemplate="{StaticResource SecundaryTemplate}"
-                    CanReorderItems="False"
-                    SelectionMode="None"
-                    IsSwipeEnabled="false"
-                    Padding="50,50,50,50"
-                    IsItemClickEnabled="True"
-                    Grid.Column="1"/>-->
-        </Grid>
+        </GridView>
             <Grid Grid.Row="1" Grid.Column="0" 
               Background="DarkSlateGray" >
 

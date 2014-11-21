@@ -59,7 +59,18 @@ namespace Eleven
             var sampleDataGroups = await DataSource.GetGroupsAsync();
             this.DefaultViewModel["Groups"] = sampleDataGroups;
         }
-
+        /// <summary>
+        /// Invoked when an item is clicked.
+        /// </summary>
+        /// <param name="sender">The GridView displaying the item clicked.</param>
+        /// <param name="e">Event data that describes the item clicked.</param>
+        void ItemView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            // Navigate to the appropriate destination page, configuring the new page
+            // by passing required information as a navigation parameter
+            var itemId = ((DataClassArtist)e.ClickedItem).UniqueId;
+            this.Frame.Navigate(typeof(ItemViewer), itemId);
+        }
 
         /// <summary>
         /// Invoked when an item within a group is clicked.
@@ -211,8 +222,6 @@ namespace Eleven
         }
 
         #endregion
-
-
 
     }
 }
