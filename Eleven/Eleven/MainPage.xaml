@@ -15,20 +15,24 @@
     <Page.Resources>
         <DataTemplate x:Key="PrimaryTemplate">
             <StackPanel >
-
+                    <Grid>
                     <Image Source="{Binding Path=ImagePath}" Stretch="Uniform"/>
                     <TextBlock Text="{Binding Path=Title}" />
                     <TextBlock Text="{Binding Path=Description}"/>
                     <TextBlock Text="{Binding Path=Content}"/>
-
+                </Grid>
             </StackPanel>
         </DataTemplate>
-
-        <CollectionViewSource
-            x:Name="GroupViewSource"
-            Source="{Binding Groups}"
-            d:Source="{Binding Groups, Source={d:DesignData Source=/DataModel/Database.json, Type=data:DataSource}}"/>
-
+        <DataTemplate x:Key="SecundaryTemplate">
+            <StackPanel >
+                    <Grid>
+                    <Image Source="{Binding Path=ImagePath}" Stretch="Uniform"/>
+                    <TextBlock Text="{Binding Path=Title}" />
+                    <TextBlock Text="{Binding Path=Description}"/>
+                    <TextBlock Text="{Binding Path=Content}"/>
+                </Grid>
+            </StackPanel>
+        </DataTemplate> 
 
     </Page.Resources>
     
@@ -55,13 +59,68 @@
             Grid.Column="1"
             Grid.Row="1"
             Background="SlateGray">
-
-            <GridView ItemsSource="{Binding Source={StaticResource GroupViewSource}}" 
-                        ItemTemplate="{StaticResource PrimaryTemplate}"
+            <Hub>
+                <HubSection x:Uid="Section1Header" IsHeaderInteractive="True" d:DataContext="{Binding Source={d:DesignData Source=/DataModel/Database.json, Type=data:DataSource}}">
+                    <DataTemplate> 
+                        <GridView
+                        x:Name="itemGridView"
+                        AutomationProperties.AutomationId="ItemGridView"
+                         AutomationProperties.Name="Items In Group"
                         SelectionMode="None"
                         IsSwipeEnabled="false"
-                        Padding="50,50,50,50"
-                        IsItemClickEnabled="True"/>
+                        IsItemClickEnabled="True">
+
+                            <Grid Width="500" Height="400">
+                                <StackPanel >
+                                    <Image Source="{Binding Path=Groups[0].ImagePath}" Stretch="UniformToFill" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding Path=Groups[0].Title}" />
+                                    <TextBlock Text="{Binding Path=Groups[0].Description}"/>
+                                    <TextBlock Text="{Binding Path=Groups[0].Content}"/>
+                                </StackPanel>
+                            </Grid>
+                        </GridView>
+                    </DataTemplate>
+                </HubSection>
+
+                <HubSection x:Uid="Section1Header" IsHeaderInteractive="True"  d:DataContext="{Binding Source={d:DesignData Source=/DataModel/Database.json, Type=data:DataSource}}">
+                    <DataTemplate>
+                        <GridView
+                        x:Name="itemGridView"
+                        Margin="-9,-14,0,0"
+                        AutomationProperties.AutomationId="ItemGridView"
+                        AutomationProperties.Name="Items In Group"
+                        ItemsSource="{Binding Groups}"
+                        ItemTemplate="{StaticResource SecundaryTemplate}"
+                            Width="800"
+                        SelectionMode="None"
+                        IsSwipeEnabled="false"
+                        IsItemClickEnabled="True">
+                        </GridView>
+                    </DataTemplate>
+                </HubSection>
+            </Hub>
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <GridView 
+                ItemsSource="{Binding Source={StaticResource GroupViewSource}}" 
+                ItemTemplate="{StaticResource PrimaryTemplate}"
+                CanReorderItems="False"
+                SelectionMode="None"
+                IsSwipeEnabled="false"
+                Padding="50,50,50,50"
+                IsItemClickEnabled="True"
+                Grid.Column="0"/>
+            <GridView 
+                    ItemsSource="{Binding Source={StaticResource GroupViewSource}}" 
+                    ItemTemplate="{StaticResource SecundaryTemplate}"
+                    CanReorderItems="False"
+                    SelectionMode="None"
+                    IsSwipeEnabled="false"
+                    Padding="50,50,50,50"
+                    IsItemClickEnabled="True"
+                    Grid.Column="1"/>-->
         </Grid>
             <Grid Grid.Row="1" Grid.Column="0" 
               Background="DarkSlateGray" >
