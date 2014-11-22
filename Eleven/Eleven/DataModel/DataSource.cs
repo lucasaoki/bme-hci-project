@@ -64,6 +64,7 @@ namespace Eleven.Data
         private static DataSource _DataSource = new DataSource();
 
         private ObservableCollection<DataClassArtist> _groups = new ObservableCollection<DataClassArtist>();
+
         public ObservableCollection<DataClassArtist> Groups
         {
             get { return this._groups; }
