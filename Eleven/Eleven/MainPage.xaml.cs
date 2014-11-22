@@ -132,49 +132,9 @@ namespace Eleven
             Sculpture_Grid.Background = null;
         }
 
-        private void Artwork_PointerMoved(object sender, RoutedEventArgs e)
-        {
-        }
-
-        private void Artist_PointerMoved(object sender, RoutedEventArgs e)
-        {
-        }
-
-        private void Period_PointerMoved(object sender, RoutedEventArgs e)
-        {
-        }
-
-        private void Sculpture_PointerMoved(object sender, RoutedEventArgs e)
-        {
-        }
-        private void Home_PointerMoved(object sender, RoutedEventArgs e)
-        {
-        }
-
-        
-
-        private void itemGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Press_KeyBoard(object sender, KeyRoutedEventArgs e)
-        {
-        }
+  
 
 
-        private void SearchInput_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-        }
-
-        private void Non_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-        }
-
-        private void GroupGridView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-        }
 
         #region NavigationHelper registration
 
