@@ -69,7 +69,7 @@ namespace Eleven
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
             var itemId = ((DataClassArtist)e.ClickedItem).UniqueId;
-            this.Frame.Navigate(typeof(SearchResults), itemId);
+            this.Frame.Navigate(typeof(ItemViewer), itemId);
         }
 
         /// <summary>
@@ -81,47 +81,47 @@ namespace Eleven
 
         private void ArtWork_Select_Click(object sender, RoutedEventArgs e)
         {
-            Home_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
-            Artwork_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
-            Artist_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
-            Period_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
-            Sculpture_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray); 
+            Home_Grid.Background = null;
+            Artwork_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Coral);
+            Artist_Grid.Background = null;
+            Period_Grid.Background = null;
+            Sculpture_Grid.Background = null;
         }
 
         private void Artist_Select_Click(object sender, RoutedEventArgs e)
         {
-            Home_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
-            Artwork_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Home_Grid.Background  = null;
+            Artwork_Grid.Background = null;
             Artist_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
-            Period_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
-            Sculpture_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray); 
+            Period_Grid.Background = null;
+            Sculpture_Grid.Background = null;
         }
 
         private void Period_Select_Click(object sender, RoutedEventArgs e)
         {
-            Home_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
-            Artwork_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
-            Artist_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Home_Grid.Background = null;
+            Artwork_Grid.Background = null;
+            Artist_Grid.Background = null;
             Period_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
-            Sculpture_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray); 
+            Sculpture_Grid.Background = null;
         }
 
         private void Sculpture_Select_Click(object sender, RoutedEventArgs e)
         {
-            Home_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
-            Artwork_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
-            Artist_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
-            Period_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Home_Grid.Background = null;
+            Artwork_Grid.Background = null;
+            Artist_Grid.Background = null;
+            Period_Grid.Background = null;
             Sculpture_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick); 
         }
 
         private void Home_Select_Click(object sender, RoutedEventArgs e)
         {
             Home_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
-            Artwork_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
-            Artist_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
-            Period_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
-            Sculpture_Grid.Background = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
+            Artwork_Grid.Background = null;
+            Artist_Grid.Background = null;
+            Period_Grid.Background = null;
+            Sculpture_Grid.Background = null;
         }
 
         private void Artwork_PointerMoved(object sender, RoutedEventArgs e)
@@ -152,7 +152,6 @@ namespace Eleven
 
         private void Press_KeyBoard(object sender, KeyRoutedEventArgs e)
         {
-            SearchInput.Focus(FocusState.Keyboard);
         }
 
 

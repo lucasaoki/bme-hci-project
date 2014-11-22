@@ -43,27 +43,26 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        
-        <Grid
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid
             x:Name="itemGridView"
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Grouped Items"
         
-            Grid.Column="1"
-            Grid.Row="1">
-            <Hub HorizontalAlignment="Left" VerticalAlignment="Top">
+            Grid.Column="1">
+                <Hub HorizontalAlignment="Left" VerticalAlignment="Top">
 
-                <HubSection x:Uid="Section1Header" Width="Auto" Height="Auto" d:DataContext="{Binding Source={d:DesignData Source=/DataModel/Database.json, Type=data:DataSource}}">
-                    <DataTemplate>
-                        <GridView
+                    <HubSection x:Uid="Section1Header" Width="Auto" Height="Auto" d:DataContext="{Binding Source={d:DesignData Source=/DataModel/Database.json, Type=data:DataSource}}">
+                        <DataTemplate>
+                            <GridView
                         x:Name="itemGridView"
                         AutomationProperties.AutomationId="ItemGridView"
                         AutomationProperties.Name="Items In Group"
@@ -73,15 +72,15 @@
                         SelectionMode="None"
                         IsItemClickEnabled="True"
                         ItemClick="ItemView_ItemClick">
-                        </GridView>
-                    </DataTemplate>
-                </HubSection>
-            </Hub>
-        </Grid>
-            <Grid Grid.Row="1" Grid.Column="0" 
-              Background="DarkSlateGray" >
+                            </GridView>
+                        </DataTemplate>
+                    </HubSection>
+                </Hub>
+            </Grid>
+            
+            <Grid Grid.Column="0">
 
-            <StackPanel VerticalAlignment="Center" >
+                <StackPanel VerticalAlignment="Center" >
 
                     <Grid x:Name="Home_Grid" PointerPressed="Home_Select_Click" PointerExited="Non_PointerExited" PointerMoved="Home_PointerMoved" Height="100">
                         <Grid.ColumnDefinitions>
@@ -100,116 +99,89 @@
                     </Grid>
 
 
-                <Grid x:Name="Artwork_Grid" PointerPressed="ArtWork_Select_Click" PointerExited="Non_PointerExited" PointerMoved="Artwork_PointerMoved" Height="100">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <Grid.Background>
-                            <ImageBrush Stretch="Uniform" ImageSource="Assets/Artwork.gif"/>
-                        </Grid.Background>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <TextBlock x:Name="ArtWork_TextBox"  Text="Painting"  FontSize="30" FontFamily="Garamond" 
+                    <Grid x:Name="Artwork_Grid" PointerPressed="ArtWork_Select_Click" PointerExited="Non_PointerExited" PointerMoved="Artwork_PointerMoved" Height="100">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="Assets/Artwork.gif"/>
+                            </Grid.Background>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBlock x:Name="ArtWork_TextBox"  Text="Painting"  FontSize="30" FontFamily="Garamond" 
                             HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
+                        </Grid>
                     </Grid>
-                </Grid>
 
-                <Grid x:Name="Period_Grid" PointerPressed="Period_Select_Click" PointerExited="Non_PointerExited"  PointerMoved="Period_PointerMoved" Height="100">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <Grid.Background>
-                            <ImageBrush Stretch="Uniform" ImageSource="Assets/Period.gif"/>
-                        </Grid.Background>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <TextBlock x:Name="Period_TextBox"  Text="Period"  FontSize="30" FontFamily="Garamond" 
+                    <Grid x:Name="Period_Grid" PointerPressed="Period_Select_Click" PointerExited="Non_PointerExited"  PointerMoved="Period_PointerMoved" Height="100">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="Assets/Period.gif"/>
+                            </Grid.Background>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBlock x:Name="Period_TextBox"  Text="Period"  FontSize="30" FontFamily="Garamond" 
                                 HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
+                        </Grid>
                     </Grid>
-                </Grid>
-                <Grid x:Name="Artist_Grid" PointerPressed="Artist_Select_Click" PointerExited="Non_PointerExited" PointerMoved="Artist_PointerMoved" Height="100">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <Grid.Background>
-                            <ImageBrush Stretch="Uniform" ImageSource="Assets/Artist.gif"/>
-                        </Grid.Background>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <TextBlock x:Name="Artist_TextBox"  Text="Artist"  FontSize="30" FontFamily="Garamond" 
+                    <Grid x:Name="Artist_Grid" PointerPressed="Artist_Select_Click" PointerExited="Non_PointerExited" PointerMoved="Artist_PointerMoved" Height="100">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="Assets/Artist.gif"/>
+                            </Grid.Background>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBlock x:Name="Artist_TextBox"  Text="Artist"  FontSize="30" FontFamily="Garamond" 
                             HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
+                        </Grid>
                     </Grid>
-                </Grid>
-                <Grid x:Name="Sculpture_Grid" PointerPressed="Sculpture_Select_Click" PointerExited="Non_PointerExited" PointerMoved="Sculpture_PointerMoved" Height="100">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <Grid.Background>
-                            <ImageBrush Stretch="Uniform" ImageSource="Assets/Sculpture.gif"/>
-                        </Grid.Background>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <TextBlock x:Name="Sculpture_TextBox"  Text="Sculpture"  FontSize="30" FontFamily="Garamond" 
+                    <Grid x:Name="Sculpture_Grid" PointerPressed="Sculpture_Select_Click" PointerExited="Non_PointerExited" PointerMoved="Sculpture_PointerMoved" Height="100">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="Assets/Sculpture.gif"/>
+                            </Grid.Background>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBlock x:Name="Sculpture_TextBox"  Text="Sculpture"  FontSize="30" FontFamily="Garamond" 
                             HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
+                        </Grid>
                     </Grid>
-                </Grid>
-            </StackPanel>
-        </Grid>
-
-       
-        <Grid Grid.Column="2" Grid.RowSpan="1" >
-            <!--Search Block-->
-
-            <Grid  VerticalAlignment="Center" Margin="0,60,0,40" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="250"/>
-                    <ColumnDefinition Width="50"/>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="1" Grid.ColumnSpan="2" Height="40" VerticalAlignment="Top"  >
-                    <StackPanel  Orientation="Horizontal" Margin="0,20,0,20">
-                        <TextBox x:Name="SearchInput" Background="Transparent" HorizontalAlignment="Right" Foreground="White"  Margin="0,-18" Height="36" FontSize="20" Width="235" BorderThickness="0,0,0,1"
-                                 PlaceholderText="Search" Tapped="SearchInput_Tapped" FontWeight="Bold" FontStyle="Italic" CharacterSpacing="100" TextAlignment="Right" />
-                    </StackPanel>
-                </Grid>
-                <Grid Grid.Column="2">
-                    <Button>
-                        <Image Source="Assets/Search.jpg" Stretch="Uniform"/>
-                    </Button>
-                </Grid>
-
+                </StackPanel>
             </Grid>
         </Grid>
+        
+            
+   
 
-        <Grid Grid.RowSpan="1" Grid.ColumnSpan="1" Background="DarkSlateGray">
+        <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="950*"/>
+                <ColumnDefinition Width="300*"/>
             </Grid.ColumnDefinitions>
-
-            <!--GoBack Buttonm-->
             <Button x:Name="backButton" Margin="39,59,0,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
                         Style="{StaticResource NavigationBackButtonNormalStyle}"
                         VerticalAlignment="Top"
                         AutomationProperties.Name="Back"
                         AutomationProperties.AutomationId="BackButton"
                         AutomationProperties.ItemType="Navigation Button" Height="41" Width="41"/>
-
-            <!--Title-->
-            <TextBlock x:Name="pageTitle" Text="Eleven" Style="{StaticResource HeaderTextBlockStyle}"  Grid.Column="1" 
-                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40" Height="40"/>
-
-            <!--Grid top right-->
-
+            <TextBlock x:Name="pageTitle" Text="Eleven" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,50,40" Height="40"/>
+            <SearchBox Grid.Column="2" Margin="6,0,25,40" Height="40" PlaceholderText="Search" FontSize="20" CharacterSpacing="200" BorderBrush="Black" BorderThickness="0,0,0,2" Background="Transparent" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Bottom"/>
         </Grid>
 
 
