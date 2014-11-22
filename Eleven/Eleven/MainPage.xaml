@@ -82,84 +82,62 @@
 
                 <StackPanel VerticalAlignment="Center" >
 
-                    <Grid x:Name="Home_Grid" PointerPressed="Home_Select_Click" PointerExited="Non_PointerExited" PointerMoved="Home_PointerMoved" Height="100">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Grid.Background>
-                                <ImageBrush Stretch="Uniform" ImageSource="Assets/Home.gif"/>
-                            </Grid.Background>
+                    <StackPanel Orientation="Horizontal" x:Name="Home_Grid" PointerPressed="Home_Select_Click" Height="100">
+                        <Grid >
+                            <Image Stretch="Uniform" Source="Assets/Home.gif"/>
                         </Grid>
-                        <Grid Grid.Column="1">
+
+                        <Grid >
                             <TextBlock x:Name="Home_TextBox"  Text="Home"  FontSize="30" FontFamily="Garamond" 
-                            HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
+                                        HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
                         </Grid>
-                    </Grid>
+                    </StackPanel>
 
 
-                    <Grid x:Name="Artwork_Grid" PointerPressed="ArtWork_Select_Click" PointerExited="Non_PointerExited" PointerMoved="Artwork_PointerMoved" Height="100">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Grid.Background>
-                                <ImageBrush Stretch="Uniform" ImageSource="Assets/Artwork.gif"/>
-                            </Grid.Background>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <TextBlock x:Name="ArtWork_TextBox"  Text="Painting"  FontSize="30" FontFamily="Garamond" 
-                            HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
-                        </Grid>
-                    </Grid>
 
-                    <Grid x:Name="Period_Grid" PointerPressed="Period_Select_Click" PointerExited="Non_PointerExited"  PointerMoved="Period_PointerMoved" Height="100">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Grid.Background>
-                                <ImageBrush Stretch="Uniform" ImageSource="Assets/Period.gif"/>
-                            </Grid.Background>
+                    <StackPanel Orientation="Horizontal" x:Name="Artwork_Grid" PointerPressed="ArtWork_Select_Click" Height="100">
+                        <Grid >
+                            <Image Stretch="Uniform" Source="Assets/Artwork.gif"/>
                         </Grid>
-                        <Grid Grid.Column="1">
+
+                        <Grid >
+                            <TextBlock x:Name="Artwork_TextBox"  Text="Artwork"  FontSize="30" FontFamily="Garamond" 
+                                        HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" x:Name="Period_Grid" PointerPressed="Period_Select_Click"  Height="100">
+                        <Grid >
+                            <Image Stretch="Uniform" Source="Assets/Period.gif"/>
+                        </Grid>
+
+                        <Grid >
                             <TextBlock x:Name="Period_TextBox"  Text="Period"  FontSize="30" FontFamily="Garamond" 
-                                HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
+                                        HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
                         </Grid>
-                    </Grid>
-                    <Grid x:Name="Artist_Grid" PointerPressed="Artist_Select_Click" PointerExited="Non_PointerExited" PointerMoved="Artist_PointerMoved" Height="100">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Grid.Background>
-                                <ImageBrush Stretch="Uniform" ImageSource="Assets/Artist.gif"/>
-                            </Grid.Background>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" x:Name="Artist_Grid" PointerPressed="Artist_Select_Click" Height="100">
+                        <Grid >
+                            <Image Stretch="Uniform" Source="Assets/Artist.gif"/>
                         </Grid>
-                        <Grid Grid.Column="1">
+
+                        <Grid >
                             <TextBlock x:Name="Artist_TextBox"  Text="Artist"  FontSize="30" FontFamily="Garamond" 
-                            HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
+                                        HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
                         </Grid>
-                    </Grid>
-                    <Grid x:Name="Sculpture_Grid" PointerPressed="Sculpture_Select_Click" PointerExited="Non_PointerExited" PointerMoved="Sculpture_PointerMoved" Height="100">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Grid.Background>
-                                <ImageBrush Stretch="Uniform" ImageSource="Assets/Sculpture.gif"/>
-                            </Grid.Background>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" x:Name="Sculpture_Grid" PointerPressed="Sculpture_Select_Click" Height="100">
+                        <Grid >
+                            <Image Stretch="Uniform" Source="Assets/Sculpture.gif"/>
                         </Grid>
-                        <Grid Grid.Column="1">
+
+                        <Grid >
                             <TextBlock x:Name="Sculpture_TextBox"  Text="Sculpture"  FontSize="30" FontFamily="Garamond" 
-                            HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
+                                        HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
                         </Grid>
-                    </Grid>
+                    </StackPanel>
                 </StackPanel>
             </Grid>
         </Grid>
