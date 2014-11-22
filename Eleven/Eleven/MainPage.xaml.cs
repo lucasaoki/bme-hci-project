@@ -69,7 +69,7 @@ namespace Eleven
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
             var itemId = ((DataClassArtist)e.ClickedItem).UniqueId;
-            this.Frame.Navigate(typeof(ItemViewer), itemId);
+            this.Frame.Navigate(typeof(SearchResults), itemId);
         }
 
         /// <summary>
