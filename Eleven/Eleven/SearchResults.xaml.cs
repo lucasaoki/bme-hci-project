@@ -69,7 +69,6 @@ namespace Eleven
         {
             // TODO: Assign a bindable group to this.DefaultViewModel["Group"]
             var sampleDataGroups = await DataSource.GetGroupsAsync();
-            this.DefaultViewModel["Group"] = sampleDataGroups;
             // TODO: Assign a collection of bindable items to this.DefaultViewModel["Items"]
             this.DefaultViewModel["Items"] = searchGroups(sampleDataGroups, e.NavigationParameter.ToString() );
         }
