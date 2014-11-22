@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Eleven.Data;
+using System.Collections.ObjectModel;
 
 // The Group Detail Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234229
 
@@ -70,7 +71,22 @@ namespace Eleven
             var sampleDataGroups = await DataSource.GetGroupsAsync();
             this.DefaultViewModel["Group"] = sampleDataGroups;
             // TODO: Assign a collection of bindable items to this.DefaultViewModel["Items"]
-            this.DefaultViewModel["Items"] = sampleDataGroups;
+            this.DefaultViewModel["Items"] = searchGroups(sampleDataGroups, e.NavigationParameter.ToString() );
+        }
+
+        private IEnumerable<DataClassArtist> searchGroups(IEnumerable<DataClassArtist> sampleData, string searchQuery)
+        {
+            ObservableCollection<DataClassArtist> filteredGroups = new ObservableCollection<DataClassArtist>();
+
+            foreach (DataClassArtist element in sampleData)
+            {
+                if(element.ToString().Contains(searchQuery))
+                {
+                    filteredGroups.Add(element);
+                }
+            }
+
+            return filteredGroups;
         }
 
         #region NavigationHelper registration
