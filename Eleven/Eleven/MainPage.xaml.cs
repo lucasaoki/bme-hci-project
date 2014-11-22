@@ -86,6 +86,8 @@ namespace Eleven
             Artist_Grid.Background = null;
             Period_Grid.Background = null;
             Sculpture_Grid.Background = null;
+
+            this.Frame.Navigate(typeof(SearchResults), "painting");
         }
 
         private void Artist_Select_Click(object sender, RoutedEventArgs e)
@@ -95,6 +97,8 @@ namespace Eleven
             Artist_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
             Period_Grid.Background = null;
             Sculpture_Grid.Background = null;
+
+            this.Frame.Navigate(typeof(SearchResults), "artist");
         }
 
         private void Period_Select_Click(object sender, RoutedEventArgs e)
@@ -104,6 +108,8 @@ namespace Eleven
             Artist_Grid.Background = null;
             Period_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
             Sculpture_Grid.Background = null;
+
+            this.Frame.Navigate(typeof(SearchResults), "period");
         }
 
         private void Sculpture_Select_Click(object sender, RoutedEventArgs e)
@@ -112,7 +118,9 @@ namespace Eleven
             Artwork_Grid.Background = null;
             Artist_Grid.Background = null;
             Period_Grid.Background = null;
-            Sculpture_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick); 
+            Sculpture_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
+
+            this.Frame.Navigate(typeof(SearchResults), "sculpture");
         }
 
         private void Home_Select_Click(object sender, RoutedEventArgs e)
