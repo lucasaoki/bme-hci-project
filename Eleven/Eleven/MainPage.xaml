@@ -13,37 +13,14 @@
 
 
     <Page.Resources>
-        <DataTemplate x:Key="PrimaryTemplate">
-            <StackPanel>
-                    <Grid Width="600" Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Image Source="{Binding Path=ImagePath}" 
-                                           Stretch="UniformToFill" 
-                                           HorizontalAlignment="Center"
-                                           Grid.Row="0"/>
-                        <TextBlock Text="{Binding Path=Title}"
-                                            Grid.Row="1" />
-                        <TextBlock Text="{Binding Path=Description}"
-                                           Grid.Row="2"/>
-                        <TextBlock Text="{Binding Path=Content}"
-                                           Grid.Row="3"/>
-                    </Grid>
-            </StackPanel>
-        </DataTemplate>
-
-        <DataTemplate x:Key="SecundaryTemplate">
-            <Grid>
-                <StackPanel Width="280" Margin="5">
-                    <Image Source="{Binding Path=ImagePath}" Stretch="Uniform"/>
-                    <TextBlock Text="{Binding Path=Title}" />
-                    <TextBlock Text="{Binding Path=Description}"/>
-                    <TextBlock Text="{Binding Path=Content}"/>
+        <DataTemplate x:Key="SecundaryTemplate" >
+            <Grid HorizontalAlignment="Left" Width="250" Height="225">
+                <Border >
+                    <Image Source="{Binding ImagePath}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
+                </Border>
+                <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
+                    <TextBlock Text="{Binding Title}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="Auto" Margin="15,0,15,0"/>
+                    <TextBlock Text="{Binding Description}" Foreground="{ThemeResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
                 </StackPanel>
             </Grid>
         </DataTemplate> 
@@ -104,7 +81,7 @@
             <Grid Grid.Row="1" Grid.Column="0" 
               Background="DarkSlateGray" >
 
-            <StackPanel VerticalAlignment="Top" Margin="0,25">
+            <StackPanel VerticalAlignment="Center" >
 
                     <Grid x:Name="Home_Grid" PointerPressed="Home_Select_Click" PointerExited="Non_PointerExited" PointerMoved="Home_PointerMoved" Height="100">
                         <Grid.ColumnDefinitions>
