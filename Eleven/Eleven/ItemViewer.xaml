@@ -37,8 +37,8 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="140"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="157*"/>
         </Grid.RowDefinitions>
 
         <!-- Horizontal scrolling grid -->
@@ -47,23 +47,11 @@
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Items In Group"
             TabIndex="1"
-            Grid.RowSpan="2"
-            Padding="120,126,120,50"
+            Padding="40"
             SelectionMode="None"
-            IsSwipeEnabled="false">
+            IsSwipeEnabled="false" Grid.Row="1">
             <GridView.Header>
-                <StackPanel Width="480" Margin="0,4,14,0">
-                    <TextBlock Text="{Binding Subtitle}" Margin="0,0,0,20" Style="{StaticResource SubheaderTextBlockStyle}" MaxHeight="60"/>
-                    <Image Source="{Binding ImagePath}" Height="400" Margin="0,0,0,20" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
-                    <TextBlock Text="{Binding Description}" Margin="0,0,0,0" Style="{StaticResource BodyTextBlockStyle}">
-                        <TextBlock.Foreground>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="Black" Offset="0"/>
-                                <GradientStop Color="White" Offset="1"/>
-                            </LinearGradientBrush>
-                        </TextBlock.Foreground>
-                    </TextBlock>
-                </StackPanel>
+                <Image Source="{Binding ImagePath}" AutomationProperties.Name="{Binding Title}" MinWidth="400" MinHeight="400"/>
             </GridView.Header>
             <GridView.ItemContainerStyle>
                 <Style TargetType="FrameworkElement">
@@ -75,19 +63,19 @@
         <!-- Back button and page title -->
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="120"/>
-                <ColumnDefinition Width="950*"/>
-                <ColumnDefinition Width="300*"/>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="473*"/>
+                <ColumnDefinition Width="150*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="backButton" Margin="39,59,0,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+            <Button x:Name="backButton" Margin="0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
                         Style="{StaticResource NavigationBackButtonNormalStyle}"
-                        VerticalAlignment="Top"
+                        VerticalAlignment="Center"
                         AutomationProperties.Name="Back"
                         AutomationProperties.AutomationId="BackButton"
-                        AutomationProperties.ItemType="Navigation Button" Height="41" Width="41"/>
+                        AutomationProperties.ItemType="Navigation Button" Height="41" Width="41" HorizontalAlignment="Center"/>
             <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,50,40" Height="40"/>
-            <SearchBox Grid.Column="2" Margin="6,0,25,40" Height="40" PlaceholderText="Search" FontSize="20" CharacterSpacing="200" BorderBrush="Black" BorderThickness="0,0,0,2" Background="Transparent" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Bottom"/>
+                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0" Height="40"/>
+            <SearchBox Grid.Column="2" Margin="40,0" Height="40" PlaceholderText="Search" FontSize="20" CharacterSpacing="200" BorderBrush="Black" BorderThickness="0,0,0,2" Background="Transparent" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center"/>
         </Grid>
     </Grid>
 </Page>
