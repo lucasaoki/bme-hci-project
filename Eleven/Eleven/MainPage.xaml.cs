@@ -126,46 +126,21 @@ namespace Eleven
 
         private void Artwork_PointerMoved(object sender, RoutedEventArgs e)
         {
-            Home_TextBox.Opacity = 0.25;
-            ArtWork_TextBox.Opacity = 1;
-            Artist_TextBox.Opacity = 0.25;
-            Period_TextBox.Opacity = 0.25;
-            Sculpture_TextBox.Opacity = 0.25;
         }
 
         private void Artist_PointerMoved(object sender, RoutedEventArgs e)
         {
-            Home_TextBox.Opacity = 0.25;
-            ArtWork_TextBox.Opacity = 0.25;
-            Artist_TextBox.Opacity = 1;
-            Period_TextBox.Opacity = 0.25;
-            Sculpture_TextBox.Opacity = 0.25;
         }
 
         private void Period_PointerMoved(object sender, RoutedEventArgs e)
         {
-            Home_TextBox.Opacity = 0.25;
-            ArtWork_TextBox.Opacity = 0.25;
-            Artist_TextBox.Opacity = 0.25;
-            Period_TextBox.Opacity = 1;
-            Sculpture_TextBox.Opacity = 0.25;
         }
 
         private void Sculpture_PointerMoved(object sender, RoutedEventArgs e)
         {
-            Home_TextBox.Opacity = 0.25;
-            ArtWork_TextBox.Opacity = 0.25;
-            Artist_TextBox.Opacity = 0.25;
-            Period_TextBox.Opacity = 0.25;
-            Sculpture_TextBox.Opacity = 1;
         }
         private void Home_PointerMoved(object sender, RoutedEventArgs e)
         {
-            Home_TextBox.Opacity = 1;
-            ArtWork_TextBox.Opacity = 0.25;
-            Artist_TextBox.Opacity = 0.25;
-            Period_TextBox.Opacity = 0.25;
-            Sculpture_TextBox.Opacity = 0.25;
         }
 
         
@@ -187,12 +162,6 @@ namespace Eleven
 
         private void Non_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-
-            Home_TextBox.Opacity = 0.25;
-            ArtWork_TextBox.Opacity = 0.25;
-            Artist_TextBox.Opacity = 0.25;
-            Period_TextBox.Opacity = 0.25;
-            Sculpture_TextBox.Opacity = 0.25;
         }
 
         private void GroupGridView_ItemClick(object sender, ItemClickEventArgs e)

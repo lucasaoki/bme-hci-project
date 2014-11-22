@@ -1,7 +1,7 @@
 {"Groups":[
   {
     
-        "UniqueId": "Group-1-Item-2",
+        "UniqueId": "1",
 		"Artist" : "Leonardo di ser Piero da Vinci",
 		"Period" : "High Renaissance",
         "Title": "1",
@@ -16,6 +16,72 @@
 		"Artist" : "Leonardo di ser Piero da Vinci",
 		"Period" : "High Renaissance",
         "Title": "2",
+        "ThreeDPath": "asd",
+        "ImagePath": "Assets/The Last Supper.jpg",
+        "Description" : "asd",
+        "Content" : "asda"
+  },  
+  {
+    
+        "UniqueId": "Group-3-Item-2",
+		"Artist" : "Leonardo di ser Piero da Vinci",
+		"Period" : "High Renaissance",
+        "Title": "3",
+        "ThreeDPath": "asd",
+        "ImagePath": "Assets/The Last Supper.jpg",
+        "Description" : "asd",
+        "Content" : "asda"
+  },  
+  {
+    
+        "UniqueId": "Group-3-Item-2",
+		"Artist" : "Leonardo di ser Piero da Vinci",
+		"Period" : "High Renaissance",
+        "Title": "3",
+        "ThreeDPath": "asd",
+        "ImagePath": "Assets/The Last Supper.jpg",
+        "Description" : "asd",
+        "Content" : "asda"
+  },  
+  {
+    
+        "UniqueId": "Group-3-Item-2",
+		"Artist" : "Leonardo di ser Piero da Vinci",
+		"Period" : "High Renaissance",
+        "Title": "3",
+        "ThreeDPath": "asd",
+        "ImagePath": "Assets/The Last Supper.jpg",
+        "Description" : "asd",
+        "Content" : "asda"
+  },  
+  {
+    
+        "UniqueId": "Group-3-Item-2",
+		"Artist" : "Leonardo di ser Piero da Vinci",
+		"Period" : "High Renaissance",
+        "Title": "3",
+        "ThreeDPath": "asd",
+        "ImagePath": "Assets/The Last Supper.jpg",
+        "Description" : "asd",
+        "Content" : "asda"
+  },  
+  {
+    
+        "UniqueId": "Group-3-Item-2",
+		"Artist" : "Leonardo di ser Piero da Vinci",
+		"Period" : "High Renaissance",
+        "Title": "3",
+        "ThreeDPath": "asd",
+        "ImagePath": "Assets/The Last Supper.jpg",
+        "Description" : "asd",
+        "Content" : "asda"
+  },  
+  {
+    
+        "UniqueId": "Group-3-Item-2",
+		"Artist" : "Leonardo di ser Piero da Vinci",
+		"Period" : "High Renaissance",
+        "Title": "3",
         "ThreeDPath": "asd",
         "ImagePath": "Assets/The Last Supper.jpg",
         "Description" : "asd",
