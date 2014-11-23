@@ -101,7 +101,7 @@
                         AutomationProperties.ItemType="Navigation Button" Height="41" Width="41" HorizontalAlignment="Center"/>
             <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
 				IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center"/>
-            <SearchBox Grid.Column="2" Margin="40,0" Height="40" PlaceholderText="Search" FontSize="20" CharacterSpacing="200" BorderBrush="Black" BorderThickness="0,0,0,2" Background="Transparent" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center"/>
+            <SearchBox Grid.Column="2" Margin="40,0" Height="40" PlaceholderText="Search" FontSize="20" CharacterSpacing="200" BorderBrush="Black" BorderThickness="0,0,0,2" Background="Transparent" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="SearchBox_Input"/>
         </Grid>
     </Grid>
 </Page>

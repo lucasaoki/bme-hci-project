@@ -49,7 +49,14 @@ namespace Eleven.Data
 
         public override string ToString()
         {
-            return this.Title;
+            ObservableCollection<string> list = new ObservableCollection<string>();
+            list.Add(this.UniqueId);
+            list.Add(this.Artist);
+            list.Add(this.Period);
+            list.Add(this.Title);
+            list.Add(this.Content);
+
+            return String.Concat(list);
         }
     }
 
