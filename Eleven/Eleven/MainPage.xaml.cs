@@ -132,10 +132,6 @@ namespace Eleven
             Sculpture_Grid.Background = null;
         }
 
-  
-
-
-
         #region NavigationHelper registration
 
         /// The methods provided in this section are simply used to allow

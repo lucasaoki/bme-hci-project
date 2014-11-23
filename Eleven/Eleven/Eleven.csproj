@@ -127,19 +127,23 @@
     </AppxManifest>
     <None Include="Common\ReadMe.txt" />
     <None Include="Eleven_TemporaryKey.pfx" />
+    <Content Include="Assets\Abaporu.jpg" />
     <Content Include="Assets\Artist.gif" />
     <Content Include="Assets\Artwork.gif" />
-    <Content Include="Assets\Edvard Munch.jpg" />
     <Content Include="Assets\Goback.jpg" />
     <Content Include="Assets\Home.gif" />
-    <Content Include="Assets\Leonardo da Vinci.jpg" />
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\Mona Lisa.jpg" />
     <Content Include="Assets\Painting.jpg" />
     <Content Include="Assets\Period.gif" />
     <Content Include="Assets\Sculpture.gif" />
+    <Content Include="Assets\The Birth of Venus.jpg" />
+    <Content Include="Assets\The Persistence of Memory.jpg" />
     <Content Include="Assets\The Scream.jpg" />
     <Content Include="Assets\The Sick Child.jpg" />
+    <Content Include="Assets\The Thinker.jpg" />
+    <Content Include="Assets\The Virgin and Child with St. Anne.jpg" />
+    <Content Include="Assets\Venus de Milo.jpg" />
     <Content Include="DataModel\Database.json" />
   </ItemGroup>
   <ItemGroup>

@@ -13,8 +13,8 @@
 
 
     <Page.Resources>
-        <DataTemplate x:Key="SecundaryTemplate" >
-            <Grid HorizontalAlignment="Left" Width="250" Height="225">
+        <DataTemplate x:Key="Template" >
+            <Grid VerticalAlignment="Top" Width="250" Height="225">
                 <Border >
                     <Image Source="{Binding ImagePath}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
                 </Border>
@@ -67,7 +67,7 @@
                         AutomationProperties.AutomationId="ItemGridView"
                         AutomationProperties.Name="Items In Group"
                         ItemsSource="{Binding Groups}"
-                        ItemTemplate="{StaticResource SecundaryTemplate}"
+                        ItemTemplate="{StaticResource Template}"
                         Width="Auto"
                         SelectionMode="None"
                         IsItemClickEnabled="True"

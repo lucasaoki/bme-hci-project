@@ -1,57 +1,101 @@
 {"Groups":[
   {
     
-        "UniqueId": "1",
+        "UniqueId": "Unique-1",
 		"Artist" : "Leonardo di ser Piero da Vinci",
 		"Period" : "High Renaissance",
-        "Title": "1",
-        "ThreeDPath": "asd",
-        "ImagePath": "Assets/Edvard Munch.jpg",
-        "Description" : "asd",
-        "Content" : "asda"
-  },  
-  {
-    
-        "UniqueId": "Group-2-Item-2",
-		"Artist" : "Leonardo di ser Piero da Vinci",
-		"Period" : "High Renaissance",
-        "Title": "2",
-        "ThreeDPath": "asd",
-        "ImagePath": "Assets/Leonardo da Vinci.jpg",
-        "Description" : "asd",
-        "Content" : "asda"
-  },  
-  {
-    
-        "UniqueId": "Group-3-Item-2",
-		"Artist" : "Leonardo di ser Piero da Vinci",
-		"Period" : "High Renaissance",
-        "Title": "3",
-        "ThreeDPath": "asd",
+        "Title": "Mona Lisa",
+        "ThreeDPath": "--",
         "ImagePath": "Assets/Mona Lisa.jpg",
-        "Description" : "asd",
+        "Description" : "Mona Lisa, oil painting on a poplar wood panel by the Italian painter, draftsman, sculptor, architect, and engineer Leonardo da Vinci, probably the worlds most famous painting. It was painted sometime between 1503 and 1506, when da Vinci was living in Florence, and it now hangs in the Louvre, in Paris, where it remains an object of pilgrimage in the 21st century. The poplar panel shows evidence of warping and was stabilized in 1951 with the addition of an oak frame and in 1970 with four vertical braces. Dovetails also were added, to prevent the widening of a small crack visible near the centre of the upper edge of the painting. The sitters mysterious smile and her unproven identity have made the painting a source of ongoing investigation and fascination.",
         "Content" : "asda"
   },  
   {
     
-        "UniqueId": "Group-3-Item-2",
+        "UniqueId": "Unique-2",
 		"Artist" : "Leonardo di ser Piero da Vinci",
 		"Period" : "High Renaissance",
-        "Title": "3",
-        "ThreeDPath": "asd",
+        "Title": "The Virgin and Child with St. Anne",
+        "ThreeDPath": "--",
+        "ImagePath": "Assets/The Virgin and Child with St. Anne.jpg",
+        "Description" : "The Virgin and Child with St Anne was painted by Leonardo Da Vinci on 1510. It is Oil on wood and measures 168 x 130 cm (5 1/2 x 4 1/2 ft.). The original one is now located at Musee du Louvre, Paris. This painting depicted St. Anne, her daughter the Virgin Mary and the infant Jesus. Christ is shown grappling with a sacrificial lamb symbolising his Passion whilst the Virgin tries to restrain him. The painting was commissioned as the high altarpiece for the Church of Santissima Annunziata in Florence and its theme had long preoccupied Leonardo.",
+        "Content" : "asda"
+  },  
+  {
+    
+        "UniqueId": "Unique-3",
+		"Artist" : "Edvard Munch",
+		"Period" : "Expressionism",
+        "Title": "The Sick Child",
+        "ThreeDPath": "--",
         "ImagePath": "Assets/The Sick Child.jpg",
-        "Description" : "asd",
+        "Description" : "The Sick Child (Norwegian: Det Syke Barn) records a moment before the death of his older sister Johanne Sophie (1862 - 1877) from tuberculosis at 15. Munch returned to this deeply traumatic event again and again in his art, over six completed oil paintings and many studies in various media, over a period of more than 40 years. In the works, Sophie is typically shown on her deathbed accompanied by a dark-haired, grieving woman assumed to be her aunt Karen; the studies often show her in a cropped head shot. In all the painted versions Sophie is lying in a bed, obviously suffering from pain, propped by a large white pillow, looking towards an ominous curtain likely intended as a symbol of death. She is shown with a haunted expression, clutching hands with a grief-stricken older woman who seems to want to comfort her but whose head is bowed as if she cannot bear to look the younger girl in the eye.",
         "Content" : "asda"
   },  
   {
     
-        "UniqueId": "Group-3-Item-2",
-		"Artist" : "Leonardo di ser Piero da Vinci",
-		"Period" : "High Renaissance",
-        "Title": "3",
-        "ThreeDPath": "asd",
+        "UniqueId": "Unique-4",
+		"Artist" : "Edvard Munch",
+		"Period" : "Expressionism",
+        "Title": "The Scream",
+        "ThreeDPath": "--",
         "ImagePath": "Assets/The Scream.jpg",
-        "Description" : "asd",
+        "Description" : "Essentially this famous picture is autobiographical, an expressionistic construction based on Munch's actual experience of a scream piercing through nature while on a walk, after his two companions, seen in the background, had left him. Fitting the fact that the sound must have been heard at a time when his mind was in an abnormal state, Munch renders it in a style which if pushed to extremes can destroy human integrity. As previously noted, the flowing curves of art nouveau represent a subjective linear fusion imposed upon nature, whereby the multiplicity of particulars is unified into a totality of organic suggestion with feminine overtones. But man is part of nature, and absorption into such a totality liquidates the individual. Beginning at this time Munch included art nouveau elements in many pictures but usually only in a limited or modified way. Here, however, in depicting his own morbid experience, he has let go, and allowed the foreground figure to become distorted by the subjectivized flow of nature; the scream could be interpreted as expressing the agony of the obliteration of human personality by this unifying force. Significantly, although it was Munch himself who underwent the experience depicted, the protagonist bears no resemblance to him or anyone else. The creature in the foreground has been depersonalized and crushed into sexlessness or, if anything, stamped with a trace of the femininity of the world that has come close to assimilating it. ",
+        "Content" : "asda"
+  },  
+  {
+    
+        "UniqueId": "Unique-5",
+		"Artist" : "Salvador Dali",
+		"Period" : "Surrealist",
+        "Title": "The Persistence of Memory",
+        "ThreeDPath": "--",
+        "ImagePath": "Assets/The Persistence of Memory.jpg",
+        "Description" : "The Persistence of Memory (Spanish: La persistencia de la memoria; Catalan: La persistencia de la memoria) is a 1931 painting by artist Salvador Dali, and is one of his most recognizable works. First shown at the Julien Levy Gallery in 1932, the painting has been in the collection of the Museum of Modern Art (MoMA) in New York City since 1934 which received it from an anonymous donor. It is widely recognized and frequently referenced in popular culture",
+        "Content" : "asda"
+  },  
+  {
+    
+        "UniqueId": "Unique-6",
+		"Artist" : "Sandro Botticelli",
+		"Period" : "Surrealist",
+        "Title": "The Birth of Venus",
+        "ThreeDPath": "--",
+        "ImagePath": "Assets/The Birth of Venus.jpg",
+        "Description" : "The Birth of Venus is probably Botticellis most famous painting. The picture hung in the country villa of the Medici along with Primavera, indicating that the work was commissioned by the Medici family. Venus rises from the sea, looking like a classical statue and floating on a seashell, in what is surely one of the most recognisable images in art history. On Venus right is Zephyrus, God of Winds, he carries with him the gentle breeze Aura and together they blow the Goddess of Love ashore. The Horae, Goddess of the Seasons, waits to receive Venus and spreads out a flower covered robe in readiness for the Love Goddess arrival.",
+        "Content" : "asda"
+  },  
+  {
+    
+        "UniqueId": "Unique-7",
+		"Artist" : "Alexandros of Antioch",
+		"Period" : "Hellenistic",
+        "Title": "Venus de Milo",
+        "ThreeDPath": "--",
+        "ImagePath": "Assets/Venus de Milo.jpg",
+        "Description" : "Venus de Milo, ancient statue of Aphrodite, now in Paris at the Louvre. Carved by Alexandros, a sculptor of Antioch on the Maeander River in about 150 bc, it was found on the Aegean island of Melos on April 8, 1820. An inscription that is not displayed with the statue states that -Alexandros, son of Menides, citizen of Antioch of Maeander made the statue.- The general composition derives from a 4th-century-bc Corinthian statue. The action and modernized drapery give the Venus great nobility. The statue is a conspicuous example of the Hellenistic sculptural traditions academic traits and close reliance on older masterpieces.",
+        "Content" : "asda"
+  },  
+  {
+    
+        "UniqueId": "Unique-8",
+		"Artist" : "Auguste Rodin",
+		"Period" : "Realism",
+        "Title": "The Thinker",
+        "ThreeDPath": "--",
+        "ImagePath": "Assets/The Thinker.jpg",
+        "Description" : "The Thinker (French: Le Penseur) is a bronze sculpture by Auguste Rodin, usually placed on a stone pedestal. The work shows a nude male figure of over life-size sitting on a rock with his chin resting on one hand as though deep in thought, and is often used as an image to represent philosophy. There are about 28 full size castings, in which the figure is about 186 centimetres (73 in) high, though not all were made during Rodins lifetime and under his supervision, as well as various other versions, several in plaster, studies, and posthumous castings, in a range of sizes. Rodin first conceived the figure as part of another work in 1880, but the first of the familiar monumental bronze castings did not appear until 1904.",
+        "Content" : "asda"
+  },  
+  {
+    
+        "UniqueId": "Unique-8",
+		"Artist" : "Tarsila do Amaral",
+		"Period" : "Modernist",
+        "Title": "Abaporu",
+        "ThreeDPath": "--",
+        "ImagePath": "Assets/Abaporu.jpg",
+        "Description" : "Abaporu (from Tupi-Guarani language aba, pora, and u, the man that eats people) is an oil painting on canvas by the Brazilian painter Tarsila do Amaral, executed in 1928 as a birthday present to the writer Oswald de Andrade, her husband at the time.",
         "Content" : "asda"
   }
 ]
