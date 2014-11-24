@@ -84,14 +84,14 @@ namespace Eleven.Data
             return _DataSource.Groups;
         }
 
-        public static async Task<DataClassArtist> GetRandomGroupsAsync(string uniqueId)
+        public static async Task<DataClassArtist> GetRandomGroupsAsync()
         {
             
             await _DataSource.GetSampleDataAsync();
-            // Simple linear search is acceptable for small data sets
-            var matches = _DataSource.Groups.Where((group) => group.UniqueId.Equals(uniqueId));
-            if (matches.Count() == 1) return matches.First();
-            return null;
+            var random = new Random();
+
+            var matches = _DataSource.Groups[random.Next(_DataSource.Groups.Count)];
+            return matches;
         }
 
         public static async Task<DataClassArtist> GetGroupAsync(string uniqueId)

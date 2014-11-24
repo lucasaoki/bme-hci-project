@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Navigation;
 
 using System.Windows;
 using System.Windows.Input;
+using System.Collections.ObjectModel;
 
 // The Grouped Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234231
 
@@ -55,12 +56,16 @@ namespace Eleven
 
         private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+
+            ObservableCollection<DataClassArtist> obCollec = new ObservableCollection<DataClassArtist>();
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
             var sampleDataGroups = await DataSource.GetGroupsAsync();
-            var RandomDataGroups = await DataSource.GetRandomGroupsAsync("Unique-1");
-
+            var RandomDataGroups = await DataSource.GetRandomGroupsAsync();
             this.DefaultViewModel["Groups"] = sampleDataGroups;
-            this.DefaultViewModel["RandomGroup"] = RandomDataGroups;
+
+            obCollec.Add(RandomDataGroups);
+            this.DefaultViewModel["Groups"] = sampleDataGroups;
+            this.DefaultViewModel["RandomGroup"] = obCollec;
         }
         /// <summary>
         /// Invoked when an item is clicked.
@@ -135,6 +140,11 @@ namespace Eleven
             Artist_Grid.Background = null;
             Period_Grid.Background = null;
             Sculpture_Grid.Background = null;
+        }
+
+        private void searchBox_Input(SearchBox sender, SearchBoxQuerySubmittedEventArgs args)
+        {
+            this.Frame.Navigate(typeof(SearchResults), args.QueryText);
         }
 
         #region NavigationHelper registration
