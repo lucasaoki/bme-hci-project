@@ -14,7 +14,7 @@
 
     <Page.Resources>
         <DataTemplate x:Key="Template" >
-            <Grid VerticalAlignment="Top" Width="250" Height="225">
+            <Grid VerticalAlignment="Top" Width="225" Height="225">
                 <Border >
                     <Image Source="{Binding ImagePath}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
                 </Border>
