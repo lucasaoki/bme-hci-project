@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Eleven.Data;
+using System.Collections.ObjectModel;
 
 // The Group Detail Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234229
 
@@ -63,10 +65,20 @@ namespace Eleven
         /// <see cref="Frame.Navigate(Type, Object)"/> when this page was initially requested and
         /// a dictionary of state preserved by this page during an earlier
         /// session.  The state will be null the first time a page is visited.</param>
-        private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             // TODO: Assign a bindable group to this.DefaultViewModel["Group"]
             // TODO: Assign a collection of bindable items to this.DefaultViewModel["Items"]
+            var sampleData = await DataSource.GetGroupAsync((string) e.NavigationParameter);
+
+            ObservableCollection<DataClassArtist> obCollec = new ObservableCollection<DataClassArtist>();
+            obCollec.Add(sampleData);
+            this.DefaultViewModel["Groups"] = obCollec;
+        }
+
+        private void searchBox_Input(SearchBox sender, SearchBoxQuerySubmittedEventArgs args)
+        {
+            this.Frame.Navigate(typeof(SearchResults), args.QueryText);
         }
 
         #region NavigationHelper registration

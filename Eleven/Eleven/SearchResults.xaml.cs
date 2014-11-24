@@ -111,7 +111,7 @@ namespace Eleven
 
         #endregion
 
-        private void SearchBox_Input(SearchBox sender, SearchBoxQuerySubmittedEventArgs args)
+        private void searchBox_Input(SearchBox sender, SearchBoxQuerySubmittedEventArgs args)
         {
             this.Frame.Navigate(typeof(SearchResults), args.QueryText);
         }
