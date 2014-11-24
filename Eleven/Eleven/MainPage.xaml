@@ -209,23 +209,7 @@
                         AutomationProperties.ItemType="Navigation Button" Height="41" Width="41"/>
             <TextBlock x:Name="pageTitle" Text="Eleven" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,50,40" Height="40"/>
-            <SearchBox Grid.Column="2" 
-                       Margin="6,0,25,40" Height="40" 
-                       PlaceholderText="Search" 
-                       FontSize="20" 
-                       BorderBrush="Black" 
-                       BorderThickness="0,0,0,2" 
-                       Background="Transparent" 
-                       FlowDirection="RightToLeft" 
-                       FocusOnKeyboardInput="True"  
-                       IsTabStop="True" 
-                       VerticalAlignment="Bottom" 
-                       QuerySubmitted="searchBox_Input"
-                       TabNavigation="Cycle"
-                       RequestedTheme="Dark"
-                       ManipulationMode="Scale"
-                       >
-            </SearchBox>
+            <SearchBox x:Name="search_box" Grid.Column="2" Margin="40,0" Height="40" PlaceholderText="Search" FontSize="20" BorderBrush="Black" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input" />
         </Grid>
 
 
