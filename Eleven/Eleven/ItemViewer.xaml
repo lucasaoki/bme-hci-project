@@ -34,11 +34,11 @@
                 <GradientStop Color="#FF2F3F4F" Offset="0.5"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <!--<Grid.ChildrenTransitions>
+        <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
             </TransitionCollection>
-        </Grid.ChildrenTransitions>-->
+        </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
             <RowDefinition Height="157*"/>
@@ -53,13 +53,12 @@
             Padding="40" 
             Grid.Row="1" 
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
-            SelectionMode="None"
-            IsSwipeEnabled="false" IsTapEnabled="False">
+            SelectionMode="None" IsHitTestVisible="False">
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="480">
 
-                        <Image Source="{Binding ImagePath}" Height="400" Margin="0,0,0,20" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
+                        <Image Source="{Binding ImagePath}" Height="400" Stretch="Uniform" AutomationProperties.Name="{Binding Title}" IsHitTestVisible="False"/>
 
                     </StackPanel>
                 </DataTemplate>
@@ -81,7 +80,7 @@
                         AutomationProperties.ItemType="Navigation Button" Height="41" Width="41" HorizontalAlignment="Center"/>
             <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0" Height="40"/>
-            <SearchBox Grid.Column="2" Margin="40,0" Height="40" PlaceholderText="Search" FontSize="20" CharacterSpacing="200" BorderBrush="Black" BorderThickness="0,0,0,2" Background="Transparent" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center"/>
+            <SearchBox Grid.Column="2" Margin="0,0,40,0" Height="40" PlaceholderText="Search" FontSize="20" CharacterSpacing="200" BorderBrush="Black" BorderThickness="0,0,0,2" Background="Transparent" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input"/>
         </Grid>
     </Grid>
 </Page>

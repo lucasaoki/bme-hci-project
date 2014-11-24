@@ -76,6 +76,11 @@ namespace Eleven
             this.DefaultViewModel["Groups"] = obCollec;
         }
 
+        private void searchBox_Input(SearchBox sender, SearchBoxQuerySubmittedEventArgs args)
+        {
+            this.Frame.Navigate(typeof(SearchResults), args.QueryText);
+        }
+
         #region NavigationHelper registration
 
         /// The methods provided in this section are simply used to allow
