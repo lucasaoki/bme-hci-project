@@ -57,7 +57,10 @@ namespace Eleven
         {
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
             var sampleDataGroups = await DataSource.GetGroupsAsync();
+            var RandomDataGroups = await DataSource.GetRandomGroupsAsync("Unique-1");
+
             this.DefaultViewModel["Groups"] = sampleDataGroups;
+            this.DefaultViewModel["RandomGroup"] = RandomDataGroups;
         }
         /// <summary>
         /// Invoked when an item is clicked.

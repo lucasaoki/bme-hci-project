@@ -23,8 +23,14 @@
                     <TextBlock Text="{Binding Description}" Foreground="{ThemeResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
                 </StackPanel>
             </Grid>
-        </DataTemplate> 
+        </DataTemplate>
 
+        <CollectionViewSource
+            x:Name="GroupsViewSource"
+            Source="{Binding Groups}"/>
+        <CollectionViewSource
+            x:Name="RandomViewSource"
+            Source="{Binding RandomGroup}"/>
     </Page.Resources>
     
     <Grid >
@@ -60,18 +66,49 @@
             Grid.Column="1">
                 <Hub HorizontalAlignment="Left" VerticalAlignment="Top">
 
-                    <HubSection x:Uid="Section1Header" Width="Auto" Height="Auto" d:DataContext="{Binding Source={d:DesignData Source=/DataModel/Database.json, Type=data:DataSource}}">
+                    <!--<HubSection x:Uid="Section1Header" Width="Auto" Height="Auto" d:DataContext="{Binding Source={d:DesignData Source=/DataModel/Database.json, Type=data:DataSource}}">
                         <DataTemplate>
                             <GridView
-                        x:Name="itemGridView"
-                        AutomationProperties.AutomationId="ItemGridView"
-                        AutomationProperties.Name="Items In Group"
-                        ItemsSource="{Binding Groups}"
-                        ItemTemplate="{StaticResource Template}"
-                        Width="Auto"
-                        SelectionMode="None"
-                        IsItemClickEnabled="True"
-                        ItemClick="ItemView_ItemClick">
+                            x:Name="itemGridView"
+                            AutomationProperties.AutomationId="ItemGridView"
+                            AutomationProperties.Name="Items In Group"
+                            ItemsSource="{Binding Groups}"
+                            ItemTemplate="{StaticResource Template}"
+                            Width="Auto"
+                            SelectionMode="None"
+                            IsItemClickEnabled="True"
+                            ItemClick="ItemView_ItemClick">
+                            </GridView>
+                        </DataTemplate>
+                    </HubSection>-->
+                    <HubSection x:Uid="Section1Header" Width="Auto" Height="Auto" >
+                        <DataTemplate>
+                            <GridView
+                            x:Name="itemGridView"
+                            AutomationProperties.AutomationId="ItemGridView"
+                            AutomationProperties.Name="Items In Group"
+			                ItemsSource="{Binding Source={StaticResource RandomViewSource}}"
+                            ItemTemplate="{StaticResource Template}"
+                            Width="Auto"
+                            SelectionMode="None"
+                            IsItemClickEnabled="True"
+                            ItemClick="ItemView_ItemClick">
+                            </GridView>
+                        </DataTemplate>
+                    </HubSection>
+
+                    <HubSection x:Uid="Section2Header" Width="Auto" Height="Auto" >
+                        <DataTemplate>
+                            <GridView
+                            x:Name="itemGridView"
+                            AutomationProperties.AutomationId="ItemGridView"
+                            AutomationProperties.Name="Items In Group"
+			                ItemsSource="{Binding Source={StaticResource GroupsViewSource}}"
+                            ItemTemplate="{StaticResource Template}"
+                            Width="Auto"
+                            SelectionMode="None"
+                            IsItemClickEnabled="True"
+                            ItemClick="ItemView_ItemClick">
                             </GridView>
                         </DataTemplate>
                     </HubSection>
