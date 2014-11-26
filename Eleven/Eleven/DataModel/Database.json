@@ -97,6 +97,16 @@
         "ImagePath": "Assets/Abaporu.jpg",
         "Description" : "Abaporu (from Tupi-Guarani language aba, pora, and u, the man that eats people) is an oil painting on canvas by the Brazilian painter Tarsila do Amaral, executed in 1928 as a birthday present to the writer Oswald de Andrade, her husband at the time.",
         "Content" : "asda"
+  },
+  {
+        "UniqueId": "Unique-10",
+		"Artist" : "Leonardo di ser Piero da Vinci",
+		"Period" : "High Renaissance",
+        "Title": "Ginevra de Benci",
+        "ThreeDPath": "--",
+        "ImagePath": "Assets/Ginevra de Benci.jpg",
+        "Description" : "Leonardo da Vinci painted this portrait of Ginevra de Benci, a young Florentine noblewoman who, at the age of sixteen, married Luigi Niccolini in 1474. The work may have been an engagement or wedding portrait, or it may have been commissioned by Bernardo Bembo, the Venetian Ambassador to Florence and Ginevras close friend and admirer. On the reverse side of the painting, a wreath of laurel and palm encircles a sprig of juniper and a scroll bears the Latin inscription, -Beauty Adorns Virtue.-",
+        "Content" : "asda"
   }
 ]
 }

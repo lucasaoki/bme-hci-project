@@ -61,11 +61,12 @@ namespace Eleven
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
             var sampleDataGroups = await DataSource.GetGroupsAsync();
             var RandomDataGroups = await DataSource.GetRandomGroupsAsync();
-            this.DefaultViewModel["Groups"] = sampleDataGroups;
+            var periodDataGroups = DataSource.GetPeriodGroup((ObservableCollection<DataClassArtist>)sampleDataGroups);
 
             obCollec.Add(RandomDataGroups);
             this.DefaultViewModel["Groups"] = sampleDataGroups;
             this.DefaultViewModel["RandomGroup"] = obCollec;
+            this.defaultViewModel["PeriodGroup"] = periodDataGroups;
         }
         /// <summary>
         /// Invoked when an item is clicked.
@@ -97,7 +98,10 @@ namespace Eleven
             Period_Grid.Background = null;
             Sculpture_Grid.Background = null;
 
-            this.Frame.Navigate(typeof(SearchResults), "painting");
+            Section1Header.Visibility = Visibility.Collapsed;
+            Section2Header.Visibility = Visibility.Visible;
+            Section3Header.Visibility = Visibility.Collapsed;
+            //this.Frame.Navigate(typeof(SearchResults), "painting");
         }
 
         private void Artist_Select_Click(object sender, RoutedEventArgs e)
@@ -108,7 +112,7 @@ namespace Eleven
             Period_Grid.Background = null;
             Sculpture_Grid.Background = null;
 
-            this.Frame.Navigate(typeof(SearchResults), "artist");
+            //this.Frame.Navigate(typeof(SearchResults), "artist");
         }
 
         private void Period_Select_Click(object sender, RoutedEventArgs e)
@@ -119,7 +123,10 @@ namespace Eleven
             Period_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
             Sculpture_Grid.Background = null;
 
-            this.Frame.Navigate(typeof(SearchResults), "period");
+            Section1Header.Visibility = Visibility.Collapsed;
+            Section2Header.Visibility = Visibility.Collapsed;
+            Section3Header.Visibility = Visibility.Visible;
+            //this.Frame.Navigate(typeof(SearchResults), "period");
         }
 
         private void Sculpture_Select_Click(object sender, RoutedEventArgs e)
@@ -140,6 +147,10 @@ namespace Eleven
             Artist_Grid.Background = null;
             Period_Grid.Background = null;
             Sculpture_Grid.Background = null;
+
+            Section1Header.Visibility = Visibility.Visible;
+            Section2Header.Visibility = Visibility.Visible;
+            Section3Header.Visibility = Visibility.Collapsed;
         }
 
         private void searchBox_Input(SearchBox sender, SearchBoxQuerySubmittedEventArgs args)

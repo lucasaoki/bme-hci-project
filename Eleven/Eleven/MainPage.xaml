@@ -10,7 +10,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    
+
     <Page.Resources>
         <DataTemplate x:Key="MainTemplate" >
             <Grid VerticalAlignment="Top" Width="500" Height="Auto">
@@ -25,7 +25,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="Template" >
-            <Grid VerticalAlignment="Top" Width="225" Height="225">
+            <Grid VerticalAlignment="Top" Width="200" Height="200">
                 <Border >
                     <Image Source="{Binding ImagePath}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
                 </Border>
@@ -36,16 +36,22 @@
             </Grid>
         </DataTemplate>
 
+
         <CollectionViewSource
             x:Name="GroupsViewSource"
             Source="{Binding Groups}"/>
+        <CollectionViewSource
+            x:Name="PeriodViewSource"
+            IsSourceGrouped="true"
+            ItemsPath="Items"
+            Source="{Binding PeriodGroup}"/>
         <CollectionViewSource
             x:Name="RandomViewSource"
             Source="{Binding RandomGroup}"/>
     </Page.Resources>
 
-    
-    
+
+
     <Grid >
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -79,22 +85,7 @@
             Grid.Column="1">
                 <Hub HorizontalAlignment="Left" VerticalAlignment="Top">
 
-                    <!--<HubSection x:Uid="Section1Header" Width="Auto" Height="Auto" d:DataContext="{Binding Source={d:DesignData Source=/DataModel/Database.json, Type=data:DataSource}}">
-                        <DataTemplate>
-                            <GridView
-                            x:Name="itemGridView"
-                            AutomationProperties.AutomationId="ItemGridView"
-                            AutomationProperties.Name="Items In Group"
-                            ItemsSource="{Binding Groups}"
-                            ItemTemplate="{StaticResource Template}"
-                            Width="Auto"
-                            SelectionMode="None"
-                            IsItemClickEnabled="True"
-                            ItemClick="ItemView_ItemClick">
-                            </GridView>
-                        </DataTemplate>
-                    </HubSection>-->
-                    <HubSection x:Uid="Section1Header" Width="Auto" Height="Auto" >
+                    <HubSection Name="Section1Header" Width="Auto" Height="Auto" >
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
@@ -102,6 +93,8 @@
                             AutomationProperties.Name="Items In Group"
 			                ItemsSource="{Binding Source={StaticResource RandomViewSource}}"
                             ItemTemplate="{StaticResource MainTemplate}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
                             Width="Auto"
                             SelectionMode="None"
                             IsItemClickEnabled="True"
@@ -110,24 +103,76 @@
                         </DataTemplate>
                     </HubSection>
 
-                    <HubSection x:Uid="Section2Header" Width="Auto" Height="Auto" >
+                    <HubSection Name="Section2Header" Width="Auto" Height="Auto" >
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
                             AutomationProperties.AutomationId="ItemGridView"
                             AutomationProperties.Name="Items In Group"
-			                ItemsSource="{Binding Source={StaticResource GroupsViewSource}}"
+                            ItemsSource="{Binding Source={StaticResource GroupsViewSource}}"
                             ItemTemplate="{StaticResource Template}"
                             Width="Auto"
                             SelectionMode="None"
                             IsItemClickEnabled="True"
-                            ItemClick="ItemView_ItemClick">
+                            ItemClick="ItemView_ItemClick"
+                                Padding="0,20,20,0">
                             </GridView>
                         </DataTemplate>
                     </HubSection>
+
+                    <HubSection Name="Section3Header" Width="Auto" Height="Auto" Visibility="Collapsed">
+                        <DataTemplate>
+                            <GridView
+                            x:Name="itemGridView"
+                            AutomationProperties.AutomationId="ItemGridView"
+                            AutomationProperties.Name="Items In Group"
+                            Width="Auto"
+                            SelectionMode="None"
+                            IsItemClickEnabled="True"
+                            ItemsSource="{Binding Source={StaticResource PeriodViewSource}}"
+                            ItemClick="ItemView_ItemClick">
+                                <GridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid VerticalAlignment="Top" Width="200" Height="200">
+                                            <Border >
+                                                <Image Source="{Binding ImagePath}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
+                                            </Border>
+                                            <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
+                                                <TextBlock Text="{Binding Title}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="Auto" Margin="15,0,15,0"/>
+                                                <TextBlock Text="{Binding Description}" Foreground="{ThemeResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridView.ItemTemplate>
+                                <GridView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <ItemsWrapGrid GroupPadding="0,0,70,0"/>
+                                    </ItemsPanelTemplate>
+                                </GridView.ItemsPanel>
+                                <GridView.GroupStyle>
+                                    <GroupStyle>
+                                        <GroupStyle.HeaderTemplate>
+                                            <DataTemplate>
+                                                <Grid Margin="0,0,0,2">
+                                                    <Button Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}"
+                                                        AutomationProperties.Name="Group Title"
+                                                        Style="{StaticResource TextBlockButtonStyle}" >
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" />
+                                                        </StackPanel>
+                                                    </Button>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </GroupStyle.HeaderTemplate>
+                                    </GroupStyle>
+                                </GridView.GroupStyle>
+                            </GridView>
+                        </DataTemplate>
+                    </HubSection>
+
                 </Hub>
             </Grid>
-            
+
             <Grid Grid.Column="0">
 
                 <StackPanel VerticalAlignment="Center" >
@@ -191,9 +236,9 @@
                 </StackPanel>
             </Grid>
         </Grid>
-        
-            
-   
+
+
+
 
         <Grid>
             <Grid.ColumnDefinitions>

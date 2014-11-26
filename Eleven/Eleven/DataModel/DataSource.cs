@@ -60,6 +60,20 @@ namespace Eleven.Data
         }
     }
 
+
+    public class DataClassGroups
+    {
+        public DataClassGroups(String type)
+        {
+            this.Type = type;
+            this.Items = new ObservableCollection<DataClassArtist>();
+        }
+
+        public string Type { get; private set; }
+        public ObservableCollection<DataClassArtist> Items{ get; private set; }
+
+    }
+
     /// <summary>
     /// Creates a collection of groups and items with content read from a static json file.
     /// 
@@ -71,6 +85,7 @@ namespace Eleven.Data
         private static DataSource _DataSource = new DataSource();
 
         private ObservableCollection<DataClassArtist> _groups = new ObservableCollection<DataClassArtist>();
+
 
         public ObservableCollection<DataClassArtist> Groups
         {
@@ -84,9 +99,38 @@ namespace Eleven.Data
             return _DataSource.Groups;
         }
 
+        public static IEnumerable<DataClassGroups> GetPeriodGroup(ObservableCollection<DataClassArtist> _dataclass)
+        {
+            ObservableCollection<string> str = new ObservableCollection<string>();
+            ObservableCollection<DataClassGroups> group_DCG = new ObservableCollection<DataClassGroups>();
+            //Period
+            foreach (DataClassArtist data in _dataclass)
+            {
+                if (!str.Contains(data.Period))
+                {
+                    str.Add(data.Period);
+                }
+            }
+            foreach (string data in str)
+            {
+                var matches = (IEnumerable<DataClassArtist>)_dataclass.Where((group) => group.Period.Equals(data));
+                DataClassGroups DCG = new DataClassGroups(matches.First().Period);
+
+                foreach (DataClassArtist match in matches)
+                {
+
+                    DataClassArtist new_DCG = new DataClassArtist(match.UniqueId, match.Artist, match.Period, match.Title, match.ImagePath, match.ThreeDPath, match.Description, match.Content);
+                    DCG.Items.Add(new_DCG);
+                }
+                group_DCG.Add(DCG);
+            }
+
+            return group_DCG;
+        }
+
         public static async Task<DataClassArtist> GetRandomGroupsAsync()
         {
-            
+
             await _DataSource.GetSampleDataAsync();
             var random = new Random();
 
