@@ -117,8 +117,7 @@
                                 Width="Auto"
                                 SelectionMode="None"
                                 IsItemClickEnabled="True"
-                                ItemClick="ItemView_ItemClick">
-                            </GridView>
+                                ItemClick="ItemView_ItemClick"/>
                         </DataTemplate>
                     </HubSection>
 
