@@ -70,7 +70,7 @@ namespace Eleven.Data
         }
 
         public string Type { get; private set; }
-        public ObservableCollection<DataClassArtist> Items{ get; private set; }
+        public ObservableCollection<DataClassArtist> Items { get; private set; }
 
     }
 
@@ -124,6 +124,71 @@ namespace Eleven.Data
                 }
                 group_DCG.Add(DCG);
             }
+
+            return group_DCG;
+        }
+
+        public static IEnumerable<DataClassGroups> GetArtistGroup(ObservableCollection<DataClassArtist> _dataclass)
+        {
+            ObservableCollection<string> str = new ObservableCollection<string>();
+            ObservableCollection<DataClassGroups> group_DCG = new ObservableCollection<DataClassGroups>();
+            //Period
+            foreach (DataClassArtist data in _dataclass)
+            {
+                if (!str.Contains(data.Artist))
+                {
+                    str.Add(data.Artist);
+                }
+            }
+            foreach (string data in str)
+            {
+                var matches = (IEnumerable<DataClassArtist>)_dataclass.Where((group) => group.Artist.Equals(data));
+                DataClassGroups DCG = new DataClassGroups(matches.First().Artist);
+
+                foreach (DataClassArtist match in matches)
+                {
+
+                    DataClassArtist new_DCG = new DataClassArtist(match.UniqueId, match.Artist, match.Period, match.Title, match.ImagePath, match.ThreeDPath, match.Description, match.Content);
+                    DCG.Items.Add(new_DCG);
+                }
+                group_DCG.Add(DCG);
+            }
+
+            return group_DCG;
+        }
+
+        public static IEnumerable<DataClassGroups> GetPaintingGroup(ObservableCollection<DataClassArtist> _dataclass)
+        {
+            ObservableCollection<DataClassGroups> group_DCG = new ObservableCollection<DataClassGroups>();
+            //Period
+            var matches = (IEnumerable<DataClassArtist>)_dataclass.Where((group) => group.Content.Equals("Painting"));
+            DataClassGroups DCG = new DataClassGroups("Painting");
+
+            foreach (DataClassArtist match in matches)
+            {
+
+                DataClassArtist new_DCG = new DataClassArtist(match.UniqueId, match.Artist, match.Period, match.Title, match.ImagePath, match.ThreeDPath, match.Description, match.Content);
+                DCG.Items.Add(new_DCG);
+            }
+            group_DCG.Add(DCG);
+
+            return group_DCG;
+        }
+
+        public static IEnumerable<DataClassGroups> GetSculptureGroup(ObservableCollection<DataClassArtist> _dataclass)
+        {
+            ObservableCollection<DataClassGroups> group_DCG = new ObservableCollection<DataClassGroups>();
+            //Period
+            var matches = (IEnumerable<DataClassArtist>)_dataclass.Where((group) => group.Content.Equals("Sculpture"));
+            DataClassGroups DCG = new DataClassGroups("Sculpture");
+
+            foreach (DataClassArtist match in matches)
+            {
+
+                DataClassArtist new_DCG = new DataClassArtist(match.UniqueId, match.Artist, match.Period, match.Title, match.ImagePath, match.ThreeDPath, match.Description, match.Content);
+                DCG.Items.Add(new_DCG);
+            }
+            group_DCG.Add(DCG);
 
             return group_DCG;
         }

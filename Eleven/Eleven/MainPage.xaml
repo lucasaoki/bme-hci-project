@@ -45,6 +45,25 @@
             IsSourceGrouped="true"
             ItemsPath="Items"
             Source="{Binding PeriodGroup}"/>
+
+        <CollectionViewSource
+            x:Name="ArtistViewSource"
+            IsSourceGrouped="true"
+            ItemsPath="Items"
+            Source="{Binding ArtistGroup}"/>
+
+        <CollectionViewSource
+            x:Name="PaintingViewSource"
+            IsSourceGrouped="true"
+            ItemsPath="Items"
+            Source="{Binding PaintingGroup}"/>
+
+        <CollectionViewSource
+            x:Name="SculptureViewSource"
+            IsSourceGrouped="true"
+            ItemsPath="Items"
+            Source="{Binding SculptureGroup}"/>
+        
         <CollectionViewSource
             x:Name="RandomViewSource"
             Source="{Binding RandomGroup}"/>
@@ -71,7 +90,7 @@
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+        
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="300"/>
@@ -85,25 +104,25 @@
             Grid.Column="1">
                 <Hub HorizontalAlignment="Left" VerticalAlignment="Top">
 
-                    <HubSection Name="Section1Header" Width="Auto" Height="Auto" >
+                    <HubSection Name="SectionRandom" Width="Auto" Height="Auto" >
                         <DataTemplate>
                             <GridView
-                            x:Name="itemGridView"
-                            AutomationProperties.AutomationId="ItemGridView"
-                            AutomationProperties.Name="Items In Group"
-			                ItemsSource="{Binding Source={StaticResource RandomViewSource}}"
-                            ItemTemplate="{StaticResource MainTemplate}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                            Width="Auto"
-                            SelectionMode="None"
-                            IsItemClickEnabled="True"
-                            ItemClick="ItemView_ItemClick">
+                                x:Name="itemGridView"
+                                AutomationProperties.AutomationId="ItemGridView"
+                                AutomationProperties.Name="Items In Group"
+			                    ItemsSource="{Binding Source={StaticResource RandomViewSource}}"
+                                ItemTemplate="{StaticResource MainTemplate}"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                Width="Auto"
+                                SelectionMode="None"
+                                IsItemClickEnabled="True"
+                                ItemClick="ItemView_ItemClick">
                             </GridView>
                         </DataTemplate>
                     </HubSection>
 
-                    <HubSection Name="Section2Header" Width="Auto" Height="Auto" >
+                    <HubSection Name="SectionFavorite" Width="Auto" Height="Auto" >
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
@@ -120,7 +139,7 @@
                         </DataTemplate>
                     </HubSection>
 
-                    <HubSection Name="Section3Header" Width="Auto" Height="Auto" Visibility="Collapsed">
+                    <HubSection Name="SectionPeriod" Width="Auto" Height="Auto" Visibility="Collapsed">
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
@@ -169,7 +188,156 @@
                             </GridView>
                         </DataTemplate>
                     </HubSection>
+                    
+                    <HubSection Name="SectionArtist" Width="Auto" Height="Auto" Visibility="Collapsed">
+                        <DataTemplate>
+                            <GridView
+                            x:Name="itemGridView"
+                            AutomationProperties.AutomationId="ItemGridView"
+                            AutomationProperties.Name="Items In Group"
+                            Width="Auto"
+                            SelectionMode="None"
+                            IsItemClickEnabled="True"
+                            ItemsSource="{Binding Source={StaticResource ArtistViewSource}}"
+                            ItemClick="ItemView_ItemClick">
+                                <GridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid VerticalAlignment="Top" Width="200" Height="200">
+                                            <Border >
+                                                <Image Source="{Binding ImagePath}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
+                                            </Border>
+                                            <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
+                                                <TextBlock Text="{Binding Title}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="Auto" Margin="15,0,15,0"/>
+                                                <TextBlock Text="{Binding Description}" Foreground="{ThemeResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridView.ItemTemplate>
+                                <GridView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <ItemsWrapGrid GroupPadding="0,0,70,0"/>
+                                    </ItemsPanelTemplate>
+                                </GridView.ItemsPanel>
+                                <GridView.GroupStyle>
+                                    <GroupStyle>
+                                        <GroupStyle.HeaderTemplate>
+                                            <DataTemplate>
+                                                <Grid Margin="0,0,0,2">
+                                                    <Button Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}"
+                                                        AutomationProperties.Name="Group Title"
+                                                        Style="{StaticResource TextBlockButtonStyle}" >
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" />
+                                                        </StackPanel>
+                                                    </Button>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </GroupStyle.HeaderTemplate>
+                                    </GroupStyle>
+                                </GridView.GroupStyle>
+                            </GridView>
+                        </DataTemplate>
+                    </HubSection>
+                    
+                    <HubSection Name="SectionPainting" Width="Auto" Height="Auto" Visibility="Collapsed">
+                        <DataTemplate>
+                            <GridView
+                            x:Name="itemGridView"
+                            AutomationProperties.AutomationId="ItemGridView"
+                            AutomationProperties.Name="Items In Group"
+                            Width="Auto"
+                            SelectionMode="None"
+                            IsItemClickEnabled="True"
+                            ItemsSource="{Binding Source={StaticResource PaintingViewSource}}"
+                            ItemClick="ItemView_ItemClick">
+                                <GridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid VerticalAlignment="Top" Width="200" Height="200">
+                                            <Border >
+                                                <Image Source="{Binding ImagePath}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
+                                            </Border>
+                                            <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
+                                                <TextBlock Text="{Binding Title}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="Auto" Margin="15,0,15,0"/>
+                                                <TextBlock Text="{Binding Description}" Foreground="{ThemeResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridView.ItemTemplate>
+                                <GridView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <ItemsWrapGrid GroupPadding="0,0,70,0"/>
+                                    </ItemsPanelTemplate>
+                                </GridView.ItemsPanel>
+                                <GridView.GroupStyle>
+                                    <GroupStyle>
+                                        <GroupStyle.HeaderTemplate>
+                                            <DataTemplate>
+                                                <Grid Margin="0,0,0,2">
+                                                    <Button Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}"
+                                                        AutomationProperties.Name="Group Title"
+                                                        Style="{StaticResource TextBlockButtonStyle}" >
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" />
+                                                        </StackPanel>
+                                                    </Button>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </GroupStyle.HeaderTemplate>
+                                    </GroupStyle>
+                                </GridView.GroupStyle>
+                            </GridView>
+                        </DataTemplate>
+                    </HubSection>
 
+                    <HubSection Name="SectionSculpture" Width="Auto" Height="Auto" Visibility="Collapsed">
+                        <DataTemplate>
+                            <GridView
+                            x:Name="itemGridView"
+                            AutomationProperties.AutomationId="ItemGridView"
+                            AutomationProperties.Name="Items In Group"
+                            Width="Auto"
+                            SelectionMode="None"
+                            IsItemClickEnabled="True"
+                            ItemsSource="{Binding Source={StaticResource SculptureViewSource}}"
+                            ItemClick="ItemView_ItemClick">
+                                <GridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid VerticalAlignment="Top" Width="200" Height="200">
+                                            <Border >
+                                                <Image Source="{Binding ImagePath}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
+                                            </Border>
+                                            <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
+                                                <TextBlock Text="{Binding Title}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="Auto" Margin="15,0,15,0"/>
+                                                <TextBlock Text="{Binding Description}" Foreground="{ThemeResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridView.ItemTemplate>
+                                <GridView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <ItemsWrapGrid GroupPadding="0,0,70,0"/>
+                                    </ItemsPanelTemplate>
+                                </GridView.ItemsPanel>
+                                <GridView.GroupStyle>
+                                    <GroupStyle>
+                                        <GroupStyle.HeaderTemplate>
+                                            <DataTemplate>
+                                                <Grid Margin="0,0,0,2">
+                                                    <Button Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}"
+                                                        AutomationProperties.Name="Group Title"
+                                                        Style="{StaticResource TextBlockButtonStyle}" >
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" />
+                                                        </StackPanel>
+                                                    </Button>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </GroupStyle.HeaderTemplate>
+                                    </GroupStyle>
+                                </GridView.GroupStyle>
+                            </GridView>
+                        </DataTemplate>
+                    </HubSection>
                 </Hub>
             </Grid>
 
@@ -179,7 +347,7 @@
 
                     <StackPanel Orientation="Horizontal" x:Name="Home_Grid" PointerPressed="Home_Select_Click" Height="100">
                         <Grid >
-                            <Image Stretch="Uniform" Source="Assets/Home.gif"/>
+                            <Image Stretch="Uniform" Source="Assets/Home.gif" Width="80" Margin="10"/>
                         </Grid>
 
                         <Grid >
@@ -192,7 +360,7 @@
 
                     <StackPanel Orientation="Horizontal" x:Name="Artwork_Grid" PointerPressed="ArtWork_Select_Click" Height="100">
                         <Grid >
-                            <Image Stretch="Uniform" Source="Assets/Artwork.gif"/>
+                            <Image Stretch="Uniform" Source="Assets/Artwork.gif" Width="80" Margin="10"/>
                         </Grid>
 
                         <Grid >
@@ -203,7 +371,7 @@
 
                     <StackPanel Orientation="Horizontal" x:Name="Period_Grid" PointerPressed="Period_Select_Click"  Height="100">
                         <Grid >
-                            <Image Stretch="Uniform" Source="Assets/Period.gif"/>
+                            <Image Stretch="Uniform" Source="Assets/Period.gif" Width="80" Margin="10"/>
                         </Grid>
 
                         <Grid >
@@ -214,7 +382,7 @@
 
                     <StackPanel Orientation="Horizontal" x:Name="Artist_Grid" PointerPressed="Artist_Select_Click" Height="100">
                         <Grid >
-                            <Image Stretch="Uniform" Source="Assets/Artist.gif"/>
+                            <Image Stretch="Uniform" Source="Assets/Artist.gif" Width="80" Margin="10"/>
                         </Grid>
 
                         <Grid >
@@ -225,7 +393,7 @@
 
                     <StackPanel Orientation="Horizontal" x:Name="Sculpture_Grid" PointerPressed="Sculpture_Select_Click" Height="100">
                         <Grid >
-                            <Image Stretch="Uniform" Source="Assets/Sculpture.gif"/>
+                            <Image Stretch="Uniform" Source="Assets/Sculpture.gif" Width="80" Margin="10"/>
                         </Grid>
 
                         <Grid >
