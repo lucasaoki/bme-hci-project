@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Eleven.Common;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Eleven.Common;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -13,18 +12,15 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Eleven.Data;
-using System.Collections.ObjectModel;
 
-// The Group Detail Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234229
+// The Hub Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=321224
 
-namespace Eleven
+namespace Eleven.Template
 {
     /// <summary>
-    /// A page that displays an overview of a single group, including a preview of the items
-    /// within the group.
+    /// A page that displays a grouped collection of items.
     /// </summary>
-    public sealed partial class ItemViewer : Page
+    public sealed partial class HubPage1 : Page
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -46,13 +42,13 @@ namespace Eleven
             get { return this.navigationHelper; }
         }
 
-
-        public ItemViewer()
+        public HubPage1()
         {
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
         }
+
 
         /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also
@@ -65,20 +61,9 @@ namespace Eleven
         /// <see cref="Frame.Navigate(Type, Object)"/> when this page was initially requested and
         /// a dictionary of state preserved by this page during an earlier
         /// session.  The state will be null the first time a page is visited.</param>
-        private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            // TODO: Assign a bindable group to this.DefaultViewModel["Group"]
-            // TODO: Assign a collection of bindable items to this.DefaultViewModel["Items"]
-            var sampleData = await DataSource.GetGroupAsync((string) e.NavigationParameter);
-
-            ObservableCollection<DataClassArtist> obCollec = new ObservableCollection<DataClassArtist>();
-            obCollec.Add(sampleData);
-            this.DefaultViewModel["Groups"] = obCollec;
-        }
-
-        private void searchBox_Input(SearchBox sender, SearchBoxQuerySubmittedEventArgs args)
-        {
-            this.Frame.Navigate(typeof(SearchResults), args.QueryText);
+            // TODO: Assign a collection of bindable groups to this.DefaultViewModel["Groups"]
         }
 
         #region NavigationHelper registration
@@ -103,10 +88,5 @@ namespace Eleven
         }
 
         #endregion
-
-        private void goHome(object sender, TappedRoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(MainPage));
-        }
     }
 }
