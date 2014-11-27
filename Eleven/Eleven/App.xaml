@@ -26,10 +26,10 @@
         <SolidColorBrush x:Key="SearchBoxBorderThemeBrush" Color="Black" />
 
         <!-- SearchBox border when the mouse is over the control -->
-        <SolidColorBrush x:Key="SearchBoxPointerOverBorderThemeBrush" Color="Black" />
+        <SolidColorBrush x:Key="SearchBoxPointerOverBorderThemeBrush" Color="White" />
 
         <!-- SearchBox border when the control is focused -->
-        <SolidColorBrush x:Key="SearchBoxFocusedBorderThemeBrush" Color="Black" />
+        <SolidColorBrush x:Key="SearchBoxFocusedBorderThemeBrush" Color="White" />
 
         <!-- Search button background when when the control is focused, but the mouse is 
              out of the button.
@@ -72,5 +72,6 @@
              over the element -->
         <SolidColorBrush x:Key="SearchBoxHitHighlightSelectedForegroundThemeBrush"
                          Color="YellowGreen" />
+        
     </Application.Resources>
 </Application>

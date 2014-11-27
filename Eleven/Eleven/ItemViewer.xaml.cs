@@ -104,7 +104,12 @@ namespace Eleven
 
         #endregion
 
-        private void goHome(object sender, TappedRoutedEventArgs e)
+        private void img_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
+        }
+
+        private void Home_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
         }

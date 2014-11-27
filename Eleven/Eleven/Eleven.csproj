@@ -105,6 +105,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\BooleanNegationConverter.cs" />
+    <Compile Include="Common\BooleanToVisibilityConverter.cs" />
     <Compile Include="ItemViewer.xaml.cs">
       <DependentUpon>ItemViewer.xaml</DependentUpon>
     </Compile>
@@ -125,6 +127,9 @@
     </Compile>
     <Compile Include="Template\HubPage1.xaml.cs">
       <DependentUpon>HubPage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Template\SearchResultsPage1.xaml.cs">
+      <DependentUpon>SearchResultsPage1.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Template\HubPage1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Template\SearchResultsPage1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

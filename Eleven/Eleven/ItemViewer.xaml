@@ -17,6 +17,21 @@
         <CollectionViewSource
             x:Name="itemsViewSource"
             Source="{Binding Groups}"/>
+
+        <Flyout x:Key="ImagePreviewFlyout" Placement="Full">
+            <!-- The DataContext of the Image that the flyout is attached to must be the Image's Source. -->
+            <Image Source="{Binding Path=Source}"/>
+            <Flyout.FlyoutPresenterStyle>
+                <Style TargetType="FlyoutPresenter">
+                    <!--<Setter Property="ScrollViewer.ZoomMode" Value="Enabled"/>-->
+                    <Setter Property="Background" Value="Black"/>
+                    <Setter Property="BorderBrush" Value="Gray"/>
+                    <Setter Property="BorderThickness" Value="5"/>
+                    <!--<Setter Property="MinHeight" Value="300"/>
+                    <Setter Property="MinWidth" Value="300"/>-->
+                </Style>
+            </Flyout.FlyoutPresenterStyle>
+        </Flyout>
     </Page.Resources>
 
     <!--
@@ -52,46 +67,43 @@
                 <ColumnDefinition Width="40*"/>
                 <ColumnDefinition Width="60*"/>
             </Grid.ColumnDefinitions>
-            <GridView
+            <Image Source="{Binding ImagePath, Source={StaticResource itemsViewSource}}" Stretch="Uniform" AutomationProperties.Name="{Binding Title, Source={StaticResource itemsViewSource}}" Tapped="img_Tapped" FlyoutBase.AttachedFlyout="{StaticResource ImagePreviewFlyout}" DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}" Margin="50" />
+            <!--<GridView
     			x:Name="itemGridView"
     			AutomationProperties.AutomationId="ItemGridView"
     			AutomationProperties.Name="Items In Group"
     			TabIndex="1"
     			Padding="50" 
-    			ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
-    			SelectionMode="None" IsHitTestVisible="False" Margin="0">
+    			ItemsSource="{Binding Source={StaticResource itemsViewSource}}" Margin="0" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" SelectionMode="None">
                 <GridView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Width="480">
-
-                            <Image Source="{Binding ImagePath}" Height="400" Stretch="Uniform" AutomationProperties.Name="{Binding Title}" IsHitTestVisible="False"/>
-
+                        <StackPanel>
                         </StackPanel>
                     </DataTemplate>
                 </GridView.ItemTemplate>
-            </GridView>
+            </GridView>-->
             <HubSection Width="500" Grid.Column="1">
                 <DataTemplate>
-                    <StackPanel>
-                        <!--<Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>-->
+                        </Grid.RowDefinitions>
                         <TextBlock Style="{StaticResource SubheaderTextBlockStyle}"  TextWrapping="Wrap" 
                                    Text="{Binding Title, Source={StaticResource itemsViewSource}}" Margin="0,0,20,0"/>
                         <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Margin="0,10,20,0" TextWrapping="Wrap" 
-                                   Text="{Binding Artist, Source={StaticResource itemsViewSource}}" FontSize="18" Foreground="#FFA6A6A6"/>
+                                   Text="{Binding Artist, Source={StaticResource itemsViewSource}}" FontSize="18" Foreground="#FFA6A6A6" Grid.Row="1"/>
                         <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Margin="0,10,20,0" TextWrapping="Wrap" 
-                                   Text="{Binding Period, Source={StaticResource itemsViewSource}}" FontSize="18" Foreground="#FFA6A6A6"/>
-                        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0,20,0,0"
-                                   Text="Description text:"/>
-                        <ScrollViewer Padding="0,0,20,0" HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto" Margin="0,10,0,0" MaxHeight="350">
+                                   Text="{Binding Period, Source={StaticResource itemsViewSource}}" FontSize="18" Foreground="#FFA6A6A6" Grid.Row="2"/>
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0,20,0,0" Text="Description text:" Grid.Row="3"/>
+                        <ScrollViewer Padding="0,0,20,0" HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto" Margin="0,10,0,0" Grid.Row="4">
                             <TextBlock Style="{StaticResource BodyTextBlockStyle}" 
                                    Text="{Binding Description, Source={StaticResource itemsViewSource}}" TextAlignment="Justify"/>
                         </ScrollViewer>
-                    </StackPanel>
+                    </Grid>
                 </DataTemplate>
             </HubSection>
 
@@ -100,18 +112,23 @@
         <!-- Back button and page title -->
         <Grid x:Name="topBar">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="60*"/>
-                <ColumnDefinition Width="473*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="433*"/>
                 <ColumnDefinition Width="150*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="backButton" Margin="0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
-                        Style="{StaticResource NavigationBackButtonNormalStyle}"
-                        VerticalAlignment="Center"
-                        AutomationProperties.Name="Back"
-                        AutomationProperties.AutomationId="BackButton"
-                        AutomationProperties.ItemType="Navigation Button" Height="41" Width="41" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0" Height="40" Tapped="goHome"/>
-            <SearchBox x:Name="search_box" Grid.Column="2" Margin="0,0,40,0" Height="40" PlaceholderText="Search" FontSize="20" BorderBrush="Black" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input" />
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="78" Margin="45,39,34,39" Width="121" >
+                <Button x:Name="backButton" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+        			Style="{StaticResource NavigationBackButtonNormalStyle}"
+        			AutomationProperties.Name="Back"
+        			AutomationProperties.AutomationId="BackButton"
+        			AutomationProperties.ItemType="Navigation Button" VerticalAlignment="Center"/>
+                <AppBarButton x:Name="homeButton" 
+        			AutomationProperties.Name="Home"
+        			AutomationProperties.AutomationId="HomeButton"
+        			AutomationProperties.ItemType="Navigation Button" Margin="20,6,0,0" Icon="Home" IsCompact="True" Tapped="Home_Tapped"/>
+            </StackPanel>
+            <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0,58" Height="40" />
+            <SearchBox x:Name="search_box" Grid.Column="2" Margin="0,58,40,58" Height="40" PlaceholderText="Search" FontSize="20" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input"/>
         </Grid>
     </Grid>
 
