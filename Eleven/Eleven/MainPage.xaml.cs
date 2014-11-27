@@ -2,6 +2,7 @@
 using Eleven.Data;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -15,9 +16,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-using System.Windows;
-using System.Windows.Input;
-using System.Collections.ObjectModel;
+
 
 // The Grouped Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234231
 
@@ -62,11 +61,19 @@ namespace Eleven
             var sampleDataGroups = await DataSource.GetGroupsAsync();
             var RandomDataGroups = await DataSource.GetRandomGroupsAsync();
             var periodDataGroups = DataSource.GetPeriodGroup((ObservableCollection<DataClassArtist>)sampleDataGroups);
+            var artistDataGroups = DataSource.GetArtistGroup((ObservableCollection<DataClassArtist>)sampleDataGroups);
+            var sculptureDataGroups = DataSource.GetSculptureGroup((ObservableCollection<DataClassArtist>)sampleDataGroups);
+            var paintingDataGroups = DataSource.GetPaintingGroup((ObservableCollection<DataClassArtist>)sampleDataGroups);
 
             obCollec.Add(RandomDataGroups);
             this.DefaultViewModel["Groups"] = sampleDataGroups;
             this.DefaultViewModel["RandomGroup"] = obCollec;
+
             this.defaultViewModel["PeriodGroup"] = periodDataGroups;
+            this.defaultViewModel["ArtistGroup"] = artistDataGroups;
+            this.defaultViewModel["SculptureGroup"] = sculptureDataGroups;
+            this.defaultViewModel["PaintingGroup"] = paintingDataGroups;
+            
         }
         /// <summary>
         /// Invoked when an item is clicked.
@@ -98,9 +105,12 @@ namespace Eleven
             Period_Grid.Background = null;
             Sculpture_Grid.Background = null;
 
-            Section1Header.Visibility = Visibility.Collapsed;
-            Section2Header.Visibility = Visibility.Visible;
-            Section3Header.Visibility = Visibility.Collapsed;
+            SectionRandom.Visibility = Visibility.Collapsed;
+            SectionFavorite.Visibility = Visibility.Collapsed;
+            SectionPeriod.Visibility = Visibility.Collapsed;
+            SectionArtist.Visibility = Visibility.Collapsed;
+            SectionPainting.Visibility = Visibility.Visible;
+            SectionSculpture.Visibility = Visibility.Collapsed;
             //this.Frame.Navigate(typeof(SearchResults), "painting");
         }
 
@@ -111,6 +121,13 @@ namespace Eleven
             Artist_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
             Period_Grid.Background = null;
             Sculpture_Grid.Background = null;
+
+            SectionRandom.Visibility = Visibility.Collapsed;
+            SectionFavorite.Visibility = Visibility.Collapsed;
+            SectionPeriod.Visibility = Visibility.Collapsed;
+            SectionArtist.Visibility = Visibility.Visible;
+            SectionPainting.Visibility = Visibility.Collapsed;
+            SectionSculpture.Visibility = Visibility.Collapsed;
 
             //this.Frame.Navigate(typeof(SearchResults), "artist");
         }
@@ -123,9 +140,13 @@ namespace Eleven
             Period_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
             Sculpture_Grid.Background = null;
 
-            Section1Header.Visibility = Visibility.Collapsed;
-            Section2Header.Visibility = Visibility.Collapsed;
-            Section3Header.Visibility = Visibility.Visible;
+            SectionRandom.Visibility = Visibility.Collapsed;
+            SectionFavorite.Visibility = Visibility.Collapsed;
+            SectionPeriod.Visibility = Visibility.Visible;
+            SectionArtist.Visibility = Visibility.Collapsed;
+            SectionPainting.Visibility = Visibility.Collapsed;
+            SectionSculpture.Visibility = Visibility.Collapsed;
+
             //this.Frame.Navigate(typeof(SearchResults), "period");
         }
 
@@ -137,7 +158,14 @@ namespace Eleven
             Period_Grid.Background = null;
             Sculpture_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
 
-            this.Frame.Navigate(typeof(SearchResults), "sculpture");
+            SectionRandom.Visibility = Visibility.Collapsed;
+            SectionFavorite.Visibility = Visibility.Collapsed;
+            SectionPeriod.Visibility = Visibility.Collapsed;
+            SectionArtist.Visibility = Visibility.Collapsed;
+            SectionPainting.Visibility = Visibility.Collapsed;
+            SectionSculpture.Visibility = Visibility.Visible;
+
+            //this.Frame.Navigate(typeof(SearchResults), "sculpture");
         }
 
         private void Home_Select_Click(object sender, RoutedEventArgs e)
@@ -148,11 +176,14 @@ namespace Eleven
             Period_Grid.Background = null;
             Sculpture_Grid.Background = null;
 
-            Section1Header.Visibility = Visibility.Visible;
-            Section2Header.Visibility = Visibility.Visible;
-            Section3Header.Visibility = Visibility.Collapsed;
+            SectionRandom.Visibility = Visibility.Visible;
+            SectionFavorite.Visibility = Visibility.Visible;
+            SectionPeriod.Visibility = Visibility.Collapsed;
+            SectionArtist.Visibility = Visibility.Collapsed;
+            SectionPainting.Visibility = Visibility.Collapsed;
+            SectionSculpture.Visibility = Visibility.Collapsed;
         }
-
+        
         private void searchBox_Input(SearchBox sender, SearchBoxQuerySubmittedEventArgs args)
         {
             this.Frame.Navigate(typeof(SearchResults), args.QueryText);
