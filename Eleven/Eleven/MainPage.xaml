@@ -19,7 +19,7 @@
                 </Border>
                 <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
                     <TextBlock Text="{Binding Title}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="Auto" Margin="15,0,15,0"/>
-                    <TextBlock Text="{Binding Description}" Foreground="{ThemeResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
+                    <TextBlock Text="{Binding Artist}" Foreground="{ThemeResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -117,8 +117,7 @@
                                 Width="Auto"
                                 SelectionMode="None"
                                 IsItemClickEnabled="True"
-                                ItemClick="ItemView_ItemClick">
-                            </GridView>
+                                ItemClick="ItemView_ItemClick"/>
                         </DataTemplate>
                     </HubSection>
 
