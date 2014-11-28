@@ -24,7 +24,7 @@
             </Grid>
             <Flyout.FlyoutPresenterStyle>
                 <Style TargetType="FlyoutPresenter">
-                    <Setter Property="ScrollViewer.ZoomMode" Value="Disabled"/>
+                    <Setter Property="ScrollViewer.ZoomMode" Value="Enabled"/>
                     <Setter Property="Background" Value="Black"/>
                     <Setter Property="BorderBrush" Value="Gray"/>
                     <Setter Property="BorderThickness" Value="5"/>
@@ -32,7 +32,6 @@
                     <Setter Property="MinWidth" Value="0"/>
                     <Setter Property="MaxHeight" Value="Infinity"/>
                     <Setter Property="MaxWidth" Value="Infinity"/>
-                    <Setter Property="Margin" Value="50"/>
                 </Style>
             </Flyout.FlyoutPresenterStyle>
         </Flyout>
@@ -132,7 +131,7 @@
         			AutomationProperties.ItemType="Navigation Button" Margin="0,6,0,0" Icon="Home" IsCompact="True" Tapped="Home_Tapped"/>
             </StackPanel>
             <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0,58" />
-            <SearchBox x:Name="search_box" Grid.Column="2" Margin="0,58,40,58" PlaceholderText="Search" FontSize="20" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input"/>
+            <SearchBox x:Name="search_box" Grid.Column="2" Margin="0,58,40,58" FontSize="20" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input"/>
         </Grid>
     </Grid>
 

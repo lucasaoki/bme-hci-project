@@ -13,7 +13,7 @@
 
     <Page.Resources>
         <DataTemplate x:Key="MainTemplate" >
-            <Grid VerticalAlignment="Top" Width="500" Height="Auto">
+            <Grid VerticalAlignment="Top">
                 <Border >
                     <Image Source="{Binding ImagePath}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
                 </Border>
