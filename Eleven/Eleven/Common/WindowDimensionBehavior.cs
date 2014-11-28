@@ -1,11 +1,12 @@
-﻿using Microsoft.XAML.Interactivity;
-using Windows.UI.XAML;
-using Windows.UI.XAML.Controls;
+﻿using Microsoft.Xaml.Interactivity;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace golflink.Helpers
 {
 
-    [Microsoft.XAML.Interactivity.TypeConstraint(typeof(FrameworkElement))]
+    [Microsoft.Xaml.Interactivity.TypeConstraint(typeof(FrameworkElement))]
     class WindowDimensionBehavior : DependencyObject, IBehavior
     {
         public WindowDimensionBehavior()
