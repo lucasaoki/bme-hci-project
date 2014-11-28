@@ -96,14 +96,14 @@ namespace Eleven
         /// <param name="sender">The GridView (or ListView when the application is snapped)
         /// displaying the item clicked.</param>
         /// <param name="e">Event data that describes the item clicked.</param>
+        /// 
+
+
+
 
         private void ArtWork_Select_Click(object sender, RoutedEventArgs e)
         {
-            Home_Grid.Background = null;
-            Artwork_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Coral);
-            Artist_Grid.Background = null;
-            Period_Grid.Background = null;
-            Sculpture_Grid.Background = null;
+           
 
             SectionRandom.Visibility = Visibility.Collapsed;
             SectionFavorite.Visibility = Visibility.Collapsed;
@@ -116,11 +116,6 @@ namespace Eleven
 
         private void Artist_Select_Click(object sender, RoutedEventArgs e)
         {
-            Home_Grid.Background  = null;
-            Artwork_Grid.Background = null;
-            Artist_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
-            Period_Grid.Background = null;
-            Sculpture_Grid.Background = null;
 
             SectionRandom.Visibility = Visibility.Collapsed;
             SectionFavorite.Visibility = Visibility.Collapsed;
@@ -134,11 +129,6 @@ namespace Eleven
 
         private void Period_Select_Click(object sender, RoutedEventArgs e)
         {
-            Home_Grid.Background = null;
-            Artwork_Grid.Background = null;
-            Artist_Grid.Background = null;
-            Period_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
-            Sculpture_Grid.Background = null;
 
             SectionRandom.Visibility = Visibility.Collapsed;
             SectionFavorite.Visibility = Visibility.Collapsed;
@@ -152,11 +142,6 @@ namespace Eleven
 
         private void Sculpture_Select_Click(object sender, RoutedEventArgs e)
         {
-            Home_Grid.Background = null;
-            Artwork_Grid.Background = null;
-            Artist_Grid.Background = null;
-            Period_Grid.Background = null;
-            Sculpture_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
 
             SectionRandom.Visibility = Visibility.Collapsed;
             SectionFavorite.Visibility = Visibility.Collapsed;
@@ -170,11 +155,6 @@ namespace Eleven
 
         private void Home_Select_Click(object sender, RoutedEventArgs e)
         {
-            Home_Grid.Background = new SolidColorBrush(Windows.UI.Colors.Firebrick);
-            Artwork_Grid.Background = null;
-            Artist_Grid.Background = null;
-            Period_Grid.Background = null;
-            Sculpture_Grid.Background = null;
 
             SectionRandom.Visibility = Visibility.Visible;
             SectionFavorite.Visibility = Visibility.Visible;
@@ -182,6 +162,7 @@ namespace Eleven
             SectionArtist.Visibility = Visibility.Collapsed;
             SectionPainting.Visibility = Visibility.Collapsed;
             SectionSculpture.Visibility = Visibility.Collapsed;
+
         }
         
         private void searchBox_Input(SearchBox sender, SearchBoxQuerySubmittedEventArgs args)
@@ -211,6 +192,7 @@ namespace Eleven
         }
 
         #endregion
+
 
     }
 }

@@ -63,7 +63,7 @@
             IsSourceGrouped="true"
             ItemsPath="Items"
             Source="{Binding SculptureGroup}"/>
-        
+
         <CollectionViewSource
             x:Name="RandomViewSource"
             Source="{Binding RandomGroup}"/>
@@ -90,7 +90,7 @@
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="300"/>
@@ -117,7 +117,8 @@
                                 Width="Auto"
                                 SelectionMode="None"
                                 IsItemClickEnabled="True"
-                                ItemClick="ItemView_ItemClick"/>
+                                ItemClick="ItemView_ItemClick">
+                            </GridView>
                         </DataTemplate>
                     </HubSection>
 
@@ -188,7 +189,7 @@
                             </GridView>
                         </DataTemplate>
                     </HubSection>
-                    
+
                     <HubSection Name="SectionArtist" Width="Auto" Height="Auto" Visibility="Collapsed">
                         <DataTemplate>
                             <GridView
@@ -238,7 +239,7 @@
                             </GridView>
                         </DataTemplate>
                     </HubSection>
-                    
+
                     <HubSection Name="SectionPainting" Width="Auto" Height="Auto" Visibility="Collapsed">
                         <DataTemplate>
                             <GridView
@@ -343,64 +344,75 @@
 
             <Grid Grid.Column="0">
 
-                <StackPanel VerticalAlignment="Center" >
-
-                    <StackPanel Orientation="Horizontal" x:Name="Home_Grid" PointerPressed="Home_Select_Click" Height="100" IsHitTestVisible="True">
-                        <Grid >
-                            <Image Stretch="Uniform" Source="Assets/Home.gif" Width="80" Margin="10"/>
-                        </Grid>
-
-                        <Grid >
-                            <TextBlock x:Name="Home_TextBox"  Text="Home"  FontSize="30" FontFamily="Garamond" 
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <Button x:Name="Home_Grid"
+                        Click="Home_Select_Click" BorderThickness="0" Padding="0,0,0,0" Margin="0,0,0,0" Width="303" HorizontalAlignment="Right" HorizontalContentAlignment="Left">
+                        <Button.ContentTemplate>
+                            <DataTemplate >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                    <Image Stretch="Uniform" Source="Assets/Home.gif" Width="80" Margin="10"/>
+                                    <TextBlock x:Name="Home_TextBox"  Text="Home"  FontSize="30" FontFamily="Garamond" 
                                         HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
-                        </Grid>
-                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
 
 
-
-                    <StackPanel Orientation="Horizontal" x:Name="Artwork_Grid" PointerPressed="ArtWork_Select_Click" Height="100" IsHitTestVisible="True">
-                        <Grid >
-                            <Image Stretch="Uniform" Source="Assets/Artwork.gif" Width="80" Margin="10"/>
-                        </Grid>
-
-                        <Grid >
-                            <TextBlock x:Name="Artwork_TextBox"  Text="Artwork"  FontSize="30" FontFamily="Garamond" 
+                    <Button x:Name="Artwork_Grid"
+                        Click="ArtWork_Select_Click" BorderThickness="0" Padding="0,0,0,0" Margin="0,0,0,0" Width="303" HorizontalAlignment="Right" HorizontalContentAlignment="Left">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                    <Image Stretch="Uniform" Source="Assets/Artwork.gif" Width="80" Margin="10"/>
+                                    <TextBlock x:Name="Home_TextBox"  Text="Painting"  FontSize="30" FontFamily="Garamond" 
                                         HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
-                        </Grid>
-                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
 
-                    <StackPanel Orientation="Horizontal" x:Name="Period_Grid" PointerPressed="Period_Select_Click"  Height="100">
-                        <Grid >
-                            <Image Stretch="Uniform" Source="Assets/Period.gif" Width="80" Margin="10"/>
-                        </Grid>
-
-                        <Grid >
-                            <TextBlock x:Name="Period_TextBox"  Text="Period"  FontSize="30" FontFamily="Garamond" 
+                    <Button x:Name="Period_Grid"
+                        Click="Period_Select_Click" BorderThickness="0" Padding="0,0,0,0" Margin="0,0,0,0" Width="303" HorizontalAlignment="Right" HorizontalContentAlignment="Left">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Stretch="Uniform" Source="Assets/Artwork.gif" Width="80" Margin="10"/>
+                                    <TextBlock x:Name="Home_TextBox"  Text="Period"  FontSize="30" FontFamily="Garamond" 
                                         HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
-                        </Grid>
-                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
 
-                    <StackPanel Orientation="Horizontal" x:Name="Artist_Grid" PointerPressed="Artist_Select_Click" Height="100">
-                        <Grid >
-                            <Image Stretch="Uniform" Source="Assets/Artist.gif" Width="80" Margin="10"/>
-                        </Grid>
-
-                        <Grid >
-                            <TextBlock x:Name="Artist_TextBox"  Text="Artist"  FontSize="30" FontFamily="Garamond" 
+                    <Button x:Name="Artist_Grid"
+                        Click="Artist_Select_Click" BorderThickness="0" Padding="0,0,0,0" Margin="0,0,0,0" Width="303" HorizontalAlignment="Right" HorizontalContentAlignment="Left">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Stretch="Uniform" Source="Assets/Artist.gif" Width="80" Margin="10"/>
+                                    <TextBlock x:Name="Home_TextBox"  Text="Artist"  FontSize="30" FontFamily="Garamond" 
                                         HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
-                        </Grid>
-                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
 
-                    <StackPanel Orientation="Horizontal" x:Name="Sculpture_Grid" PointerPressed="Sculpture_Select_Click" Height="100">
-                        <Grid >
-                            <Image Stretch="Uniform" Source="Assets/Sculpture.gif" Width="80" Margin="10"/>
-                        </Grid>
-
-                        <Grid >
-                            <TextBlock x:Name="Sculpture_TextBox"  Text="Sculpture"  FontSize="30" FontFamily="Garamond" 
+                    <Button x:Name="Sculpture_Grid" 
+                        Click="Sculpture_Select_Click"  BorderThickness="0" Padding="0,0,0,0" Margin="0,0,0,0" Width="303" HorizontalAlignment="Right" HorizontalContentAlignment="Left">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" >
+                                    <Image Stretch="Uniform" Source="Assets/Sculpture.gif" Width="80" Margin="10"/>
+                                    <TextBlock x:Name="Home_TextBox"  Text="Sculpture"  FontSize="30" FontFamily="Garamond" 
                                         HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
-                        </Grid>
-                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+
+
+
                 </StackPanel>
             </Grid>
         </Grid>
