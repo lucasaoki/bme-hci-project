@@ -78,6 +78,9 @@ namespace Eleven.Template
 
             var filterList = new List<Filter>();
             filterList.Add(new Filter("All", 0, true));
+            filterList.Add(new Filter("Artist", 0));
+            filterList.Add(new Filter("Title", 0));
+            filterList.Add(new Filter("Period", 0));
 
             // Communicate results through the view model
             this.DefaultViewModel["QueryText"] = '\u201c' + queryText + '\u201d';

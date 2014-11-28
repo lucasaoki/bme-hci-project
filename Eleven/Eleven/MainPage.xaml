@@ -87,8 +87,8 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="140"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="157*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="1">
@@ -377,7 +377,7 @@
                         <Button.ContentTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Stretch="Uniform" Source="Assets/Artwork.gif" Width="80" Margin="10"/>
+                                    <Image Stretch="Uniform" Source="Assets/Period.gif" Width="80" Margin="10"/>
                                     <TextBlock x:Name="Home_TextBox"  Text="Period"  FontSize="30" FontFamily="Garamond" 
                                         HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
                                 </StackPanel>
@@ -420,21 +420,19 @@
 
 
 
-        <Grid>
+        <Grid x:Name="topBar">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="120"/>
-                <ColumnDefinition Width="950*"/>
-                <ColumnDefinition Width="300*"/>
+                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="453*"/>
+                <ColumnDefinition Width="150*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="backButton" Margin="39,59,0,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
-                        Style="{StaticResource NavigationBackButtonNormalStyle}"
-                        VerticalAlignment="Top"
-                        AutomationProperties.Name="Back"
-                        AutomationProperties.AutomationId="BackButton"
-                        AutomationProperties.ItemType="Navigation Button" Height="41" Width="41"/>
-            <TextBlock x:Name="pageTitle" Text="Eleven" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,50,40" Height="40"/>
-            <SearchBox x:Name="search_box" Grid.Column="2" Margin="40,0" Height="40" PlaceholderText="Search" FontSize="20" BorderBrush="Black" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input" />
+            <Button x:Name="backButton" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+        			Style="{StaticResource NavigationBackButtonNormalStyle}"
+        			AutomationProperties.Name="Back"
+        			AutomationProperties.AutomationId="BackButton"
+        			AutomationProperties.ItemType="Navigation Button" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0,58" />
+            <SearchBox x:Name="search_box" Grid.Column="2" Margin="0,58,40,58" PlaceholderText="Search" FontSize="20" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input"/>
         </Grid>
 
 
