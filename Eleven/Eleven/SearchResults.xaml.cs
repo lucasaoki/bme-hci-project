@@ -79,7 +79,7 @@ namespace Eleven
 
             foreach (DataClassArtist element in sampleData)
             {
-                if(element.ToString().Contains(searchQuery))
+                if(element.ToString().ToUpper().Contains(searchQuery.ToUpper()))
                 {
                     filteredGroups.Add(element);
                 }
