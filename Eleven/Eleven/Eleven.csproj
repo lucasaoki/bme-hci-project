@@ -142,10 +142,12 @@
     <Content Include="Assets\Abaporu.jpg" />
     <Content Include="Assets\Artist.gif" />
     <Content Include="Assets\Artwork.gif" />
+    <Content Include="Assets\Back1.jpg" />
     <Content Include="Assets\Ginevra de Benci.jpg" />
     <Content Include="Assets\Goback.jpg" />
     <Content Include="Assets\Home.gif" />
     <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\MainWall.jpg" />
     <Content Include="Assets\Mona Lisa.jpg" />
     <Content Include="Assets\Painting.jpg" />
     <Content Include="Assets\Period.gif" />

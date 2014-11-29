@@ -19,9 +19,11 @@
             Source="{Binding Groups}"/>
         <Flyout x:Key="ImagePreviewFlyout" Placement="Full">
             <!-- The DataContext of the Image that the flyout is attached to must be the Image's Source. -->
-            <Grid >
+            <FlipView>
                 <Image Source="{Binding Path=Source}" />
-            </Grid>
+                <Image Source="{Binding Path=Source}" />
+                <Image Source="{Binding Path=Source}" />
+            </FlipView>
             <Flyout.FlyoutPresenterStyle>
                 <Style TargetType="FlyoutPresenter">
                     <Setter Property="ScrollViewer.ZoomMode" Value="Enabled"/>
