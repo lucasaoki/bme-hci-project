@@ -72,7 +72,6 @@
 
 
     <Grid >
-
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <LinearGradientBrush.RelativeTransform>
@@ -97,15 +96,15 @@
                 <ColumnDefinition Width="300"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            
             <Grid
             x:Name="itemGridView"
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Grouped Items"
-        
             Grid.Column="1">
-                <Hub HorizontalAlignment="Left" VerticalAlignment="Top">
-
-                    <HubSection Name="SectionRandom" Width="Auto" Height="Auto" >
+                
+                <Hub Padding="40,30,40,0">
+                    <HubSection Name="SectionRandom" Width="Auto" Height="Auto" Header="Art of the Day">
                         <DataTemplate>
                             <GridView
                                 x:Name="itemGridView"
@@ -113,8 +112,8 @@
                                 AutomationProperties.Name="Items In Group"
 			                    ItemsSource="{Binding Source={StaticResource RandomViewSource}}"
                                 ItemTemplate="{StaticResource MainTemplate}"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
                                 Width="Auto"
                                 SelectionMode="None"
                                 IsItemClickEnabled="True"
@@ -123,7 +122,7 @@
                         </DataTemplate>
                     </HubSection>
 
-                    <HubSection Name="SectionFavorite" Width="Auto" Height="Auto" >
+                    <HubSection Name="SectionFavorite" Width="Auto" Height="Auto" Header="Favorites">
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
@@ -135,12 +134,12 @@
                             SelectionMode="None"
                             IsItemClickEnabled="True"
                             ItemClick="ItemView_ItemClick"
-                                Padding="0,20,20,0">
+                            Padding="0,20,20,0">
                             </GridView>
                         </DataTemplate>
                     </HubSection>
 
-                    <HubSection Name="SectionPeriod" Width="Auto" Height="Auto" Visibility="Collapsed">
+                    <HubSection Name="SectionPeriod" Width="Auto" Height="Auto" Visibility="Collapsed" Header="Period">
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
@@ -150,8 +149,9 @@
                             SelectionMode="None"
                             IsItemClickEnabled="True"
                             ItemsSource="{Binding Source={StaticResource PeriodViewSource}}"
+                            ItemTemplate="{StaticResource Template}"
                             ItemClick="ItemView_ItemClick">
-                                <GridView.ItemTemplate>
+                                <!--<GridView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid VerticalAlignment="Top" Width="200" Height="200">
                                             <Border >
@@ -186,12 +186,12 @@
                                             </DataTemplate>
                                         </GroupStyle.HeaderTemplate>
                                     </GroupStyle>
-                                </GridView.GroupStyle>
+                                </GridView.GroupStyle>-->
                             </GridView>
                         </DataTemplate>
                     </HubSection>
 
-                    <HubSection Name="SectionArtist" Width="Auto" Height="Auto" Visibility="Collapsed">
+                    <HubSection Name="SectionArtist" Width="Auto" Height="Auto" Visibility="Collapsed" Header="Artists">
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
@@ -201,8 +201,9 @@
                             SelectionMode="None"
                             IsItemClickEnabled="True"
                             ItemsSource="{Binding Source={StaticResource ArtistViewSource}}"
+                            ItemTemplate="{StaticResource Template}"
                             ItemClick="ItemView_ItemClick">
-                                <GridView.ItemTemplate>
+                                <!--<GridView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid VerticalAlignment="Top" Width="200" Height="200">
                                             <Border >
@@ -236,12 +237,12 @@
                                             </DataTemplate>
                                         </GroupStyle.HeaderTemplate>
                                     </GroupStyle>
-                                </GridView.GroupStyle>
+                                </GridView.GroupStyle>-->
                             </GridView>
                         </DataTemplate>
                     </HubSection>
 
-                    <HubSection Name="SectionPainting" Width="Auto" Height="Auto" Visibility="Collapsed">
+                    <HubSection Name="SectionPainting" Width="Auto" Height="Auto" Visibility="Collapsed" Header="Paintings">
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
@@ -251,8 +252,9 @@
                             SelectionMode="None"
                             IsItemClickEnabled="True"
                             ItemsSource="{Binding Source={StaticResource PaintingViewSource}}"
+                            ItemTemplate="{StaticResource Template}"
                             ItemClick="ItemView_ItemClick">
-                                <GridView.ItemTemplate>
+                                <!--<GridView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid VerticalAlignment="Top" Width="200" Height="200">
                                             <Border >
@@ -286,12 +288,12 @@
                                             </DataTemplate>
                                         </GroupStyle.HeaderTemplate>
                                     </GroupStyle>
-                                </GridView.GroupStyle>
+                                </GridView.GroupStyle>-->
                             </GridView>
                         </DataTemplate>
                     </HubSection>
 
-                    <HubSection Name="SectionSculpture" Width="Auto" Height="Auto" Visibility="Collapsed">
+                    <HubSection Name="SectionSculpture" Width="Auto" Height="Auto" Visibility="Collapsed" Header="Sculptures">
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
@@ -301,8 +303,9 @@
                             SelectionMode="None"
                             IsItemClickEnabled="True"
                             ItemsSource="{Binding Source={StaticResource SculptureViewSource}}"
+                            ItemTemplate="{StaticResource Template}"
                             ItemClick="ItemView_ItemClick">
-                                <GridView.ItemTemplate>
+                                <!--<GridView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid VerticalAlignment="Top" Width="200" Height="200">
                                             <Border >
@@ -336,7 +339,7 @@
                                             </DataTemplate>
                                         </GroupStyle.HeaderTemplate>
                                     </GroupStyle>
-                                </GridView.GroupStyle>
+                                </GridView.GroupStyle>-->
                             </GridView>
                         </DataTemplate>
                     </HubSection>
@@ -344,10 +347,10 @@
             </Grid>
 
             <Grid Grid.Column="0">
-
-                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                <StackPanel Margin="0,30,0,0">
+                    
                     <Button x:Name="Home_Grid"
-                        Click="Home_Select_Click" BorderThickness="0" Padding="0,0,0,0" Margin="0,0,0,0" Width="303" HorizontalAlignment="Right" HorizontalContentAlignment="Left">
+                        Click="Home_Select_Click" BorderThickness="0" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                         <Button.ContentTemplate>
                             <DataTemplate >
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
@@ -359,9 +362,8 @@
                         </Button.ContentTemplate>
                     </Button>
 
-
                     <Button x:Name="Artwork_Grid"
-                        Click="ArtWork_Select_Click" BorderThickness="0" Padding="0,0,0,0" Margin="0,0,0,0" Width="303" HorizontalAlignment="Right" HorizontalContentAlignment="Left">
+                        Click="ArtWork_Select_Click" BorderThickness="0" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                         <Button.ContentTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
@@ -374,7 +376,7 @@
                     </Button>
 
                     <Button x:Name="Period_Grid"
-                        Click="Period_Select_Click" BorderThickness="0" Padding="0,0,0,0" Margin="0,0,0,0" Width="303" HorizontalAlignment="Right" HorizontalContentAlignment="Left">
+                        Click="Period_Select_Click" BorderThickness="0" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                         <Button.ContentTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -387,7 +389,7 @@
                     </Button>
 
                     <Button x:Name="Artist_Grid"
-                        Click="Artist_Select_Click" BorderThickness="0" Padding="0,0,0,0" Margin="0,0,0,0" Width="303" HorizontalAlignment="Right" HorizontalContentAlignment="Left">
+                        Click="Artist_Select_Click" BorderThickness="0" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                         <Button.ContentTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -400,7 +402,7 @@
                     </Button>
 
                     <Button x:Name="Sculpture_Grid" 
-                        Click="Sculpture_Select_Click"  BorderThickness="0" Padding="0,0,0,0" Margin="0,0,0,0" Width="303" HorizontalAlignment="Right" HorizontalContentAlignment="Left">
+                        Click="Sculpture_Select_Click"  BorderThickness="0" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                         <Button.ContentTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" >
@@ -411,9 +413,6 @@
                             </DataTemplate>
                         </Button.ContentTemplate>
                     </Button>
-
-
-
                 </StackPanel>
             </Grid>
         </Grid>
