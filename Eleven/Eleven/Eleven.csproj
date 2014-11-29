@@ -140,6 +140,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Assets\Main3.jpg" />
     <Content Include="Figures\logo.gif" />
     <Content Include="Figures\logo2_11.gif" />
     <Content Include="Figures\logo2_eleven.gif" />
