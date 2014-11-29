@@ -190,7 +190,7 @@
                         </DataTemplate>
                     </HubSection>
 
-                    <HubSection Name="SectionArtist" Width="Auto" Height="Auto" Visibility="Collapsed" Header="Artists">
+                    <HubSection Name="SectionArtist" Width="Auto" Height="Auto" Visibility="Collapsed">
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
@@ -200,13 +200,13 @@
                             SelectionMode="None"
                             IsItemClickEnabled="True"
                             ItemsSource="{Binding Source={StaticResource ArtistViewSource}}"
-                            ItemTemplate="{StaticResource Template}"
+                            
                             ItemClick="ItemView_ItemClick">
-                                <!--<GridView.ItemTemplate>
+                                <GridView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid VerticalAlignment="Top" Width="200" Height="200">
                                             <Border >
-                                                <Image Source="{Binding ImagePath}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
+                                                <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
                                             </Border>
                                             <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
                                                 <TextBlock Text="{Binding Title}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="Auto" Margin="15,0,15,0"/>
@@ -236,12 +236,12 @@
                                             </DataTemplate>
                                         </GroupStyle.HeaderTemplate>
                                     </GroupStyle>
-                                </GridView.GroupStyle>-->
+                                </GridView.GroupStyle>
                             </GridView>
                         </DataTemplate>
                     </HubSection>
 
-                    <HubSection Name="SectionPainting" Width="Auto" Height="Auto" Visibility="Collapsed" Header="Paintings">
+                    <HubSection Name="SectionPainting" Width="Auto" Height="Auto" Visibility="Collapsed" >
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
@@ -251,13 +251,13 @@
                             SelectionMode="None"
                             IsItemClickEnabled="True"
                             ItemsSource="{Binding Source={StaticResource PaintingViewSource}}"
-                            ItemTemplate="{StaticResource Template}"
+                            
                             ItemClick="ItemView_ItemClick">
-                                <!--<GridView.ItemTemplate>
+                                <GridView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid VerticalAlignment="Top" Width="200" Height="200">
                                             <Border >
-                                                <Image Source="{Binding ImagePath}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
+                                                <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
                                             </Border>
                                             <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
                                                 <TextBlock Text="{Binding Title}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="Auto" Margin="15,0,15,0"/>
@@ -287,12 +287,12 @@
                                             </DataTemplate>
                                         </GroupStyle.HeaderTemplate>
                                     </GroupStyle>
-                                </GridView.GroupStyle>-->
+                                </GridView.GroupStyle>
                             </GridView>
                         </DataTemplate>
                     </HubSection>
 
-                    <HubSection Name="SectionSculpture" Width="Auto" Height="Auto" Visibility="Collapsed" Header="Sculptures">
+                    <HubSection Name="SectionSculpture" Width="Auto" Height="Auto" Visibility="Collapsed" >
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
@@ -302,13 +302,13 @@
                             SelectionMode="None"
                             IsItemClickEnabled="True"
                             ItemsSource="{Binding Source={StaticResource SculptureViewSource}}"
-                            ItemTemplate="{StaticResource Template}"
+                            
                             ItemClick="ItemView_ItemClick">
-                                <!--<GridView.ItemTemplate>
+                                <GridView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid VerticalAlignment="Top" Width="200" Height="200">
                                             <Border >
-                                                <Image Source="{Binding ImagePath}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
+                                                <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
                                             </Border>
                                             <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
                                                 <TextBlock Text="{Binding Title}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="Auto" Margin="15,0,15,0"/>
@@ -338,7 +338,7 @@
                                             </DataTemplate>
                                         </GroupStyle.HeaderTemplate>
                                     </GroupStyle>
-                                </GridView.GroupStyle>-->
+                                </GridView.GroupStyle>
                             </GridView>
                         </DataTemplate>
                     </HubSection>
