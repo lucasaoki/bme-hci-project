@@ -141,6 +141,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="Figures\logo.gif" />
+    <Content Include="Figures\logo2_eleven.gif" />
     <None Include="Common\ReadMe.txt" />
     <None Include="Eleven_TemporaryKey.pfx" />
     <Content Include="Assets\Abaporu.jpg" />
