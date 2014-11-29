@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xaml.Interactivity;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace golflink.Helpers
