@@ -10,8 +10,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Mode=Self}}"
+    
     >
-
+    <!-- Height="{Binding ActualHeight, ElementName=pageRoot, Mode=OneWay}"
+    Width="{Binding ActualWidth, ElementName=pageRoot, Mode=OneWay}"-->
     <Page.Resources>
         <!-- Collection of items displayed by this page -->
         <CollectionViewSource
@@ -19,19 +21,23 @@
             Source="{Binding Groups}"/>
         <Flyout x:Key="ImagePreviewFlyout" Placement="Full">
             <!-- The DataContext of the Image that the flyout is attached to must be the Image's Source. -->
-            <Grid >
-                <Image Source="{Binding Path=Source}" />
-            </Grid>
+            <FlipView HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" MaxWidth="{Binding ActualHeight, ElementName=grid, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=pageRoot, Mode=OneWay}">
+                <Image Source="{Binding Path=Source}" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="{Binding ActualWidth, ElementName=pageRoot, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=pageRoot, Mode=OneWay}"/>
+            </FlipView>
             <Flyout.FlyoutPresenterStyle>
                 <Style TargetType="FlyoutPresenter">
                     <Setter Property="ScrollViewer.ZoomMode" Value="Enabled"/>
-                    <Setter Property="Background" Value="Black"/>
+
+                    <Setter Property="Background" Value="#CC000000"/>
                     <Setter Property="BorderBrush" Value="Gray"/>
                     <Setter Property="BorderThickness" Value="5"/>
-                    <Setter Property="MinHeight" Value="0"/>
+                    <Setter Property="Height" Value="{Binding ActualHeight, ElementName=pageRoot, Mode=OneWay}"/>
+                    <Setter Property="Width" Value="{Binding ActualHeight, ElementName=pageRoot, Mode=OneWay}"/>
+                    <Setter Property="MaxWidth" Value="{Binding ActualHeight, ElementName=pageRoot, Mode=OneWay}"/>
+                    <!--<Setter Property="MinHeight" Value="0"/>
                     <Setter Property="MinWidth" Value="0"/>
-                    <Setter Property="MaxHeight" Value="Infinity"/>
-                    <Setter Property="MaxWidth" Value="Infinity"/>
+                    <Setter Property="Width" Value="Auto"/>
+                    <Setter Property="Height" Value="Auto"/>-->
                 </Style>
             </Flyout.FlyoutPresenterStyle>
         </Flyout>
@@ -42,7 +48,7 @@
         * Row 0 contains the back button and page title
         * Row 1 contains the rest of the page layout
     -->
-    <Grid>
+    <Grid x:Name="grid">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <LinearGradientBrush.RelativeTransform>
@@ -70,7 +76,7 @@
                 <ColumnDefinition Width="40*"/>
                 <ColumnDefinition Width="60*"/>
             </Grid.ColumnDefinitions>
-            <Image Source="{Binding ImagePath, Source={StaticResource itemsViewSource}}" Stretch="Uniform" AutomationProperties.Name="{Binding Title, Source={StaticResource itemsViewSource}}" Tapped="img_Tapped" FlyoutBase.AttachedFlyout="{StaticResource ImagePreviewFlyout}" DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}" Margin="50,25,50,50" />
+            <Image x:Name="img" Source="{Binding ImagePath, Source={StaticResource itemsViewSource}}" Stretch="Uniform" AutomationProperties.Name="{Binding Title, Source={StaticResource itemsViewSource}}" Tapped="img_Tapped" FlyoutBase.AttachedFlyout="{StaticResource ImagePreviewFlyout}" DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}" Margin="50,25,50,50" HorizontalAlignment="Left" />
             <!--<GridView
     			x:Name="itemGridView"
     			AutomationProperties.AutomationId="ItemGridView"
@@ -109,7 +115,6 @@
                     </Grid>
                 </DataTemplate>
             </HubSection>
-
         </Grid>
 
         <!-- Back button and page title -->

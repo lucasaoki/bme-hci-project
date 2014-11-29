@@ -105,6 +105,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FullScreenImage.xaml.cs">
+      <DependentUpon>FullScreenImage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Common\BooleanNegationConverter.cs" />
     <Compile Include="Common\BooleanToVisibilityConverter.cs" />
     <Compile Include="Common\WindowDimensionBehavior.cs" />
@@ -137,6 +140,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Figures\logo.gif" />
     <None Include="Common\ReadMe.txt" />
     <None Include="Eleven_TemporaryKey.pfx" />
     <Content Include="Assets\Abaporu.jpg" />
@@ -175,6 +179,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="FullScreenImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ItemViewer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

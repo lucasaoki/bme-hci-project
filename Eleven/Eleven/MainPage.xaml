@@ -27,7 +27,7 @@
         <DataTemplate x:Key="Template" >
             <Grid VerticalAlignment="Top" Width="200" Height="200">
                 <Border >
-                    <Image Source="{Binding ImagePath}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
+                    <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
                 </Border>
                 <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
                     <TextBlock Text="{Binding Title}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="Auto" Margin="15,0,15,0"/>
@@ -352,7 +352,7 @@
                             <DataTemplate >
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                     <Image Stretch="Uniform" Source="Assets/Home.gif" Width="80" Margin="10"/>
-                                    <TextBlock x:Name="Home_TextBox"  Text="Home"  FontSize="30" FontFamily="Garamond" 
+                                    <TextBlock x:Name="Home_TextBox"  Text="Home"  FontSize="30" FontFamily="Segoe Print" 
                                         HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
                                 </StackPanel>
                             </DataTemplate>
@@ -366,7 +366,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                     <Image Stretch="Uniform" Source="Assets/Artwork.gif" Width="80" Margin="10"/>
-                                    <TextBlock x:Name="Home_TextBox"  Text="Painting"  FontSize="30" FontFamily="Garamond" 
+                                    <TextBlock x:Name="Home_TextBox"  Text="Painting"  FontSize="30" FontFamily="Segoe Print" 
                                         HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
                                 </StackPanel>
                             </DataTemplate>
@@ -379,7 +379,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Image Stretch="Uniform" Source="Assets/Period.gif" Width="80" Margin="10"/>
-                                    <TextBlock x:Name="Home_TextBox"  Text="Period"  FontSize="30" FontFamily="Garamond" 
+                                    <TextBlock x:Name="Home_TextBox"  Text="Period"  FontSize="30" FontFamily="Segoe Print" 
                                         HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
                                 </StackPanel>
                             </DataTemplate>
@@ -392,7 +392,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Image Stretch="Uniform" Source="Assets/Artist.gif" Width="80" Margin="10"/>
-                                    <TextBlock x:Name="Home_TextBox"  Text="Artist"  FontSize="30" FontFamily="Garamond" 
+                                    <TextBlock x:Name="Home_TextBox"  Text="Artist"  FontSize="30" FontFamily="Segoe Print" 
                                         HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
                                 </StackPanel>
                             </DataTemplate>
@@ -405,7 +405,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" >
                                     <Image Stretch="Uniform" Source="Assets/Sculpture.gif" Width="80" Margin="10"/>
-                                    <TextBlock x:Name="Home_TextBox"  Text="Sculpture"  FontSize="30" FontFamily="Garamond" 
+                                    <TextBlock x:Name="Home_TextBox"  Text="Sculpture"  FontSize="30" FontFamily="Segoe Print" 
                                         HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Normal"  Margin="0,0"/>
                                 </StackPanel>
                             </DataTemplate>
@@ -427,12 +427,13 @@
                 <ColumnDefinition Width="453*"/>
                 <ColumnDefinition Width="150*"/>
             </Grid.ColumnDefinitions>
+            <Image Source="Figures/logo.gif"/>
             <Button x:Name="backButton" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
         			Style="{StaticResource NavigationBackButtonNormalStyle}"
         			AutomationProperties.Name="Back"
         			AutomationProperties.AutomationId="BackButton"
-        			AutomationProperties.ItemType="Navigation Button" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0,58" />
+        			AutomationProperties.ItemType="Navigation Button" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False"/>
+            <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0,58" FontFamily="Segoe Print" />
             <SearchBox x:Name="search_box" Grid.Column="2" Margin="0,58,40,58" PlaceholderText="Search" FontSize="20" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input"/>
         </Grid>
 
