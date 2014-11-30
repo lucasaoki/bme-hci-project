@@ -146,6 +146,8 @@
     <Content Include="Assets\Main7.jpg" />
     <Content Include="Assets\wall10.jpg" />
     <Content Include="Assets\wall11.png" />
+    <Content Include="Assets\wall13.jpg" />
+    <Content Include="Assets\Wall13.png" />
     <Content Include="Assets\wall9.jpg" />
     <Content Include="Assets\wall8.jpg" />
     <Content Include="Figures\logo.gif" />

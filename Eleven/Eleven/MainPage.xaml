@@ -73,7 +73,8 @@
 
     <Grid >
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="{Binding Mode=OneWay, Source={StaticResource Background}}"/>
+            <!--<ImageBrush Stretch="Fill" ImageSource="{Binding Mode=OneWay, Source={StaticResource Background}}"/>-->
+            <ImageBrush Stretch="Fill" ImageSource="Assets/Wall13.jpg"/>
         </Grid.Background>
 
         <Grid.ChildrenTransitions>
@@ -151,12 +152,28 @@
                             AutomationProperties.AutomationId="ItemGridView"
                             AutomationProperties.Name="Items In Group"
                             ItemsSource="{Binding Source={StaticResource GroupsViewSource}}"
-                            ItemTemplate="{StaticResource Template}"
                             Width="Auto"
                             SelectionMode="None"
                             IsItemClickEnabled="True"
                             ItemClick="ItemView_ItemClick"
-                            Padding="0,20,20,0">
+                            Padding="0,20,20,0"><GridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid VerticalAlignment="Top" Width="200" Height="200">
+                                            <Border >
+                                                <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
+                                            </Border>
+                                            <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
+                                                <TextBlock Text="{Binding Title}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="Auto" Margin="15,0,15,0"/>
+                                                <TextBlock Text="{Binding Artist}" Foreground="{ThemeResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridView.ItemTemplate>
+                                <GridView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <ItemsWrapGrid GroupPadding="0,0,70,0"/>
+                                    </ItemsPanelTemplate>
+                                </GridView.ItemsPanel>
                             </GridView>
                         </DataTemplate>
                     </HubSection>
