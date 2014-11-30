@@ -105,6 +105,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LLayout.xaml.cs">
+      <DependentUpon>LLayout.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FullScreenImage.xaml.cs">
       <DependentUpon>FullScreenImage.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,7 @@
     <Content Include="Figures\logo.gif" />
     <Content Include="Figures\logo2_11.gif" />
     <Content Include="Figures\logo2_eleven.gif" />
+    <Content Include="Figures\museum.jpg" />
     <None Include="Common\ReadMe.txt" />
     <None Include="Eleven_TemporaryKey.pfx" />
     <Content Include="Assets\Abaporu.jpg" />
@@ -181,6 +185,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="LLayout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FullScreenImage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
