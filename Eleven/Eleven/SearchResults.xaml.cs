@@ -115,5 +115,16 @@ namespace Eleven
         {
             this.Frame.Navigate(typeof(SearchResults), args.QueryText);
         }
+
+        private void ItemView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var itemId = ((DataClassArtist)e.ClickedItem).UniqueId;
+            this.Frame.Navigate(typeof(ItemViewer), itemId);
+        }
+
+        private void Home_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
     }
 }

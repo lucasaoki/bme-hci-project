@@ -53,7 +53,9 @@
             Grid.Row="1" 
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
             SelectionMode="None"
-            IsSwipeEnabled="false">
+            IsSwipeEnabled="false" 
+            ItemClick="ItemView_ItemClick" IsItemClickEnabled="True"
+            >
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <Grid Height="110" Width="480" Margin="10">
@@ -80,21 +82,25 @@
         </GridView>
 
         <!-- Back button and page title -->
-        <Grid>
+        <Grid x:Name="topBar">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="60*"/>
-                <ColumnDefinition Width="473*"/>
+                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="453*"/>
                 <ColumnDefinition Width="150*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="backButton" Margin="0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
-                        Style="{StaticResource NavigationBackButtonNormalStyle}"
-                        VerticalAlignment="Center"
-                        AutomationProperties.Name="Back"
-                        AutomationProperties.AutomationId="BackButton"
-                        AutomationProperties.ItemType="Navigation Button" Height="41" Width="41" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0" Height="40"/>
-            <SearchBox x:Name="search_box" Grid.Column="2" Margin="40,0" Height="40" PlaceholderText="Search" FontSize="20" BorderBrush="Black" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input" />
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <Button x:Name="backButton" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+        			Style="{StaticResource NavigationBackButtonNormalStyle}"
+        			AutomationProperties.Name="Back"
+        			AutomationProperties.AutomationId="BackButton"
+        			AutomationProperties.ItemType="Navigation Button" VerticalAlignment="Center"/>
+                <AppBarButton x:Name="homeButton" 
+        			AutomationProperties.Name="Home"
+        			AutomationProperties.AutomationId="HomeButton"
+        			AutomationProperties.ItemType="Navigation Button" Margin="0,6,0,0" Icon="Home" IsCompact="True" Tapped="Home_Tapped"/>
+            </StackPanel>
+            <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0,58" FontFamily="Segoe Print" />
+            <SearchBox x:Name="search_box" Grid.Column="2" Margin="40,58" FontSize="20" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input" PlaceholderText="S e a r c h"/>
         </Grid>
     </Grid>
 </Page>

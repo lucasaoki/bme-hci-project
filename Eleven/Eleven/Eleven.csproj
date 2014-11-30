@@ -150,6 +150,7 @@
     <Content Include="Figures\logo.gif" />
     <Content Include="Figures\logo2_11.gif" />
     <Content Include="Figures\logo2_eleven.gif" />
+    <Content Include="Figures\MainWall.jpg" />
     <None Include="Common\ReadMe.txt" />
     <None Include="Eleven_TemporaryKey.pfx" />
     <Content Include="Assets\Abaporu.jpg" />
