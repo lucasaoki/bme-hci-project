@@ -99,7 +99,21 @@
             Grid.Column="1">
 
                 <Hub Padding="40,30,40,0">
-                    <HubSection Name="SectionRandom" Width="Auto" Height="Auto" Header="Art of the Day">
+                    <HubSection Name="SectionRandom" Width="Auto" Height="Auto" >
+
+                        <HubSection.HeaderTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,0,0,2">
+                                    <Button Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}" IsHitTestVisible="False"
+                                                        AutomationProperties.Name="Group Title"
+                                                        Style="{StaticResource TextBlockButtonStyle}" >
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Art of the day" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontFamily="Segoe Print" />
+                                        </StackPanel>
+                                    </Button>
+                                </Grid>
+                            </DataTemplate>
+                        </HubSection.HeaderTemplate>
                         <DataTemplate>
                             <GridView
                                 x:Name="itemGridView"
@@ -117,7 +131,20 @@
                         </DataTemplate>
                     </HubSection>
 
-                    <HubSection Name="SectionFavorite" Width="Auto" Height="Auto" Header="Favorites">
+                    <HubSection Name="SectionFavorite" Width="Auto" Height="Auto">
+                        <HubSection.HeaderTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,0,0,2">
+                                    <Button Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}" IsHitTestVisible="False"
+                                                        AutomationProperties.Name="Group Title"
+                                                        Style="{StaticResource TextBlockButtonStyle}" >
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Favorites" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontFamily="Segoe Print" />
+                                        </StackPanel>
+                                    </Button>
+                                </Grid>
+                            </DataTemplate>
+                        </HubSection.HeaderTemplate>
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
@@ -169,11 +196,10 @@
                                             <DataTemplate>
                                                 <Grid Margin="0,0,0,2">
                                                     <Button Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}" IsHitTestVisible="False"
-                                                         
                                                         AutomationProperties.Name="Group Title"
-                                                        Style="{StaticResource TextBlockButtonStyle}" >
+                                                        Style="{StaticResource TextBlockButtonStyle}">
                                                         <StackPanel Orientation="Horizontal">
-                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" />
+                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontFamily="Segoe Print" />
                                                         </StackPanel>
                                                     </Button>
                                                 </Grid>
@@ -224,7 +250,7 @@
                                                         AutomationProperties.Name="Group Title"
                                                         Style="{StaticResource TextBlockButtonStyle}" >
                                                         <StackPanel Orientation="Horizontal">
-                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" />
+                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontFamily="Segoe Print" />
                                                         </StackPanel>
                                                     </Button>
                                                 </Grid>
@@ -275,7 +301,7 @@
                                                         AutomationProperties.Name="Group Title"
                                                         Style="{StaticResource TextBlockButtonStyle}" >
                                                         <StackPanel Orientation="Horizontal">
-                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" />
+                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontFamily="Segoe Print" />
                                                         </StackPanel>
                                                     </Button>
                                                 </Grid>
@@ -326,7 +352,7 @@
                                                         AutomationProperties.Name="Group Title"
                                                         Style="{StaticResource TextBlockButtonStyle}" >
                                                         <StackPanel Orientation="Horizontal">
-                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" />
+                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontFamily="Segoe Print" />
                                                         </StackPanel>
                                                     </Button>
                                                 </Grid>
