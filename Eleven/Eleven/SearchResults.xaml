@@ -24,7 +24,7 @@
         * Row 1 contains the rest of the page layout
     -->
     <Grid>
-        <Grid.Background>
+        <!--<Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <LinearGradientBrush.RelativeTransform>
                     <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="90"/>
@@ -32,6 +32,9 @@
                 <GradientStop Color="Black" Offset="1"/>
                 <GradientStop Color="#FF2F3F4F" Offset="0.5"/>
             </LinearGradientBrush>
+        </Grid.Background>-->
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="Figures/Main3.jpg"/>
         </Grid.Background>
         <Grid.ChildrenTransitions>
             <TransitionCollection>
@@ -100,7 +103,7 @@
         			AutomationProperties.ItemType="Navigation Button" Margin="0,6,0,0" Icon="Home" IsCompact="True" Tapped="Home_Tapped"/>
             </StackPanel>
             <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0,58" FontFamily="Segoe Print" />
-            <SearchBox x:Name="search_box" Grid.Column="2" Margin="40,58" FontSize="20" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input" PlaceholderText="S e a r c h"/>
+            <SearchBox x:Name="search_box" Grid.Column="2" Margin="40,58" FontSize="20" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input" PlaceholderText="Search"/>
         </Grid>
     </Grid>
 </Page>
