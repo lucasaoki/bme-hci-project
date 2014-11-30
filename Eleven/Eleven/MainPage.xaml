@@ -73,14 +73,9 @@
 
     <Grid >
         <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <LinearGradientBrush.RelativeTransform>
-                    <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="90"/>
-                </LinearGradientBrush.RelativeTransform>
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF2F3F4F" Offset="0.5"/>
-            </LinearGradientBrush>
+            <ImageBrush Stretch="Fill" ImageSource="{Binding Mode=OneWay, Source={StaticResource Background}}"/>
         </Grid.Background>
+
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
@@ -96,15 +91,29 @@
                 <ColumnDefinition Width="300"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
+
             <Grid
             x:Name="itemGridView"
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Grouped Items"
             Grid.Column="1">
-                
+
                 <Hub Padding="40,30,40,0">
-                    <HubSection Name="SectionRandom" Width="Auto" Height="Auto" Header="Art of the Day">
+                    <HubSection Name="SectionRandom" Width="Auto" Height="Auto" >
+
+                        <HubSection.HeaderTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,0,0,2">
+                                    <Button Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}" IsHitTestVisible="False"
+                                                        AutomationProperties.Name="Group Title"
+                                                        Style="{StaticResource TextBlockButtonStyle}" >
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Art of the day" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontFamily="Segoe Print" />
+                                        </StackPanel>
+                                    </Button>
+                                </Grid>
+                            </DataTemplate>
+                        </HubSection.HeaderTemplate>
                         <DataTemplate>
                             <GridView
                                 x:Name="itemGridView"
@@ -122,7 +131,20 @@
                         </DataTemplate>
                     </HubSection>
 
-                    <HubSection Name="SectionFavorite" Width="Auto" Height="Auto" Header="Favorites">
+                    <HubSection Name="SectionFavorite" Width="Auto" Height="Auto">
+                        <HubSection.HeaderTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,0,0,2">
+                                    <Button Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}" IsHitTestVisible="False"
+                                                        AutomationProperties.Name="Group Title"
+                                                        Style="{StaticResource TextBlockButtonStyle}" >
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Favorites" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontFamily="Segoe Print" />
+                                        </StackPanel>
+                                    </Button>
+                                </Grid>
+                            </DataTemplate>
+                        </HubSection.HeaderTemplate>
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
@@ -174,11 +196,10 @@
                                             <DataTemplate>
                                                 <Grid Margin="0,0,0,2">
                                                     <Button Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}" IsHitTestVisible="False"
-                                                         
                                                         AutomationProperties.Name="Group Title"
-                                                        Style="{StaticResource TextBlockButtonStyle}" >
+                                                        Style="{StaticResource TextBlockButtonStyle}">
                                                         <StackPanel Orientation="Horizontal">
-                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" />
+                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontFamily="Segoe Print" />
                                                         </StackPanel>
                                                     </Button>
                                                 </Grid>
@@ -190,7 +211,7 @@
                         </DataTemplate>
                     </HubSection>
 
-                    <HubSection Name="SectionArtist" Width="Auto" Height="Auto" Visibility="Collapsed" Header="Artists">
+                    <HubSection Name="SectionArtist" Width="Auto" Height="Auto" Visibility="Collapsed">
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
@@ -200,13 +221,13 @@
                             SelectionMode="None"
                             IsItemClickEnabled="True"
                             ItemsSource="{Binding Source={StaticResource ArtistViewSource}}"
-                            ItemTemplate="{StaticResource Template}"
+                            
                             ItemClick="ItemView_ItemClick">
-                                <!--<GridView.ItemTemplate>
+                                <GridView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid VerticalAlignment="Top" Width="200" Height="200">
                                             <Border >
-                                                <Image Source="{Binding ImagePath}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
+                                                <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
                                             </Border>
                                             <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
                                                 <TextBlock Text="{Binding Title}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="Auto" Margin="15,0,15,0"/>
@@ -229,19 +250,19 @@
                                                         AutomationProperties.Name="Group Title"
                                                         Style="{StaticResource TextBlockButtonStyle}" >
                                                         <StackPanel Orientation="Horizontal">
-                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" />
+                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontFamily="Segoe Print" />
                                                         </StackPanel>
                                                     </Button>
                                                 </Grid>
                                             </DataTemplate>
                                         </GroupStyle.HeaderTemplate>
                                     </GroupStyle>
-                                </GridView.GroupStyle>-->
+                                </GridView.GroupStyle>
                             </GridView>
                         </DataTemplate>
                     </HubSection>
 
-                    <HubSection Name="SectionPainting" Width="Auto" Height="Auto" Visibility="Collapsed" Header="Paintings">
+                    <HubSection Name="SectionPainting" Width="Auto" Height="Auto" Visibility="Collapsed" >
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
@@ -251,13 +272,13 @@
                             SelectionMode="None"
                             IsItemClickEnabled="True"
                             ItemsSource="{Binding Source={StaticResource PaintingViewSource}}"
-                            ItemTemplate="{StaticResource Template}"
+                            
                             ItemClick="ItemView_ItemClick">
-                                <!--<GridView.ItemTemplate>
+                                <GridView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid VerticalAlignment="Top" Width="200" Height="200">
                                             <Border >
-                                                <Image Source="{Binding ImagePath}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
+                                                <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
                                             </Border>
                                             <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
                                                 <TextBlock Text="{Binding Title}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="Auto" Margin="15,0,15,0"/>
@@ -280,19 +301,19 @@
                                                         AutomationProperties.Name="Group Title"
                                                         Style="{StaticResource TextBlockButtonStyle}" >
                                                         <StackPanel Orientation="Horizontal">
-                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" />
+                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontFamily="Segoe Print" />
                                                         </StackPanel>
                                                     </Button>
                                                 </Grid>
                                             </DataTemplate>
                                         </GroupStyle.HeaderTemplate>
                                     </GroupStyle>
-                                </GridView.GroupStyle>-->
+                                </GridView.GroupStyle>
                             </GridView>
                         </DataTemplate>
                     </HubSection>
 
-                    <HubSection Name="SectionSculpture" Width="Auto" Height="Auto" Visibility="Collapsed" Header="Sculptures">
+                    <HubSection Name="SectionSculpture" Width="Auto" Height="Auto" Visibility="Collapsed" >
                         <DataTemplate>
                             <GridView
                             x:Name="itemGridView"
@@ -302,13 +323,13 @@
                             SelectionMode="None"
                             IsItemClickEnabled="True"
                             ItemsSource="{Binding Source={StaticResource SculptureViewSource}}"
-                            ItemTemplate="{StaticResource Template}"
+                            
                             ItemClick="ItemView_ItemClick">
-                                <!--<GridView.ItemTemplate>
+                                <GridView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid VerticalAlignment="Top" Width="200" Height="200">
                                             <Border >
-                                                <Image Source="{Binding ImagePath}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
+                                                <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
                                             </Border>
                                             <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
                                                 <TextBlock Text="{Binding Title}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="Auto" Margin="15,0,15,0"/>
@@ -331,14 +352,14 @@
                                                         AutomationProperties.Name="Group Title"
                                                         Style="{StaticResource TextBlockButtonStyle}" >
                                                         <StackPanel Orientation="Horizontal">
-                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" />
+                                                            <TextBlock Text="{Binding Type}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" FontFamily="Segoe Print" />
                                                         </StackPanel>
                                                     </Button>
                                                 </Grid>
                                             </DataTemplate>
                                         </GroupStyle.HeaderTemplate>
                                     </GroupStyle>
-                                </GridView.GroupStyle>-->
+                                </GridView.GroupStyle>
                             </GridView>
                         </DataTemplate>
                     </HubSection>
@@ -347,7 +368,7 @@
 
             <Grid Grid.Column="0">
                 <StackPanel Margin="0,30,0,0">
-                    
+
                     <Button x:Name="Home_Grid"
                         Click="Home_Select_Click" BorderThickness="0" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                         <Button.ContentTemplate>
@@ -432,7 +453,7 @@
         			AutomationProperties.AutomationId="BackButton"
         			AutomationProperties.ItemType="Navigation Button" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False"/>
             <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0,58" FontFamily="Segoe Print" Visibility="Collapsed" />
-            <SearchBox x:Name="search_box" Grid.Column="2" Margin="0,58,40,58" PlaceholderText="Search" FontSize="20" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input"/>
+            <SearchBox x:Name="search_box" Grid.Column="2" Margin="40,58" PlaceholderText="Search" FontSize="20" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input"/>
         </Grid>
 
 

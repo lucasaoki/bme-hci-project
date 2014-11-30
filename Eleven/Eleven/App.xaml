@@ -10,20 +10,20 @@
         <!-- Application-specific resources -->
 
         <x:String x:Key="AppName">Eleven</x:String>
+        <x:String x:Key="Background">Assets/wall9.jpg</x:String>
 
         <!-- SearchBox background when the mouse is out of the control -->
         <SolidColorBrush x:Key="SearchBoxBackgroundThemeBrush" Color="Transparent" />
 
         <!-- SearchBox background when the mouse is over the control -->
-        <SolidColorBrush x:Key="SearchBoxPointerOverBackgroundThemeBrush"
-                         Color="Transparent" />
+        <SolidColorBrush x:Key="SearchBoxPointerOverBackgroundThemeBrush" Color="Transparent" />
 
         <!-- SearchBox background when the control is focused. 
              It is also the background of the Search button when it is pressed -->
-        <SolidColorBrush x:Key="SearchBoxFocusedBackgroundThemeBrush" Color="Transparent" />
+        <SolidColorBrush x:Key="SearchBoxFocusedBackgroundThemeBrush" Color="White" />
 
         <!-- SearchBox border when the mouse is out of the control -->
-        <SolidColorBrush x:Key="SearchBoxBorderThemeBrush" Color="Black" />
+        <SolidColorBrush x:Key="SearchBoxBorderThemeBrush" Color="#FFACACAC" />
 
         <!-- SearchBox border when the mouse is over the control -->
         <SolidColorBrush x:Key="SearchBoxPointerOverBorderThemeBrush" Color="White" />
@@ -39,8 +39,7 @@
 
         <!-- Search button background when the mouse is over the button
              (when the control is focused or not) -->
-        <SolidColorBrush x:Key="SearchBoxButtonPointerOverBackgroundThemeBrush"
-                         Color="#FF0063F1" />
+        <SolidColorBrush x:Key="SearchBoxButtonPointerOverBackgroundThemeBrush" Color="#FF0063F1" />
 
         <!-- Search button color when the mouse is out of the control -->
         <SolidColorBrush x:Key="SearchBoxForegroundThemeBrush" Color="Black" />
@@ -54,24 +53,21 @@
 
         <!-- Search button color when the mouse is over the button and the control 
              is focused -->
-        <SolidColorBrush x:Key="SearchBoxButtonPointerOverForegroundThemeBrush"
-                         Color="White" />
+        <SolidColorBrush x:Key="SearchBoxButtonPointerOverForegroundThemeBrush" Color="White" />
 
         <!-- Search button color when it is pressed -->
         <SolidColorBrush x:Key="SearchBoxFocusedTextThemeBrush" Color="White" />
 
         <!-- Search suggestions color seprator -->
-        <SolidColorBrush x:Key="SearchBoxSeparatorSuggestionForegroundThemeBrush"
-                         Color="Red" />
+        <SolidColorBrush x:Key="SearchBoxSeparatorSuggestionForegroundThemeBrush" Color="Red" />
 
         <!-- Color of highlighted characters in the result suggestions -->
-        <SolidColorBrush x:Key="SearchBoxHitHighlightForegroundThemeBrush"
-                         Color="Red" />
+        <SolidColorBrush x:Key="SearchBoxHitHighlightForegroundThemeBrush" Color="Red" />
 
         <!-- Color of highlighted characters in the result suggestions when the mouse is 
              over the element -->
-        <SolidColorBrush x:Key="SearchBoxHitHighlightSelectedForegroundThemeBrush"
-                         Color="YellowGreen" />
-        
+        <SolidColorBrush x:Key="SearchBoxHitHighlightSelectedForegroundThemeBrush" Color="YellowGreen" />
+
+        <SolidColorBrush x:Key="TextBoxPlaceholderTextThemeBrush" Color="#FFACACAC" />
     </Application.Resources>
 </Application>

@@ -34,6 +34,19 @@
             <RowDefinition Height="157*"/>
         </Grid.RowDefinitions>
 
+        <Grid Grid.RowSpan="2" >
+
+            <ScrollViewer x:Name="scrollViewer" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+
+                <Image x:Name="image" Source="{Binding ImagePath, Source={StaticResource itemsViewSource}}" ScrollViewer.ZoomMode="Enabled" MaxHeight="{Binding ActualHeight, ElementName=pageRoot, Mode=OneWay}" MaxWidth="{Binding ActualWidth, ElementName=pageRoot, Mode=OneWay}" Stretch="Uniform"/>
+            </ScrollViewer>
+            <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
+                <TextBlock Text="{Binding Title, Source={StaticResource itemsViewSource}}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="Auto" Margin="15,0,15,0" FontFamily="Global User Interface" FontSize="25"/>
+                <TextBlock Text="{Binding Artist, Source={StaticResource itemsViewSource}}" Foreground="{ThemeResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap" Margin="15,0,15,10" FontSize="20"/>
+            </StackPanel>
+
+        </Grid>
+
         <!-- Back button and page title -->
         <Grid>
             <Grid.ColumnDefinitions>
@@ -41,17 +54,13 @@
                 <ColumnDefinition Width="473*"/>
                 <ColumnDefinition Width="150*"/>
             </Grid.ColumnDefinitions>
+
             <Button x:Name="backButton" Margin="0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
                         Style="{StaticResource NavigationBackButtonNormalStyle}"
                         VerticalAlignment="Center"
                         AutomationProperties.Name="Back"
                         AutomationProperties.AutomationId="BackButton"
                         AutomationProperties.ItemType="Navigation Button" Height="41" Width="41" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0" Height="40" Tapped="goHome" FontFamily="Segoe Print"/>
         </Grid>
-        
-        <FlipView Grid.ColumnSpan="3" Grid.RowSpan="2" ScrollViewer.ZoomMode="Enabled">
-            <Image Source="{Binding ImagePath, Source={StaticResource itemsViewSource}}"/>
-        </FlipView>
     </Grid>
 </Page>

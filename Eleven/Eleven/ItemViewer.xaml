@@ -10,7 +10,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Mode=Self}}"
-    
     >
     <!-- Height="{Binding ActualHeight, ElementName=pageRoot, Mode=OneWay}"
     Width="{Binding ActualWidth, ElementName=pageRoot, Mode=OneWay}"-->
@@ -19,25 +18,25 @@
         <CollectionViewSource
             x:Name="itemsViewSource"
             Source="{Binding Groups}"/>
+
         <Flyout x:Key="ImagePreviewFlyout" Placement="Full">
             <!-- The DataContext of the Image that the flyout is attached to must be the Image's Source. -->
-            <FlipView HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" MaxWidth="{Binding ActualHeight, ElementName=grid, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=pageRoot, Mode=OneWay}">
-                <Image Source="{Binding Path=Source}" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="{Binding ActualWidth, ElementName=pageRoot, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=pageRoot, Mode=OneWay}"/>
-            </FlipView>
+            <Flyout.Content>
+                <Image Source="{Binding Path=Source}" Width="950" MaxHeight="{ThemeResource FlyoutThemeMaxHeight}"/>
+
+            </Flyout.Content>
             <Flyout.FlyoutPresenterStyle>
                 <Style TargetType="FlyoutPresenter">
                     <Setter Property="ScrollViewer.ZoomMode" Value="Enabled"/>
-
                     <Setter Property="Background" Value="#CC000000"/>
                     <Setter Property="BorderBrush" Value="Gray"/>
                     <Setter Property="BorderThickness" Value="5"/>
-                    <Setter Property="Height" Value="{Binding ActualHeight, ElementName=pageRoot, Mode=OneWay}"/>
-                    <Setter Property="Width" Value="{Binding ActualHeight, ElementName=pageRoot, Mode=OneWay}"/>
-                    <Setter Property="MaxWidth" Value="{Binding ActualHeight, ElementName=pageRoot, Mode=OneWay}"/>
-                    <!--<Setter Property="MinHeight" Value="0"/>
-                    <Setter Property="MinWidth" Value="0"/>
-                    <Setter Property="Width" Value="Auto"/>
-                    <Setter Property="Height" Value="Auto"/>-->
+                    <Setter Property="Height" Value="{ThemeResource FlyoutThemeMaxHeight}"/>
+                    <Setter Property="Width" Value="{ThemeResource FlyoutThemeMaxHeight}"/>
+                    <Setter Property="MaxWidth" Value="1024"/>
+                    <Setter Property="MaxHeight" Value="{ThemeResource FlyoutThemeMaxHeight}"/>
+                    <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                 </Style>
             </Flyout.FlyoutPresenterStyle>
         </Flyout>
@@ -49,7 +48,7 @@
         * Row 1 contains the rest of the page layout
     -->
     <Grid x:Name="grid">
-        <Grid.Background>
+        <!--<Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <LinearGradientBrush.RelativeTransform>
                     <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="90"/>
@@ -57,6 +56,9 @@
                 <GradientStop Color="Black" Offset="1"/>
                 <GradientStop Color="#FF2F3F4F" Offset="0.5"/>
             </LinearGradientBrush>
+        </Grid.Background>-->
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="{Binding Mode=OneWay, Source={StaticResource Background}}"/>
         </Grid.Background>
         <Grid.ChildrenTransitions>
             <TransitionCollection>
@@ -76,22 +78,26 @@
                 <ColumnDefinition Width="40*"/>
                 <ColumnDefinition Width="60*"/>
             </Grid.ColumnDefinitions>
-            <Image x:Name="img" Source="{Binding ImagePath, Source={StaticResource itemsViewSource}}" Stretch="Uniform" AutomationProperties.Name="{Binding Title, Source={StaticResource itemsViewSource}}" Tapped="img_Tapped" FlyoutBase.AttachedFlyout="{StaticResource ImagePreviewFlyout}" DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}" Margin="50,25,50,50" HorizontalAlignment="Left" />
-            <!--<GridView
-    			x:Name="itemGridView"
-    			AutomationProperties.AutomationId="ItemGridView"
-    			AutomationProperties.Name="Items In Group"
-    			TabIndex="1"
-    			Padding="50" 
-    			ItemsSource="{Binding Source={StaticResource itemsViewSource}}" Margin="0" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" SelectionMode="None">
-                <GridView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                        </StackPanel>
-                    </DataTemplate>
-                </GridView.ItemTemplate>
-            </GridView>-->
-            <HubSection Grid.Column="1" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80*"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50,25,50,0">
+                <Image x:Name="img" Source="{Binding ImagePath, Source={StaticResource itemsViewSource}}" Stretch="Uniform" Tapped="img_Tapped" FlyoutBase.AttachedFlyout="{StaticResource ImagePreviewFlyout}" DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}" />
+                
+                <Grid Background="#7F000000" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                    <SymbolIcon Symbol="ZoomIn" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                </Grid>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Margin="50,0,50,0">
+                <AppBarButton Icon="Like" IsCompact="True"/>
+                <AppBarButton Icon="Dislike" IsCompact="True"/>
+                <AppBarButton Icon="Favorite" IsCompact="True" BorderThickness="0" Margin="100,0,0,0"/>
+            </StackPanel>
+            
+            <HubSection Grid.Column="1" HorizontalAlignment="Stretch" Grid.RowSpan="2">
                 <DataTemplate>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -135,8 +141,8 @@
         			AutomationProperties.AutomationId="HomeButton"
         			AutomationProperties.ItemType="Navigation Button" Margin="0,6,0,0" Icon="Home" IsCompact="True" Tapped="Home_Tapped"/>
             </StackPanel>
-            <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0,58" />
-            <SearchBox x:Name="search_box" Grid.Column="2" Margin="0,58,40,58" FontSize="20" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input"/>
+            <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0,58" FontFamily="Segoe Print" />
+            <SearchBox x:Name="search_box" Grid.Column="2" Margin="40,58" FontSize="20" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input" PlaceholderText="Search" />
         </Grid>
     </Grid>
 

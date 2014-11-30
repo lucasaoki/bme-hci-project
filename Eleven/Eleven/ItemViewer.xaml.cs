@@ -29,7 +29,6 @@ namespace Eleven
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private string itemID;
-        private double flyoutH, flyoutW;
 
         /// <summary>
         /// This can be changed to a strongly typed view model.
@@ -77,9 +76,6 @@ namespace Eleven
             ObservableCollection<DataClassArtist> obCollec = new ObservableCollection<DataClassArtist>();
             obCollec.Add(sampleData);
             this.DefaultViewModel["Groups"] = obCollec;
-
-            flyoutH = pageRoot.ActualHeight;
-            flyoutW = pageRoot.ActualWidth;
         }
 
         private void searchBox_Input(SearchBox sender, SearchBoxQuerySubmittedEventArgs args)
@@ -112,8 +108,8 @@ namespace Eleven
 
         private void img_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            //this.Frame.Navigate(typeof(FullScreenImage), this.itemID);
-            FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
+            this.Frame.Navigate(typeof(FullScreenImage), this.itemID);
+            //FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
         }
 
         private void Home_Tapped(object sender, TappedRoutedEventArgs e)

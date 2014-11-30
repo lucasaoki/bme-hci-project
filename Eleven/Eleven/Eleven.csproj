@@ -105,9 +105,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LLayout.xaml.cs">
-      <DependentUpon>LLayout.xaml</DependentUpon>
-    </Compile>
     <Compile Include="FullScreenImage.xaml.cs">
       <DependentUpon>FullScreenImage.xaml</DependentUpon>
     </Compile>
@@ -143,19 +140,29 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Assets\Main4.jpg" />
+    <Content Include="Assets\Main5.jpg" />
+    <Content Include="Assets\Main6.jpg" />
+    <Content Include="Assets\Main7.jpg" />
+    <Content Include="Assets\wall10.jpg" />
+    <Content Include="Assets\wall11.png" />
+    <Content Include="Assets\wall9.jpg" />
+    <Content Include="Assets\wall8.jpg" />
     <Content Include="Figures\logo.gif" />
     <Content Include="Figures\logo2_11.gif" />
     <Content Include="Figures\logo2_eleven.gif" />
-    <Content Include="Figures\museum.jpg" />
+    <Content Include="Figures\MainWall.jpg" />
     <None Include="Common\ReadMe.txt" />
     <None Include="Eleven_TemporaryKey.pfx" />
     <Content Include="Assets\Abaporu.jpg" />
     <Content Include="Assets\Artist.gif" />
     <Content Include="Assets\Artwork.gif" />
+    <Content Include="Assets\Back1.jpg" />
     <Content Include="Assets\Ginevra de Benci.jpg" />
     <Content Include="Assets\Goback.jpg" />
     <Content Include="Assets\Home.gif" />
     <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\MainWall.jpg" />
     <Content Include="Assets\Mona Lisa.jpg" />
     <Content Include="Assets\Painting.jpg" />
     <Content Include="Assets\Period.gif" />
@@ -185,10 +192,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="LLayout.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="FullScreenImage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
