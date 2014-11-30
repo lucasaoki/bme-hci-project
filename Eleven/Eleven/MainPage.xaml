@@ -74,6 +74,7 @@
     <Grid >
         <Grid.Background>
             <!--<ImageBrush Stretch="Fill" ImageSource="{Binding Mode=OneWay, Source={StaticResource Background}}"/>-->
+            
             <ImageBrush Stretch="Fill" ImageSource="Assets/Wall13.jpg"/>
         </Grid.Background>
 
