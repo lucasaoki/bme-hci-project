@@ -58,7 +58,7 @@
             </LinearGradientBrush>
         </Grid.Background>-->
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="Assets/wall9.jpg"/>
+            <ImageBrush Stretch="Fill" ImageSource="{Binding Mode=OneWay, Source={StaticResource Background}}"/>
         </Grid.Background>
         <Grid.ChildrenTransitions>
             <TransitionCollection>

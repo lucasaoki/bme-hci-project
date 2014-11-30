@@ -10,6 +10,7 @@
         <!-- Application-specific resources -->
 
         <x:String x:Key="AppName">Eleven</x:String>
+        <x:String x:Key="Background">Assets/wall9.jpg</x:String>
 
         <!-- SearchBox background when the mouse is out of the control -->
         <SolidColorBrush x:Key="SearchBoxBackgroundThemeBrush" Color="Transparent" />
