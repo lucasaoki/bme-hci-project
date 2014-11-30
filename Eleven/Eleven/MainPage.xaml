@@ -73,14 +73,9 @@
 
     <Grid >
         <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <LinearGradientBrush.RelativeTransform>
-                    <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="90"/>
-                </LinearGradientBrush.RelativeTransform>
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF2F3F4F" Offset="0.5"/>
-            </LinearGradientBrush>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/wall9.jpg"/>
         </Grid.Background>
+
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
