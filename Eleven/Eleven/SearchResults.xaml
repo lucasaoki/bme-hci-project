@@ -34,7 +34,7 @@
             </LinearGradientBrush>
         </Grid.Background>-->
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="Figures/Main3.jpg"/>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/wall9.jpg"/>
         </Grid.Background>
         <Grid.ChildrenTransitions>
             <TransitionCollection>

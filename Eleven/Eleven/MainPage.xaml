@@ -427,7 +427,7 @@
         			AutomationProperties.AutomationId="BackButton"
         			AutomationProperties.ItemType="Navigation Button" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False"/>
             <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="0,58" FontFamily="Segoe Print" Visibility="Collapsed" />
-            <SearchBox x:Name="search_box" Grid.Column="2" Margin="40,58" PlaceholderText="S e a r c h" FontSize="20" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input"/>
+            <SearchBox x:Name="search_box" Grid.Column="2" Margin="40,58" PlaceholderText="Search" FontSize="20" BorderThickness="0,0,0,1" FlowDirection="RightToLeft" FocusOnKeyboardInput="True" IsTabStop="True" VerticalAlignment="Center" QuerySubmitted="searchBox_Input"/>
         </Grid>
 
 
