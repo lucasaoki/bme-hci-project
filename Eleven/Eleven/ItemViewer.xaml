@@ -87,7 +87,9 @@
                 <Image x:Name="img" Source="{Binding ImagePath, Source={StaticResource itemsViewSource}}" Stretch="Uniform" Tapped="img_Tapped" FlyoutBase.AttachedFlyout="{StaticResource ImagePreviewFlyout}" DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}" />
                 
                 <Grid Background="#7F000000" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-                    <SymbolIcon Symbol="ZoomIn" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                    <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#99000000" Click="img_Tapped" BorderThickness="0" IsHitTestVisible="False">
+                        <SymbolIcon Symbol="ZoomIn" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                    </Button>
                 </Grid>
             </Grid>
 

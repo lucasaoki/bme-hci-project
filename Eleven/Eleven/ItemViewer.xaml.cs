@@ -116,5 +116,10 @@ namespace Eleven
         {
             this.Frame.Navigate(typeof(MainPage));
         }
+
+        private void img_Tapped(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(FullScreenImage), this.itemID);
+        }
     }
 }
