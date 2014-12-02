@@ -16,7 +16,7 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Eleven.App">
       <m2:VisualElements DisplayName="Eleven" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="Eleven" ForegroundText="light" BackgroundColor="#464646">
-        <m2:SplashScreen Image="Assets\SplashScreen.png" />
+        <m2:SplashScreen Image="Figures\SplashScreen.png" BackgroundColor="black" />
       </m2:VisualElements>
     </Application>
   </Applications>

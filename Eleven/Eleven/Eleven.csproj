@@ -152,8 +152,8 @@
     <Content Include="Assets\wall8.jpg" />
     <Content Include="Figures\logo.gif" />
     <Content Include="Figures\logo2_11.gif" />
-    <Content Include="Figures\logo2_eleven.gif" />
     <Content Include="Figures\MainWall.jpg" />
+    <Content Include="Figures\SplashScreen.png" />
     <None Include="Common\ReadMe.txt" />
     <None Include="Eleven_TemporaryKey.pfx" />
     <Content Include="Assets\Abaporu.jpg" />
@@ -163,7 +163,7 @@
     <Content Include="Assets\Ginevra de Benci.jpg" />
     <Content Include="Assets\Goback.jpg" />
     <Content Include="Assets\Home.gif" />
-    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\aLogo.png" />
     <Content Include="Assets\MainWall.jpg" />
     <Content Include="Assets\Mona Lisa.jpg" />
     <Content Include="Assets\Painting.jpg" />
@@ -179,7 +179,7 @@
     <Content Include="DataModel\Database.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Logo.scale-100.png" />
+    <Content Include="Assets\bkp_Logo.scale-100.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogoscale-100.png" />
